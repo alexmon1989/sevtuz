@@ -17,7 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
+from django.shortcuts import render
+
+
+def base_t(request):
+    return render(request, 'base.html')
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', base_t),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
