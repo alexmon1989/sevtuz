@@ -1,0 +1,99 @@
+{% load staticfiles %}
+
+<header id="js-header" class="u-header u-header--static u-header--show-hide u-header--change-appearance g-brd-yellow-bottom u-brd-style-solid--bottom"
+        data-header-fix-moment="500" data-header-fix-effect="slide">
+    <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10"
+         data-header-fix-moment-exclude="g-bg-white g-py-10"
+         data-header-fix-moment-classes="g-bg-white-opacity-0_7 u-shadow-v18 g-py-0">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Responsive Toggle Button -->
+                <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-3 g-right-0"
+                        type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar"
+                        data-toggle="collapse" data-target="#navBar">
+                    <span class="hamburger hamburger--slider">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
+
+                <!-- Logo -->
+                <a href="/" class="navbar-brand">
+                    <img src="{% static "assets/img/logo/logo.jpg" %}" alt="Севтюз">
+                </a>
+                <!-- End Logo -->
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm"
+                     id="navBar">
+                    <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="#" class="nav-link px-0">Афиша</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="#" class="nav-link px-0">Новости</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg active">
+                            <a href="#" class="nav-link px-0">Театр
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="#" class="nav-link px-0">Труппа</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="#" class="nav-link px-0">Люди театра</a>
+                        </li>
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="#" class="nav-link px-0">Контакты</a>
+                        </li>
+                        <li class="nav-item g-ml-15--lg g-mr-0--lg g-bg-red-opacity-0_8">
+                            <a href="#" class="nav-link g-px-5 g-color-white">Купить билет</a>
+                        </li>
+                    </ul>
+
+                    <ul class="list-inline g-mb-0--lg g-pt-0--lg g-pt-15 text-center text-md-right">
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Facebook">
+                            <a href="#" class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Vkontakte">
+                            <a href="#" class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                <i class="fa fa-vk"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Instagram">
+                            <a href="#" class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Одноклассники">
+                            <a href="#" class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                <i class="fa fa-odnoklassniki"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Twitter">
+                            <a href="#" class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Youtube">
+                            <a href="#" class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Navigation -->
+            </div>
+        </nav>
+    </div>
+</header>
