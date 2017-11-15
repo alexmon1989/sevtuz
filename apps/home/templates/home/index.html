@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Promo Block -->
+    {% include "home/_partial/promo.html" %}
+    <!-- End Promo Block -->
+
+    <!-- Promo Block -->
+    {% include "home/_partial/last_shows.html" %}
+    <!-- End Promo Block -->
+
+    <!-- Parallax Block -->
+    {% include "home/_partial/parallax.html" %}
+    <!-- End Parallax Block -->
+
+    <!-- Last News Block -->
+    {% include "home/_partial/last_news.html" %}
+    <!-- End Last News Block -->
+
+{% endblock %}
