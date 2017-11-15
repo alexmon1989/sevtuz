@@ -1,6 +1,7 @@
 {% load staticfiles %}
 
-<header id="js-header" class="u-header u-header--static u-header--show-hide u-header--change-appearance g-brd-yellow-bottom u-brd-style-solid--bottom"
+<header id="js-header"
+        class="u-header u-header--static u-header--show-hide u-header--change-appearance g-brd-yellow-bottom u-brd-style-solid--bottom"
         data-header-fix-moment="500" data-header-fix-effect="slide">
     <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10"
          data-header-fix-moment-exclude="g-bg-white g-py-10"
@@ -32,23 +33,32 @@
                         <li class="nav-item g-mx-15--lg">
                             <a href="#" class="nav-link px-0">Афиша</a>
                         </li>
-                        <li class="nav-item g-mx-15--lg">
-                            <a href="#" class="nav-link px-0">Новости</a>
-                        </li>
-                        <li class="nav-item g-mx-15--lg active">
-                            <a href="#" class="nav-link px-0">Театр
-                                <span class="sr-only">(current)</span>
+
+                        <li class="nav-item g-mx-15--lg {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}active{% endif %}">
+                            <a href="{% url 'news_list' %}" class="nav-link px-0">Новости
+                                {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}
+                                    <span class="sr-only">(current)</span>
+                                {% endif %}
                             </a>
                         </li>
+
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="#" class="nav-link px-0">Театр
+                            </a>
+                        </li>
+
                         <li class="nav-item g-mx-15--lg">
                             <a href="#" class="nav-link px-0">Труппа</a>
                         </li>
+
                         <li class="nav-item g-mx-15--lg">
                             <a href="#" class="nav-link px-0">Люди театра</a>
                         </li>
+
                         <li class="nav-item g-mx-15--lg">
                             <a href="#" class="nav-link px-0">Контакты</a>
                         </li>
+
                         <li class="nav-item g-ml-15--lg g-mr-0--lg g-bg-red-opacity-0_8">
                             <a href="#" class="nav-link g-px-5 g-color-white">Купить билет</a>
                         </li>

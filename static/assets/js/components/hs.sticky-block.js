@@ -307,7 +307,7 @@
             })
             .addClass('g-pos-fix g-m-reset')
             .css({
-              'top': 0,
+              'top': 70,
               'left': offsetLeft,
               'width': targetW,
               'height': targetH

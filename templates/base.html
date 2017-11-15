@@ -4,7 +4,7 @@
 
 <head>
     <!-- Title -->
-    <title>Главная | Севтюз</title>
+    <title>{% block title %}{{ request.get_host }}{% endblock %}</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -46,6 +46,8 @@
     <!-- Header -->
     {% include "_partial/header.html" %}
     <!-- End Header -->
+
+    {% block breadcrumbs %}{% endblock %}
 
     {% block content %}
         <div class="container">
@@ -93,6 +95,7 @@
 <script src="{% static "assets/js/components/hs.dropdown.js" %}"></script>
 <script src="{% static "assets/js/components/hs.popup.js" %}"></script>
 <script src="{% static "assets/js/components/hs.carousel.js" %}"></script>
+<script src="{% static "assets/js/components/hs.sticky-block.js" %}"></script>
 <script src="{% static "assets/js/components/hs.go-to.js" %}"></script>
 <script src="{% static "assets/js/helpers/hs.height-calc.js" %}"></script>
 
@@ -119,6 +122,9 @@
 
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialization of sticky blocks
+        $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
     });
 
     $(window).on('load', function () {
