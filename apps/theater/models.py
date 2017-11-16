@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Season(models.Model):
@@ -31,3 +32,58 @@ class Season(models.Model):
     class Meta:
         verbose_name = 'Сезон'
         verbose_name_plural = 'Сезоны'
+
+
+class Play(models.Model):
+    """Модель спектакля (представления)."""
+    def upload_to(instance, filename):
+        return 'plays/main-images/{}'.format(filename)
+
+    title = models.CharField('Название', max_length=255)
+    age = models.PositiveIntegerField('Возраст зрителей, от')
+    genre = models.CharField('Жанр', max_length=255, null=True, blank=True)
+    duration = models.PositiveIntegerField('Продолжительность, минут', null=True, blank=True)
+    author = models.CharField('Автор', max_length=255, null=True, blank=True)
+    staging = models.CharField('Инсценировка', max_length=255, null=True, blank=True)
+    director = models.CharField('Режиссёр', max_length=255, null=True, blank=True)
+    head_of_production = models.CharField('Руководитель постановки', max_length=255, null=True, blank=True)
+    production_designer = models.CharField('Художник-постановщик', max_length=255, null=True, blank=True)
+    lighting_designer = models.CharField('Художник по свету', max_length=255, null=True, blank=True)
+    choreographer = models.CharField('Хореограф', max_length=255, null=True, blank=True)
+    text = RichTextUploadingField('Текст', null=True, blank=True)
+    image = models.ImageField(
+        'Основное изображение',
+        upload_to=upload_to,
+        null=True,
+        blank=True,
+        help_text='Оптимальный размер: 740px*380px.'
+    )
+    free_enter = models.BooleanField('Свободный вход', default=False)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Спектакль'
+        verbose_name_plural = 'Спектакли'
+
+
+class PlayPhoto(models.Model):
+    """Модель фотографии."""
+    def upload_to(instance, filename):
+        return 'plays/{}/{}'.format(instance.play.pk, filename)
+
+    image = models.ImageField('Изображение', upload_to=upload_to)
+    play = models.ForeignKey(Play, on_delete=models.CASCADE, verbose_name='Спектакль')
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return 'Изображение #{}'.format(self.pk)
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
