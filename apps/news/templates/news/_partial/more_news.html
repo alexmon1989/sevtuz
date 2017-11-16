@@ -10,26 +10,27 @@
         <div class="col-lg-4">
             <!-- Article -->
             <article class="g-bg-secondary">
-                {% if news.image %}
-                    <a href="{% url 'news_detail' pk=news.pk %}"><img class="img-fluid w-100"
-                                                                      src="{{ news.image|thumbnail_url:'news_sm' }}"
-                                                                      alt="{{ news.title }}"></a>
-                {% endif %}
+                <figure class="g-pos-rel">
+                    <img class="img-fluid w-100" src="{{ news.image|thumbnail_url:'news_sm' }}"
+                         alt="{{ news.title }}">
 
-                <div class="g-px-25 g-pt-25">
-                    <h3 class="h4 g-font-weight-300 g-mb-15">
-                        <a class="u-link-v5 g-color-gray-dark-v2 g-color-primary--hover"
+                    <figcaption class="g-pos-abs g-bottom-20 g-left-20">
+                        <a class="btn btn-sm g-bg-white g-brd-3 g-brd-yellow g-brd-style-solid u-btn-outline-yellow rounded-0"
+                           href="{% url 'news_detail' pk=news.pk %}">{{ news.created_at }}</a>
+                    </figcaption>
+                </figure>
+
+                <div class="g-pa-30">
+                    <h3 class="h4 g-font-weight-600 g-mb-15">
+                        <a class="u-link-v5 g-color-main g-color-primary--hover"
                            href="{% url 'news_detail' pk=news.pk %}">{{ news.title }}</a>
                     </h3>
-                    <p>{{ news.text|striptags|truncatewords:20 }}</p>
-                </div>
+                    <p>{{ news.text|striptags|truncatewords:25 }}</p>
 
-                <ul class="u-list-inline g-font-size-12 g-brd-top g-brd-gray-light-v4 g-pa-15-20">
-                    <li class="list-inline-item">
-                        <i class="icon-calendar align-middle g-color-gray-dark-v4 mr-2"></i>
-                        {{ news.created_at|date }}
-                    </li>
-                </ul>
+                    <strong>
+                        <a class="text-uppercase g-font-size-12" href="{% url 'news_detail' pk=news.pk %}">Детальнее</a>
+                    </strong>
+                </div>
             </article>
             <!-- End Article -->
         </div>
