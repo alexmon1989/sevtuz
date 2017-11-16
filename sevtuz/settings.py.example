@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'easy_thumbnails',
+    'debug_toolbar',
     'apps.home',
     'apps.news',
     'apps.theater'
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'sevtuz.urls'
@@ -197,3 +199,5 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+INTERNAL_IPS = ['127.0.0.1']
