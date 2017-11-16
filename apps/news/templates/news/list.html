@@ -2,43 +2,49 @@
 
 {% load staticfiles %}
 {% load thumbnail %}
+{% load project_tags %}
+{% load news_extras %}
 
-{% block title %}Новости {% if request.GET.page %}/ Страница {{ request.GET.page }} {% endif %}/
-    {{ block.super }}{% endblock %}
+{% block title %}Новости{% if month_title %} за {{ month_title }} {{ request.GET.year }} г. {% endif %}{% if request.GET.page %} / Страница {{ request.GET.page }} {% endif %} / {{ block.super }}{% endblock %}
 
 {% block breadcrumbs %}
     {% include 'news/_partial/breadcrumbs_list.html' %}
 {% endblock %}
 
 {% block content %}
+    {{ months.request.GET.month.1 }}
     <div class="container g-pt-100 g-pb-20">
         <div class="row justify-content-between">
             <div class="col-lg-9 order-lg-2 g-mb-80">
                 <div class="g-pl-20--lg">
-                    {% for news_item in news_list %}
-                        <!-- Blog Minimal Blocks -->
-                        <article class="g-mb-60">
-                            <div class="g-mb-30">
-                                <span class="d-block g-color-gray-dark-v4 g-font-weight-700 g-font-size-12 text-uppercase mb-2">{{ news_item.created_at|date }}</span>
+                    {% if news_list|length > 0 %}
+                        {% for news_item in news_list %}
+                            <!-- Blog Minimal Blocks -->
+                            <article class="g-mb-60">
+                                <div class="g-mb-30">
+                                    <span class="d-block g-color-gray-dark-v4 g-font-weight-700 g-font-size-12 text-uppercase mb-2">{{ news_item.created_at|date }}</span>
 
-                                {% if news_item.image %}
-                                    <img class="img-fluid w-100 g-mb-25"
-                                         src="{{ news_item.image|thumbnail_url:'news_lg' }}"
-                                         alt="{{ news_item.title }}">
-                                {% endif %}
-                                <h2 class="h4 g-color-black g-font-weight-600 mb-3">
-                                    <a class="u-link-v5 g-color-black g-color-primary--hover"
-                                       href="{% url 'news_detail' pk=news_item.pk %}">{{ news_item.title }}</a>
-                                </h2>
-                                <p class="g-line-height-1_8">{{ news_item.text|striptags|truncatewords:40 }}</p>
-                                <a class="g-font-size-13" href="{% url 'news_detail' pk=news_item.pk %}">Читать
-                                    далее...</a>
-                            </div>
+                                    {% if news_item.image %}
+                                        <img class="img-fluid w-100 g-mb-25"
+                                             src="{{ news_item.image|thumbnail_url:'news_lg' }}"
+                                             alt="{{ news_item.title }}">
+                                    {% endif %}
+                                    <h2 class="h4 g-color-black g-font-weight-600 mb-3">
+                                        <a class="u-link-v5 g-color-black g-color-primary--hover"
+                                           href="{% url 'news_detail' pk=news_item.pk %}">{{ news_item.title }}</a>
+                                    </h2>
+                                    <p class="g-line-height-1_8">{{ news_item.text|striptags|truncatewords:40 }}</p>
+                                    <a class="g-font-size-13" href="{% url 'news_detail' pk=news_item.pk %}">Читать
+                                        далее...</a>
+                                </div>
 
-                            <hr>
-                        </article>
-                        <!-- End Blog Minimal Blocks -->
-                    {% endfor %}
+                                <hr>
+                            </article>
+                            <!-- End Blog Minimal Blocks -->
+                        {% endfor %}
+                    {% else %}
+                        Новости отсутствуют
+                    {% endif %}
 
                     {% if is_paginated %}
                         <!-- Pagination -->
@@ -55,29 +61,37 @@
 
                         <div class="g-mb-50 u-brd-style-solid--left g-brd-yellow-left">
                             <ul class="list-unstyled mb-0 g-pl-10">
+                                {% now 'Y' as year_now %}
                                 {% for season in seasons %}
-                                    <li>
-                                        <span class="g-font-size-20 g-font-weight-600">{{ season.title }}</span>
+                                    {% if season.year_from <= year_now|to_int %}
+                                        <li>
+                                            <span class="g-font-size-20 g-font-weight-600">{{ season.title }}</span><br>
+                                            <span class="g-font-size-20 g-font-weight-600 g-line-height-0">{{ season.year_from }} - {{ season.year_to }}</span>
 
-                                        <ul class="list-unstyled  mb-0">
-                                            <li><a class="g-color-gray-dark-v1" href="#">Январь</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Февраль</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Март</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Апрель</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Май</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Июнь</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Июль</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Август</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Сентябрь</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Октябрь</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Ноябрь</a></li>
-                                            <li><a class="g-color-gray-dark-v1" href="#">Декабрь</a></li>
-                                        </ul>
+                                            <ul class="list-unstyled g-pt-5 mb-0 g-font-size-14">
+                                                {% for month in months %}
+                                                    {% if month.0 >= season.month_from %}
+                                                        <li>
+                                                            <a class="{% if request.GET.year == season.year_from|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}g-color-primary{% else %}g-color-gray-dark-v1{% endif %}"
+                                                               href="{% url 'news_list' %}?year={{ season.year_from }}&month={{ month.0 }}">{{ month.1 }} ({% news_count season.year_from month.0 %})</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% for month in months %}
+                                                    {% if month.0 <= season.month_to %}
+                                                        <li>
+                                                            <a class="{% if request.GET.year == season.year_to|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}g-color-primary{% else %}g-color-gray-dark-v1{% endif %}"
+                                                               href="{% url 'news_list' %}?year={{ season.year_to }}&month={{ month.0 }}">{{ month.1 }} ({% news_count season.year_from month.0 %})</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
 
-                                        {% if not forloop.last %}
-                                            <hr class="g-brd-gray-light-v4 g-my-10">
-                                        {% endif %}
-                                    </li>
+                                            {% if not forloop.last %}
+                                                <hr class="g-brd-gray-light-v4 g-my-10">
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>

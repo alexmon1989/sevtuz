@@ -10,11 +10,28 @@ class NewsListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return News.objects.filter(is_visible=True).order_by('-created_at')
+        qs = News.objects.filter(is_visible=True).order_by('-created_at')
+
+        if self.request.GET.get('year') and self.request.GET.get('month'):
+            """Если определены параметры года и месяца, то применяется фильтр по ним."""
+            try:
+                qs = qs.filter(
+                    created_at__year=int(self.request.GET.get('year')),
+                    created_at__month=int(self.request.GET.get('month'))
+                )
+            except ValueError:
+                pass
+        return qs
 
     def get_context_data(self, **kwargs):
         context = super(NewsListView, self).get_context_data(**kwargs)
         context['seasons'] = Season.objects.order_by('-created_at')[:3]
+        context['months'] = Season.MONTHS_CHOICES
+        if self.request.GET.get('year') and self.request.GET.get('month'):
+            try:
+                context['month_title'] = Season.MONTHS_CHOICES[int(self.request.GET.get('month')) - 1][1]
+            except ValueError:
+                pass
         return context
 
 
