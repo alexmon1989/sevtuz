@@ -137,7 +137,7 @@ MEDIA_URL = '/media/'
 THUMBNAIL_ALIASES = {
     '': {
         'news_lg': {'size': (740, 380), 'crop': False},
-        'news_sm': {'size': (255, 130), 'crop': True},
+        'news_sm': {'size': (500, 450), 'crop': True},
     },
 }
 
