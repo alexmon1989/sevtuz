@@ -34,6 +34,13 @@ class Season(models.Model):
         verbose_name_plural = 'Сезоны'
 
 
+class Genre(models.Model):
+    """Модель жанра."""
+    title = models.CharField('Название', max_length=255)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+
 class Play(models.Model):
     """Модель спектакля (представления)."""
     def upload_to(instance, filename):
@@ -41,7 +48,7 @@ class Play(models.Model):
 
     title = models.CharField('Название', max_length=255)
     age = models.PositiveIntegerField('Возраст зрителей, от')
-    genre = models.CharField('Жанр', max_length=255, null=True, blank=True)
+    genre = models.ForeignKey(Genre, verbose_name='Жанр', on_delete=models.SET_NULL, null=True, blank=True)
     duration = models.PositiveIntegerField('Продолжительность, минут', null=True, blank=True)
     author = models.CharField('Автор', max_length=255, null=True, blank=True)
     staging = models.CharField('Инсценировка', max_length=255, null=True, blank=True)
@@ -58,7 +65,6 @@ class Play(models.Model):
         blank=True,
         help_text='Оптимальный размер: 740px*380px.'
     )
-    free_enter = models.BooleanField('Свободный вход', default=False)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
