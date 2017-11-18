@@ -108,3 +108,4 @@ venv.bak/
 /.idea/
 /static/assets/css/
 /sevtuz/settings.py
+/node_modules/
