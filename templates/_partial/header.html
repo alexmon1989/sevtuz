@@ -30,8 +30,12 @@
                 <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm"
                      id="navBar">
                     <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                        <li class="nav-item g-mx-15--lg">
-                            <a href="#" class="nav-link px-0">Афиша</a>
+                        <li class="nav-item g-mx-15--lg  {% if request.resolver_match.url_name == 'events_list' %}active{% endif %}">
+                            <a href="{% url 'events_list' %}" class="nav-link px-0">Афиша
+                                {% if request.resolver_match.url_name == 'events_list' %}
+                                    <span class="sr-only">(current)</span>
+                                {% endif %}
+                            </a>
                         </li>
 
                         <li class="nav-item g-mx-15--lg {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}active{% endif %}">

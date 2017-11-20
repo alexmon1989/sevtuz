@@ -19,12 +19,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from apps.home.views import home
 from apps.news import urls as news_urls
+from apps.playbill import urls as playbill_urls
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
     url(r'^news/', include(news_urls)),
+    url(r'^playbill/', include(playbill_urls)),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
