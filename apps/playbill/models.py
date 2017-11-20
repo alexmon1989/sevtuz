@@ -8,6 +8,13 @@ class Scene(models.Model):
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Сцена'
+        verbose_name_plural = 'Сцены'
+
 
 class Event(models.Model):
     """Модель события (представления)."""
@@ -21,3 +28,10 @@ class Event(models.Model):
     is_visible = models.BooleanField('Включено', default=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.play.title
+
+    class Meta:
+        verbose_name = 'Событие'
+        verbose_name_plural = 'События'

@@ -40,6 +40,9 @@ class Genre(models.Model):
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
+    def __str__(self):
+        return self.title
+
 
 class Play(models.Model):
     """Модель спектакля (представления)."""
@@ -49,7 +52,7 @@ class Play(models.Model):
     title = models.CharField('Название', max_length=255)
     age = models.PositiveIntegerField('Возраст зрителей, от')
     genre = models.ForeignKey(Genre, verbose_name='Жанр', on_delete=models.SET_NULL, null=True, blank=True)
-    duration = models.PositiveIntegerField('Продолжительность, минут', null=True, blank=True)
+    duration = models.DurationField('Продолжительность', null=True, blank=True, help_text='Используйте формат ЧЧ:ММ:СС')
     author = models.CharField('Автор', max_length=255, null=True, blank=True)
     staging = models.CharField('Инсценировка', max_length=255, null=True, blank=True)
     director = models.CharField('Режиссёр', max_length=255, null=True, blank=True)
