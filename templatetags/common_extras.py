@@ -34,3 +34,10 @@ def duration(td):
     minutes = (total_seconds % 3600) // 60
 
     return '{} час. {} мин.'.format(hours, minutes)
+
+
+@register.filter
+def month_title(month_num):
+    months = ('Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь',
+              'Декабрь',)
+    return months[month_num-1]
