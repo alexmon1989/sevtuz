@@ -1,0 +1,53 @@
+{% load project_tags %}
+
+<div class="row g-mt-20">
+    <div class="col-8 col-sm-9 col-md-10">
+        <span class="text-uppercase g-font-size-20 g-font-weight-600">{{ play.title }}</span><br>
+        <span class="text-muted">{{ play.duration|duration }}</span>
+
+        <dl class="row g-mt-30">
+            {% if play.author %}
+                <dt class="col-sm-7 text-uppercase">Автор</dt>
+                <dd class="col-sm-5">{{ play.author }}</dd>
+            {% endif %}
+
+            {% if play.staging %}
+                <dt class="col-sm-7 text-uppercase">Инсценировка</dt>
+                <dd class="col-sm-5">{{ play.staging }}</dd>
+            {% endif %}
+
+            {% if play.director %}
+                <dt class="col-sm-7 text-uppercase">Режиссёр</dt>
+                <dd class="col-sm-5">{{ play.director }}</dd>
+            {% endif %}
+
+            {% if play.head_of_production %}
+                <dt class="col-sm-7 text-uppercase">Руководитель постановки</dt>
+                <dd class="col-sm-5">{{ play.head_of_production }}</dd>
+            {% endif %}
+
+            {% if play.production_designer %}
+                <dt class="col-sm-7 text-uppercase">Художник-постановщик</dt>
+                <dd class="col-sm-5">{{ play.production_designer }}</dd>
+            {% endif %}
+
+            {% if play.lighting_designer %}
+                <dt class="col-sm-7 text-uppercase">Художник по свету</dt>
+                <dd class="col-sm-5">{{ play.lighting_designer }}</dd>
+            {% endif %}
+
+            {% if play.author %}
+                <dt class="col-sm-7 text-uppercase">Музыкальное оформление</dt>
+                <dd class="col-sm-5">{{ play.author }}</dd>
+            {% endif %}
+
+            {% if play.choreographer %}
+                <dt class="col-sm-7 text-uppercase">Хореограф</dt>
+                <dd class="col-sm-5">{{ play.choreographer }}</dd>
+            {% endif %}
+        </dl>
+    </div>
+    <div class="col-4 col-sm-3 col-md-2 text-right">
+        <span class="u-icon-v2 u-icon-size--md g-pt-8 g-brd-3 g-brd-yellow g-brd-style-solid g-font-size-20 g-font-weight-600 g-bg-white g-color-black g-rounded-50x">10+</span>
+    </div>
+</div>

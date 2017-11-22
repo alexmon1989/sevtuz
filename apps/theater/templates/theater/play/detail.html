@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
 
-{% load staticfiles %}
-{% load thumbnail %}
-{% load project_tags %}
-
 {% block title %}{{ play.title }} / {{ block.super }}{% endblock %}
 
 {% block breadcrumbs %}
@@ -15,99 +11,16 @@
         <div class="row g-my-50">
 
             <div class="col-lg-6">
-                {% if play.image %}
-                    <a class="js-fancybox d-block u-block-hover g-pos-rel" data-fancybox-gallery="lightbox-gallery--04"
-                       href="{{ play.image|thumbnail_url:'play_lg' }}" title="{{ play.title }}">
-                        <img class="img-fluid u-block-hover__main--zoom-v1"
-                             src="{{ play.image|thumbnail_url:'play_lg' }}"
-                             alt="{{ play.title }}">
-                        <span class="u-icon-v3 u-icon-size--xs g-bg-white g-color-black g-rounded-50x g-cursor-pointer g-pos-abs g-bottom-10 g-right-10"><i
-                                class="hs-icon hs-icon-magnifier"></i></span>
-                    </a>
-                {% else %}
-                    <img src="http://via.placeholder.com/600x375?text=No+image" alt="" class="img-fluid">
-                {% endif %}
+                {% include 'theater/play/_partial/image.html' %}
             </div>
 
             <div class="col-lg-6">
-                <div class="row g-mt-20">
-                    <div class="col-8 col-sm-9 col-md-10">
-                        <span class="text-uppercase g-font-size-20 g-font-weight-600">{{ play.title }}</span><br>
-                        <span class="text-muted">{{ play.duration|duration }}</span>
-
-                        <dl class="row g-mt-30">
-                            {% if play.author %}
-                                <dt class="col-sm-7 text-uppercase">Автор</dt>
-                                <dd class="col-sm-5">{{ play.author }}</dd>
-                            {% endif %}
-
-                            {% if play.staging %}
-                                <dt class="col-sm-7 text-uppercase">Инсценировка</dt>
-                                <dd class="col-sm-5">{{ play.staging }}</dd>
-                            {% endif %}
-
-                            {% if play.director %}
-                                <dt class="col-sm-7 text-uppercase">Режиссёр</dt>
-                                <dd class="col-sm-5">{{ play.director }}</dd>
-                            {% endif %}
-
-                            {% if play.head_of_production %}
-                                <dt class="col-sm-7 text-uppercase">Руководитель постановки</dt>
-                                <dd class="col-sm-5">{{ play.head_of_production }}</dd>
-                            {% endif %}
-
-                            {% if play.production_designer %}
-                                <dt class="col-sm-7 text-uppercase">Художник-постановщик</dt>
-                                <dd class="col-sm-5">{{ play.production_designer }}</dd>
-                            {% endif %}
-
-                            {% if play.lighting_designer %}
-                                <dt class="col-sm-7 text-uppercase">Художник по свету</dt>
-                                <dd class="col-sm-5">{{ play.lighting_designer }}</dd>
-                            {% endif %}
-
-                            {% if play.author %}
-                                <dt class="col-sm-7 text-uppercase">Музыкальное оформление</dt>
-                                <dd class="col-sm-5">{{ play.author }}</dd>
-                            {% endif %}
-
-                            {% if play.choreographer %}
-                                <dt class="col-sm-7 text-uppercase">Хореограф</dt>
-                                <dd class="col-sm-5">{{ play.choreographer }}</dd>
-                            {% endif %}
-                        </dl>
-                    </div>
-                    <div class="col-4 col-sm-3 col-md-2 text-right">
-                        <span class="u-icon-v2 u-icon-size--md g-pt-8 g-brd-3 g-brd-yellow g-brd-style-solid g-font-size-20 g-font-weight-600 g-bg-white g-color-black g-rounded-50x">10+</span>
-                    </div>
-                </div>
+                {% include 'theater/play/_partial/properties.html' %}
             </div>
 
             {% if play.get_events|length > 0 %}
                 <div class="col-lg-12 g-pt-30">
-                    <h2 class="h3">Даты проведения спектакля</h2>
-
-                    <!-- Basic Table -->
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tbody>
-                            {% for event in play.get_events %}
-                                <tr>
-                                    <td class="g-brd-none g-font-weight-600">{{ event.datetime }}</td>
-                                    <td class="g-brd-none">{{ event.scene }}</td>
-                                    <td class="g-brd-none text-right">
-                                        {% if event.free_enter %}
-                                            <span class="text-success">Свободный вход</span>
-                                        {% else %}
-                                            <a class="btn btn-sm u-btn-primary" href="#">Купить билет</a>
-                                        {% endif %}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- End Basic Table -->
+                    {% include 'theater/play/_partial/events.html' %}
                 </div>
             {% endif %}
 
@@ -119,34 +32,7 @@
             {% if play.get_photos|length > 0 or play.get_videos|length > 0 %}
                 <div class="col-lg-12 g-pt-50">
                     <div class="row">
-                        {% for video in play.get_videos %}
-                            <div class="col-6 col-md-3 g-mb-30">
-                                <a class="js-fancybox d-block u-block-hover g-pos-rel u-bg-overlay g-bg-black-opacity-0_3--after"
-                                   data-fancybox-gallery="lightbox-gallery--04"
-                                   href="http://www.youtube.com/embed/{{ video.youtube_id }}?autoplay=1">
-                                    <img class="img-fluid u-block-hover__main--zoom-v1"
-                                         src="//img.youtube.com/vi/{{ video.youtube_id }}/mqdefault.jpg"
-                                         width="600"
-                                         height="375"
-                                         alt="{{ play.title }}">
-                                    <span class="u-icon-v3 u-icon-size--xs g-bg-white g-color-black g-rounded-50x g-cursor-pointer g-pos-abs g-bottom-10 g-right-10"><i
-                                            class="hs-icon hs-icon-play"></i></span>
-                                </a>
-                            </div>
-                        {% endfor %}
-                        {% for image in play.get_photos %}
-                            <div class="col-6 col-md-3 g-mb-30">
-                                <a class="js-fancybox d-block u-block-hover g-pos-rel"
-                                   data-fancybox-gallery="lightbox-gallery--04"
-                                   href="{{ play.image|thumbnail_url:'play_lg' }}">
-                                    <img class="img-fluid u-block-hover__main--zoom-v1"
-                                         src="{{ play.image|thumbnail_url:'play_sm' }}"
-                                         alt="{{ play.title }}">
-                                    <span class="u-icon-v3 u-icon-size--xs g-bg-white g-color-black g-rounded-50x g-cursor-pointer g-pos-abs g-bottom-10 g-right-10"><i
-                                            class="hs-icon hs-icon-magnifier"></i></span>
-                                </a>
-                            </div>
-                        {% endfor %}
+                        {% include 'theater/play/_partial/images_videos.html' %}
                     </div>
                 </div>
             {% endif %}
