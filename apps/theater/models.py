@@ -43,6 +43,10 @@ class Genre(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Жанр'
+        verbose_name_plural = 'Жанры'
+
 
 class Play(models.Model):
     """Модель спектакля (представления)."""
