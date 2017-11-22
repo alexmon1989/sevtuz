@@ -1,11 +1,15 @@
 {% load staticfiles %}
 
-<section id="promo" class="g-bg-black">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <a href="#" title="О маленьких для больших"><img src="{% static "assets/img/promo/1.jpg" %}" alt="" class="img-fluid"></a>
+{% if main_event %}
+    <section id="promo" class="g-bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="{% url "play_detail" slug=main_event.event.play.slug %}"
+                       title="{{ main_event.event.play }}"><img src="{{ main_event.image.main_event.url }}" alt=""
+                                                                class="img-fluid"></a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+{% endif %}

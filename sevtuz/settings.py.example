@@ -147,6 +147,7 @@ THUMBNAIL_ALIASES = {
         'play_md': {'size': (600, 375), 'crop': False},
         'play_sm': {'size': (320, 180), 'crop': True},
         'play_main_page': {'size': (200, 200), 'crop': True},
+        'main_event': {'size': (1140, 590), 'crop': False},
     },
 }
 

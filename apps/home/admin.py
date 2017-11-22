@@ -1,3 +1,5 @@
 from django.contrib import admin
+from singlemodeladmin import SingleModelAdmin
+from apps.home.models import MainEvent
 
-# Register your models here.
+admin.site.register(MainEvent, SingleModelAdmin)
