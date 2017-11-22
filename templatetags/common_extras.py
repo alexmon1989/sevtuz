@@ -1,5 +1,6 @@
 from django import template
 from django.conf import settings
+from apps.settings.models import FooterSettings
 
 register = template.Library()
 
@@ -41,3 +42,8 @@ def month_title(month_num):
     months = ('Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь',
               'Декабрь',)
     return months[month_num-1]
+
+
+@register.inclusion_tag('_partial/footer_1.html')
+def footer_1():
+    return {'footer_data': FooterSettings.objects.first()}

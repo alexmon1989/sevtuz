@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'easy_thumbnails',
     'debug_toolbar',
+    'singlemodeladmin',
     'apps.home',
     'apps.news',
     'apps.theater',
-    'apps.playbill'
+    'apps.playbill',
+    'apps.settings'
 ]
 
 MIDDLEWARE = [
