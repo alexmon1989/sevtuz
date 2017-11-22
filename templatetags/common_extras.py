@@ -1,6 +1,8 @@
 from django import template
 from django.conf import settings
+from django.utils import timezone
 from apps.settings.models import FooterSettings, SocialLinksModel
+from apps.playbill.models import Event
 
 register = template.Library()
 
@@ -46,7 +48,10 @@ def month_title(month_num):
 
 @register.inclusion_tag('_partial/footer_1.html')
 def footer_1():
-    return {'footer_data': FooterSettings.objects.first()}
+    return {
+        'footer_data': FooterSettings.objects.first(),
+        'last_events': Event.objects.filter(is_visible=True, datetime__gte=timezone.now()).order_by('datetime')[:3]
+    }
 
 
 @register.simple_tag
