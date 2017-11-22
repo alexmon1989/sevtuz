@@ -1,9 +1,11 @@
+{% load project_tags %}
+
 <footer class="g-bg-gray-dark-v1 g-color-white-opacity-0_8 g-py-20">
     <div class="container">
         <div class="row">
             <div class="col-md-4 text-center text-md-left g-mb-10 g-mb-0--md">
                 <div class="d-lg-flex">
-                    <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2017 © Все права защищены
+                    <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">{% now 'Y' %} &copy; Все права защищены
                     </small>
                 </div>
             </div>
@@ -11,48 +13,76 @@
                 <div class="d-lg-flex">
                     <ul class="u-list-inline">
                         <li class="list-inline-item">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Оценка качества услуг учреждений культуры</a>
+                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Оценка качества услуг
+                                учреждений культуры</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="col-md-4 align-self-center">
+                {% social_links as social_links %}
                 <ul class="list-inline text-center text-md-right mb-0">
-                    <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
-                        title="Facebook">
-                        <a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Vkontakte">
-                        <a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">
-                            <i class="fa fa-vk"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
-                        title="Instagram">
-                        <a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
-                        title="Одноклассники">
-                        <a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">
-                            <i class="fa fa-odnoklassniki"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Twitter">
-                        <a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
-                        title="Youtube">
-                        <a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">
-                            <i class="fa fa-youtube"></i>
-                        </a>
-                    </li>
+                    {% if social_links.fb %}
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Facebook">
+                            <a href="{{ social_links.fb }}" target="_blank"
+                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_links.vk %}
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Vkontakte">
+                            <a href="{{ social_links.vk }}" target="_blank"
+                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                                <i class="fa fa-vk"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_links.instagram %}
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Instagram">
+                            <a href="{{ social_links.instagram }}"
+                               target="_blank"
+                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_links.ok %}
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Одноклассники">
+                            <a href="{{ social_links.ok }}"
+                               target="_blank"
+                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                                <i class="fa fa-odnoklassniki"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_links.twitter %}
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Twitter">
+                            <a href="{{ social_links.twitter }}" target="_blank"
+                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_links.youtube %}
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Youtube">
+                            <a href="{{ social_links.youtube }}" target="_blank"
+                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
