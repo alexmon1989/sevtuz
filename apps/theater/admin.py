@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import admin
-from apps.theater.models import Season, Play, PlayPhoto, Genre
+from apps.theater.models import Season, Play, PlayPhoto, PlayVideo, Genre
 
 
 class SeasonForm(forms.ModelForm):
@@ -40,13 +40,19 @@ class PlayPhotoInline(admin.TabularInline):
     extra = 3
 
 
+class PlayVideoInline(admin.TabularInline):
+    model = PlayVideo
+    extra = 3
+
+
 @admin.register(Play)
 class PlayAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования спектакля."""
     list_display = ('title', 'created_at', 'updated_at')
     ordering = ('-created_at',)
     search_fields = ('title',)
-    inlines = (PlayPhotoInline,)
+    inlines = (PlayPhotoInline, PlayVideoInline)
+    prepopulated_fields = {"slug": ("title",)}
 
 
 @admin.register(Genre)

@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils import timezone
 
 
 class Season(models.Model):
@@ -50,10 +51,17 @@ class Genre(models.Model):
 
 class Play(models.Model):
     """Модель спектакля (представления)."""
+
     def upload_to(instance, filename):
         return 'plays/main-images/{}'.format(filename)
 
     title = models.CharField('Название', max_length=255)
+    slug = models.SlugField(
+        'Slug (для url)',
+        max_length=255,
+        default='',
+        unique=True
+    )
     age = models.PositiveIntegerField('Возраст зрителей, от')
     genre = models.ForeignKey(Genre, verbose_name='Жанр', on_delete=models.SET_NULL, null=True, blank=True)
     duration = models.DurationField('Продолжительность', null=True, blank=True, help_text='Используйте формат ЧЧ:ММ:СС')
@@ -63,6 +71,7 @@ class Play(models.Model):
     head_of_production = models.CharField('Руководитель постановки', max_length=255, null=True, blank=True)
     production_designer = models.CharField('Художник-постановщик', max_length=255, null=True, blank=True)
     lighting_designer = models.CharField('Художник по свету', max_length=255, null=True, blank=True)
+    music = models.CharField('Музыкальное оформление', max_length=255, null=True, blank=True)
     choreographer = models.CharField('Хореограф', max_length=255, null=True, blank=True)
     text = RichTextUploadingField('Текст', null=True, blank=True)
     image = models.ImageField(
@@ -70,10 +79,22 @@ class Play(models.Model):
         upload_to=upload_to,
         null=True,
         blank=True,
-        help_text='Оптимальный размер: 740px*380px.'
+        help_text='Оптимальный размер: 800px*500px.'
     )
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def get_events(self):
+        """Возвращает 5 ближайших дат проведения спектакля."""
+        return self.event_set.filter(is_visible=True, datetime__gte=timezone.now()).order_by('-datetime').all()[:5]
+
+    def get_photos(self):
+        """Возвращает список фотографий спектакля."""
+        return self.playphoto_set.filter(is_visible=True).order_by('created_at').all()
+
+    def get_videos(self):
+        """Возвращает список видео спектакля."""
+        return self.playvideo_set.filter(is_visible=True).order_by('created_at').all()
 
     def __str__(self):
         return self.title
@@ -85,10 +106,15 @@ class Play(models.Model):
 
 class PlayPhoto(models.Model):
     """Модель фотографии."""
+
     def upload_to(instance, filename):
         return 'plays/{}/{}'.format(instance.play.pk, filename)
 
-    image = models.ImageField('Изображение', upload_to=upload_to)
+    image = models.ImageField(
+        'Изображение',
+        upload_to=upload_to,
+        help_text='Оптимальный размер: 800px*500px.'
+    )
     play = models.ForeignKey(Play, on_delete=models.CASCADE, verbose_name='Спектакль')
     is_visible = models.BooleanField('Включено', default=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
@@ -100,3 +126,23 @@ class PlayPhoto(models.Model):
     class Meta:
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
+
+
+class PlayVideo(models.Model):
+    """Модель видео спектакля."""
+    youtube_id = models.CharField(
+        'Идентификатор на Youtube',
+        help_text='Например, для видео https://www.youtube.com/watch?v=JMJXvsCLu6, его идентификатором будет JMJXvsCLu6.',
+        max_length=32
+    )
+    play = models.ForeignKey(Play, on_delete=models.CASCADE, verbose_name='Спектакль')
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return 'Видео #{}'.format(self.pk)
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'

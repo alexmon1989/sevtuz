@@ -25,7 +25,7 @@
                 </td>
 
                 <td class="g-pt-20 g-pb-0 g-brd-top-none g-valign-bottom g-font-size-16 g-font-size-20--md g-font-weight-600">
-                    <a href="#">{{ event.play.title|upper }}</a>
+                    <a href="{% url "play_detail" slug=event.play.slug %}">{{ event.play.title|upper }}</a>
                 </td>
                 <td class="g-py-0 g-brd-top-none g-valign-bottom">
                     <span class="g-font-weight-600">{{ event.play.genre.title }}</span>, {{ event.play.age }}+

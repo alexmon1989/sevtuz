@@ -20,6 +20,7 @@ from django.conf import settings
 from apps.home.views import home
 from apps.news import urls as news_urls
 from apps.playbill import urls as playbill_urls
+from apps.theater import urls as theater_urls
 
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     url(r'^$', home),
     url(r'^news/', include(news_urls)),
     url(r'^playbill/', include(playbill_urls)),
+    url(r'^theater/', include(theater_urls)),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

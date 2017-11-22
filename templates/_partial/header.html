@@ -46,8 +46,11 @@
                             </a>
                         </li>
 
-                        <li class="nav-item g-mx-15--lg">
+                        <li class="nav-item g-mx-15--lg {% if request.resolver_match.url_name == 'play_detail' %}active{% endif %}">
                             <a href="#" class="nav-link px-0">Театр
+                                {% if request.resolver_match.url_name == 'play_detail' %}
+                                    <span class="sr-only">(current)</span>
+                                {% endif %}
                             </a>
                         </li>
 

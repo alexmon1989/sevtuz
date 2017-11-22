@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'apps.home',
     'apps.news',
-    'apps.theater'
+    'apps.theater',
+    'apps.playbill'
 ]
 
 MIDDLEWARE = [
@@ -140,6 +141,10 @@ THUMBNAIL_ALIASES = {
     '': {
         'news_lg': {'size': (740, 380), 'crop': False},
         'news_sm': {'size': (500, 450), 'crop': True},
+        'play_lg': {'size': (800, 500), 'crop': False},
+        'play_md': {'size': (600, 375), 'crop': False},
+        'play_sm': {'size': (320, 180), 'crop': True},
+        'play_main_page': {'size': (200, 200), 'crop': True},
     },
 }
 
