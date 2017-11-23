@@ -81,6 +81,16 @@ class Play(models.Model):
         blank=True,
         help_text='Оптимальный размер: 800px*500px.'
     )
+    is_our_play = models.BooleanField('Спектакль нашего театра (отображать на странице "Спектакли")?', default=True)
+    status = models.PositiveSmallIntegerField(
+        'Статус спектакля',
+        choices=(
+            (1, 'Текущий'),
+            (2, 'Архивный'),
+            (3, 'Планируемый'),
+        ),
+        default=1
+    )
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
