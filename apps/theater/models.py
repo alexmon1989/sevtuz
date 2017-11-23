@@ -146,3 +146,25 @@ class PlayVideo(models.Model):
     class Meta:
         verbose_name = 'Видео'
         verbose_name_plural = 'Видео'
+
+
+class Page(models.Model):
+    """Модель страницы."""
+    title = models.CharField('Заголовок', max_length=255)
+    slug = models.SlugField(
+        'Slug (для url)',
+        max_length=255,
+        default='',
+        unique=True
+    )
+    text = RichTextUploadingField('Текст', blank=False)
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Страница'
+        verbose_name_plural = 'Страницы'
