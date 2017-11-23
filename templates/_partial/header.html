@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm"
                      id="navBar">
                     <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                        <li class="nav-item g-mx-15--lg  {% if request.resolver_match.url_name == 'events_list' %}active{% endif %}">
+                        <li class="nav-item g-mx-10--lg  {% if request.resolver_match.url_name == 'events_list' %}active{% endif %}">
                             <a href="{% url 'events_list' %}" class="nav-link px-0">Репертуар
                                 {% if request.resolver_match.url_name == 'events_list' %}
                                     <span class="sr-only">(current)</span>
@@ -39,7 +39,15 @@
                             </a>
                         </li>
 
-                        <li class="nav-item g-mx-15--lg {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}active{% endif %}">
+                        <li class="nav-item g-mx-10--lg {% if request.resolver_match.url_name|in_list:'plays_list_current, plays_list_archive, plays_list_plans' %}active{% endif %}">
+                            <a href="{% url 'plays_list_current' %}" class="nav-link px-0">Спектакли
+                                {% if request.resolver_match.url_name|in_list:'plays_list_current, plays_list_archive, plays_list_plans' %}
+                                    <span class="sr-only">(current)</span>
+                                {% endif %}
+                            </a>
+                        </li>
+
+                        <li class="nav-item g-mx-10--lg {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}active{% endif %}">
                             <a href="{% url 'news_list' %}" class="nav-link px-0">Новости
                                 {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}
                                     <span class="sr-only">(current)</span>
@@ -47,7 +55,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item g-mx-15--lg {% if request.resolver_match.url_name == 'play_detail' %}active{% endif %}">
+                        <li class="nav-item g-mx-10--lg {% if request.resolver_match.url_name == 'play_detail' %}active{% endif %}">
                             <a href="#" class="nav-link px-0">Театр
                                 {% if request.resolver_match.url_name == 'play_detail' %}
                                     <span class="sr-only">(current)</span>
@@ -55,19 +63,19 @@
                             </a>
                         </li>
 
-                        <li class="nav-item g-mx-15--lg">
+                        <li class="nav-item g-mx-10--lg">
                             <a href="#" class="nav-link px-0">Труппа</a>
                         </li>
 
-                        <li class="nav-item g-mx-15--lg">
+                        <li class="nav-item g-mx-10--lg">
                             <a href="#" class="nav-link px-0">Люди театра</a>
                         </li>
 
-                        <li class="nav-item g-mx-15--lg">
+                        <li class="nav-item g-mx-10--lg">
                             <a href="#" class="nav-link px-0">Контакты</a>
                         </li>
 
-                        <li class="nav-item g-ml-15--lg g-mr-0--lg g-bg-red-opacity-0_8">
+                        <li class="nav-item g-ml-10--lg g-mr-0--lg g-bg-red-opacity-0_8">
                             <a href="#" class="nav-link g-px-5 g-color-white">Купить билет</a>
                         </li>
                     </ul>

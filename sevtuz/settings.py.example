@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'apps.news',
     'apps.theater',
     'apps.repertoire',
-    'apps.settings'
+    'apps.settings',
+    'apps.plays',
 ]
 
 MIDDLEWARE = [

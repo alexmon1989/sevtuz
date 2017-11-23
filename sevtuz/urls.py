@@ -21,6 +21,7 @@ from apps.home.views import home
 from apps.news import urls as news_urls
 from apps.repertoire import urls as repertoire_urls
 from apps.theater import urls as theater_urls
+from apps.plays import urls as plays_urls
 
 
 urlpatterns = [
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^news/', include(news_urls)),
     url(r'^repertoire/', include(repertoire_urls)),
     url(r'^theater/', include(theater_urls)),
+    url(r'^plays/', include(plays_urls)),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
