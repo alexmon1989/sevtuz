@@ -3,7 +3,7 @@
 {% block title %}{{ play.title }} / {{ block.super }}{% endblock %}
 
 {% block breadcrumbs %}
-    {% include 'theater/play/_partial/breadcrumbs.html' %}
+    {% include 'plays/detail/_partial/breadcrumbs.html' %}
 {% endblock %}
 
 {% block content %}
@@ -11,16 +11,16 @@
         <div class="row g-my-50">
 
             <div class="col-lg-6">
-                {% include 'theater/play/_partial/image.html' %}
+                {% include 'plays/detail/_partial/image.html' %}
             </div>
 
             <div class="col-lg-6">
-                {% include 'theater/play/_partial/properties.html' %}
+                {% include 'plays/detail/_partial/properties.html' %}
             </div>
 
             {% if play.get_events|length > 0 %}
                 <div class="col-lg-12 g-pt-30">
-                    {% include 'theater/play/_partial/events.html' %}
+                    {% include 'plays/detail/_partial/events.html' %}
                 </div>
             {% endif %}
 
@@ -32,7 +32,7 @@
             {% if play.get_photos|length > 0 or play.get_videos|length > 0 %}
                 <div class="col-lg-12 g-pt-50">
                     <div class="row">
-                        {% include 'theater/play/_partial/images_videos.html' %}
+                        {% include 'plays/detail/_partial/images_videos.html' %}
                     </div>
                 </div>
             {% endif %}

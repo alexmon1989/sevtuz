@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from apps.theater.models import Play
 
 
@@ -19,3 +19,9 @@ class PlayListView(ListView):
                 qs = qs.filter(status=statuses.index(status)+1)
 
         return qs
+
+
+class PlayDetailView(DetailView):
+    """Отображает страницу со спектаклем."""
+    model = Play
+    template_name = 'plays/detail/detail.html'
