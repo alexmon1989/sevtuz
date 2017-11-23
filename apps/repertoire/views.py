@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from apps.playbill.models import Event
-from datetime import datetime, timedelta
+from apps.repertoire.models import Event
+from datetime import datetime
 
 
 def events_list(request):
@@ -25,7 +25,7 @@ def events_list(request):
 
     return render(
         request,
-        'playbill/events/list.html',
+        'repertoire/events/list.html',
         {
             'month': month,
             'year': year,
@@ -66,7 +66,7 @@ def get_events_table(request):
 
     return render(
         request,
-        'playbill/events/_partial/list_table.html',
+        'repertoire/events/_partial/list_table.html',
         {
             'event_list': event_list,
         }

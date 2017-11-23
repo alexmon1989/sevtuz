@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('playbill', '0006_event_guests'),
+        ('repertoire', '0006_event_guests'),
     ]
 
     operations = [
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('image', easy_thumbnails.fields.ThumbnailerImageField(help_text='Оптимальный размер: 1140px*590px.', upload_to='home', verbose_name='Изображение')),
-                ('event', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='playbill.Event', verbose_name='Событие')),
+                ('event', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='repertoire.Event', verbose_name='Событие')),
             ],
             options={
                 'verbose_name': 'Главное событие',

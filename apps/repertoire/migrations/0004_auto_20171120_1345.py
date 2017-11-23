@@ -8,7 +8,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('playbill', '0003_event_play'),
+        ('repertoire', '0003_event_play'),
     ]
 
     operations = [

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.playbill.models import Event, Scene
+from apps.repertoire.models import Event, Scene
 
 
 @admin.register(Scene)

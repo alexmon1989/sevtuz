@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from apps.playbill.views import events_list, get_events_table
+from apps.repertoire.views import events_list, get_events_table
 
 urlpatterns = [
     url(r'^$', events_list, name='events_list'),

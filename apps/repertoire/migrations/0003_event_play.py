@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('theater', '0006_auto_20171117_1523'),
-        ('playbill', '0002_auto_20171117_1523'),
+        ('repertoire', '0002_auto_20171117_1523'),
     ]
 
     operations = [

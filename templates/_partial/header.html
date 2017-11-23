@@ -32,7 +32,7 @@
                      id="navBar">
                     <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                         <li class="nav-item g-mx-15--lg  {% if request.resolver_match.url_name == 'events_list' %}active{% endif %}">
-                            <a href="{% url 'events_list' %}" class="nav-link px-0">Афиша
+                            <a href="{% url 'events_list' %}" class="nav-link px-0">Репертуар
                                 {% if request.resolver_match.url_name == 'events_list' %}
                                     <span class="sr-only">(current)</span>
                                 {% endif %}

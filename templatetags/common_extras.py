@@ -2,7 +2,7 @@ from django import template
 from django.conf import settings
 from django.utils import timezone
 from apps.settings.models import FooterSettings, SocialLinksModel
-from apps.playbill.models import Event
+from apps.repertoire.models import Event
 
 register = template.Library()
 

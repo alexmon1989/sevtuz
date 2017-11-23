@@ -2,19 +2,19 @@
 
 {% load project_tags %}
 
-{% block title %}Афиша / {{ month|month_title }} {{ year }} / {{ block.super }}{% endblock %}
+{% block title %}Репертуар на / {{ month|month_title }} {{ year }} / {{ block.super }}{% endblock %}
 
 {% block breadcrumbs %}
-    {% include 'playbill/events/_partial/breadcrumbs_list.html' %}
+    {% include 'repertoire/events/_partial/breadcrumbs_list.html' %}
 {% endblock %}
 
 {% block content %}
     <div class="container g-pt-70 g-pb-40">
         <div class="row justify-content-between">
 
-            {% include 'playbill/events/_partial/filter_scene.html' %}
+            {% include 'repertoire/events/_partial/filter_scene.html' %}
 
-            {% include 'playbill/events/_partial/filter_date_age.html' %}
+            {% include 'repertoire/events/_partial/filter_date_age.html' %}
 
             <div class="col-lg-12 g-pt-50 g-min-height-300" id="list_table">
             </div>

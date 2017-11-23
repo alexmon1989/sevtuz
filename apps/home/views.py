@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
 from apps.news.models import News
-from apps.playbill.models import Event
+from apps.repertoire.models import Event
 from apps.home.models import MainEvent
 
 
