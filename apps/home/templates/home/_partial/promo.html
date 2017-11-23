@@ -1,12 +1,12 @@
 {% load staticfiles %}
 
-{% if main_event %}
+{% if playbill %}
     <section id="promo" class="g-bg-black">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="{% url "play_detail" slug=main_event.event.play.slug %}"
-                       title="{{ main_event.event.play }}"><img src="{{ main_event.image.main_event.url }}" alt=""
+                    <a href="{% url "play_detail" slug=playbill.event.play.slug %}"
+                       title="{{ playbill.event.play }}"><img src="{{ playbill.image.main_event.url }}" alt=""
                                                                 class="img-fluid"></a>
                 </div>
             </div>

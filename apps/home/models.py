@@ -8,8 +8,8 @@ def limit_event_choices():
     return {'datetime__gte': timezone.now()}
 
 
-class MainEvent(models.Model):
-    """Модель анонса главного события."""
+class Playbill(models.Model):
+    """Модель афиши."""
     event = models.ForeignKey(
         Event,
         verbose_name='Событие',
@@ -23,5 +23,5 @@ class MainEvent(models.Model):
     )
 
     class Meta:
-        verbose_name = 'Главное событие'
-        verbose_name_plural = 'Главное событие'
+        verbose_name = 'Афиша главного события'
+        verbose_name_plural = 'Афиша главного события'

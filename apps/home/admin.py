@@ -1,5 +1,5 @@
 from django.contrib import admin
 from singlemodeladmin import SingleModelAdmin
-from apps.home.models import MainEvent
+from apps.home.models import Playbill
 
-admin.site.register(MainEvent, SingleModelAdmin)
+admin.site.register(Playbill, SingleModelAdmin)
