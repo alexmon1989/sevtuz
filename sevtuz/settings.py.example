@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.settings',
     'apps.plays',
     'apps.contacts',
+    'apps.tickets',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Билеты / {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% include 'tickets/breadcrumbs.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 g-py-100 g-min-height-300">
+                {{ page.text|safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

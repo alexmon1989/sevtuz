@@ -23,6 +23,7 @@ from apps.repertoire import urls as repertoire_urls
 from apps.theater import urls as theater_urls
 from apps.plays import urls as plays_urls
 from apps.contacts import urls as contacts_urls
+from apps.tickets import urls as tickets_urls
 
 
 urlpatterns = [
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^theater/', include(theater_urls)),
     url(r'^plays/', include(plays_urls)),
     url(r'^contacts/', include(contacts_urls)),
+    url(r'^tickets/', include(tickets_urls)),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

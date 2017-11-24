@@ -109,7 +109,11 @@
                         </li>
 
                         <li class="nav-item g-ml-10--lg g-mr-0--lg g-bg-red-opacity-0_8">
-                            <a href="#" class="nav-link g-px-5 g-color-white">Купить билет</a>
+                            <a href="{% url "tickets" %}" class="nav-link g-px-5 g-color-white">Билеты
+                                {% if request.resolver_match.url_name == 'tickets' %}
+                                    <span class="sr-only">(current)</span>
+                                {% endif %}
+                            </a>
                         </li>
                     </ul>
 
