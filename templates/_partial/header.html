@@ -49,13 +49,16 @@
                             <ul class="hs-sub-menu list-unstyled g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-mt-20 g-mt-10--lg--scrolling"
                                 id="nav-submenu-1" aria-labelledby="nav-link-1">
                                 <li class="dropdown-item">
-                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_current' %}active{% endif %}" href="{% url "plays_list_current" %}">Текущие</a>
+                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_current' %}active{% endif %}"
+                                       href="{% url "plays_list_current" %}">Текущие</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_archive' %}active{% endif %}" href="{% url "plays_list_archive" %}">Архивные</a>
+                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_archive' %}active{% endif %}"
+                                       href="{% url "plays_list_archive" %}">Архивные</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_plans' %}active{% endif %}" href="{% url "plays_list_plans" %}">Планы</a>
+                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_plans' %}active{% endif %}"
+                                       href="{% url "plays_list_plans" %}">Планы</a>
                                 </li>
                             </ul>
                             <!-- End Submenu -->
@@ -69,9 +72,24 @@
                             </a>
                         </li>
 
-                        <li class="nav-item g-mx-10--lg">
+                        {% theater_submenu as theater_submenu %}
+                        <li class="nav-item {% if theater_submenu|length > 0 %}hs-has-sub-menu{% endif %} {% if request.resolver_match.url_name == 'theater_page' %}active{% endif %} g-mx-10--lg">
                             <a href="#" class="nav-link px-0">Театр
                             </a>
+
+                            {% if theater_submenu|length > 0 %}
+                                <!-- Submenu -->
+                                <ul class="hs-sub-menu list-unstyled g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-mt-20 g-mt-10--lg--scrolling"
+                                    id="nav-submenu-2" aria-labelledby="nav-link-2">
+                                    {% for page in theater_submenu %}
+                                        <li class="dropdown-item">
+                                            <a class="nav-link g-px-0 {% if page.slug in request.get_full_path %}active{% endif %}"
+                                               href="{% url "theater_page" slug=page.slug %}">{{ page.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <!-- End Submenu -->
+                            {% endif %}
                         </li>
 
                         <li class="nav-item g-mx-10--lg">
