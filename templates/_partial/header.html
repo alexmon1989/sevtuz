@@ -100,8 +100,12 @@
                             <a href="#" class="nav-link px-0">Люди театра</a>
                         </li>
 
-                        <li class="nav-item g-mx-10--lg">
-                            <a href="#" class="nav-link px-0">Контакты</a>
+                        <li class="nav-item g-mx-10--lg {% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">
+                            <a href="{% url "contacts" %}" class="nav-link px-0">Контакты
+                                {% if request.resolver_match.url_name == 'contacts' %}
+                                    <span class="sr-only">(current)</span>
+                                {% endif %}
+                            </a>
                         </li>
 
                         <li class="nav-item g-ml-10--lg g-mr-0--lg g-bg-red-opacity-0_8">
