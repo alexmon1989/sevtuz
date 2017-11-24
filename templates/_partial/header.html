@@ -28,7 +28,7 @@
                 <!-- End Logo -->
 
                 <!-- Navigation -->
-                <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm"
+                <div class="js-mega-menu collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm"
                      id="navBar">
                     <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                         <li class="nav-item g-mx-10--lg  {% if request.resolver_match.url_name == 'events_list' %}active{% endif %}">
@@ -39,12 +39,26 @@
                             </a>
                         </li>
 
-                        <li class="nav-item g-mx-10--lg {% if request.resolver_match.url_name|in_list:'plays_list_current,plays_list_archive,plays_list_plans,play_detail' %}active{% endif %}">
+                        <li class="nav-item hs-has-sub-menu g-mx-10--lg {% if request.resolver_match.url_name|in_list:'plays_list_current,plays_list_archive,plays_list_plans,play_detail' %}active{% endif %}">
                             <a href="{% url 'plays_list_current' %}" class="nav-link px-0">Спектакли
                                 {% if request.resolver_match.url_name|in_list:'plays_list_current,plays_list_archive,plays_list_plans,play_detail' %}
                                     <span class="sr-only">(current)</span>
                                 {% endif %}
                             </a>
+                            <!-- Submenu -->
+                            <ul class="hs-sub-menu list-unstyled g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-mt-20 g-mt-10--lg--scrolling"
+                                id="nav-submenu-1" aria-labelledby="nav-link-1">
+                                <li class="dropdown-item">
+                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_current' %}active{% endif %}" href="{% url "plays_list_current" %}">Текущие</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_archive' %}active{% endif %}" href="{% url "plays_list_archive" %}">Архивные</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_plans' %}active{% endif %}" href="{% url "plays_list_plans" %}">Планы</a>
+                                </li>
+                            </ul>
+                            <!-- End Submenu -->
                         </li>
 
                         <li class="nav-item g-mx-10--lg {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}active{% endif %}">
