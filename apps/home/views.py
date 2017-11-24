@@ -16,6 +16,6 @@ def home(request):
         {
             'last_news': last_news,
             'last_events': last_events,
-            'main_event': playbill
+            'playbill': playbill
         }
     )
