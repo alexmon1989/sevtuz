@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.plays',
     'apps.contacts',
     'apps.tickets',
+    'apps.people',
 ]
 
 MIDDLEWARE = [
@@ -151,6 +152,9 @@ THUMBNAIL_ALIASES = {
         'play_sm': {'size': (320, 180), 'crop': True},
         'play_main_page': {'size': (200, 200), 'crop': True},
         'main_event': {'size': (1140, 590), 'crop': False},
+        'person_avatar': {'size': (400, 450), 'crop': True},
+        'person_gallery_item_sm': {'size': (320, 180), 'crop': True},
+        'person_gallery_item_lg': {'size': (800, 500), 'crop': False},
     },
 }
 

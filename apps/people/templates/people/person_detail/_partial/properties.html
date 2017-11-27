@@ -1,0 +1,38 @@
+{% load thumbnail %}
+
+<img class="w-100 g-mb-20" src="{% if person.image %}{{ person.image|thumbnail_url:'person_avatar' }}{% else %}//via.placeholder.com/400x450?text=No+Image{% endif %}"
+     alt="{{ person.name }}">
+
+{% if person.birthdate %}
+    <p><span class="g-font-weight-600 text-uppercase">Дата рождения:</span> {{ person.birthdate }}</p>
+{% endif %}
+
+{% if person.prizes %}
+    <p><span class="g-font-weight-600 text-uppercase">Награды:</span><br>
+        {{ person.prizes|linebreaksbr }}</p>
+{% endif %}
+
+{% if person.ranks %}
+    <p><span class="g-font-weight-600 text-uppercase">Звания:</span><br>
+        {{ person.ranks|linebreaksbr }}</p>
+{% endif %}
+
+{% if person.current_plays.all|length > 0 %}
+    <p class="g-mb-5"><span class="g-font-weight-600 text-uppercase">Текущие спеклакли:</span></p>
+    <ul class="list-unstyled">
+        {% for play in person.currentplay_set.all %}
+            <li><a href="{% url "play_detail" slug=play.play.slug %}">{{ play.play.title }}</a>
+                {% if play.text %} ({{ play.text }}){% endif %}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if person.last_plays.all|length > 0 %}
+    <p class="g-mb-5"><span class="g-font-weight-600 text-uppercase">Спеклакли прошлых лет:</span></p>
+    <ul class="list-unstyled">
+        {% for play in person.lastplay_set.all %}
+            <li><a href="{% url "play_detail" slug=play.play.slug %}">{{ play.play.title }}</a>
+                {% if play.text %} ({{ play.text }}){% endif %}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

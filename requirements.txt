@@ -7,3 +7,4 @@ olefile==0.44
 Pillow==4.3.0
 pytz==2017.3
 sqlparse==0.2.4
+singlemodeladmin==0.8

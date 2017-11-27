@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load project_tags %}
+
+{% block title %}{{ person.name }} / Люди театра / {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% include "people/person_detail/_partial/breadcrumbs.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="container g-pt-100 g-pb-20">
+        <div class="row">
+            <div class="col-md-3">
+                {% include "people/person_detail/_partial/properties.html" %}
+            </div>
+            <div class="col-md-9">
+                {% if person.get_photos|length > 0 %}
+                    {% include "people/person_detail/_partial/gallery.html" %}
+                {% endif %}
+
+                {{ person.biography|safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -3,7 +3,8 @@ from django.conf import settings
 from django.utils import timezone
 from apps.settings.models import FooterSettings, SocialLinksModel
 from apps.repertoire.models import Event
-from apps.theater.models import Page
+from apps.theater.models import Page as TheaterPage
+from apps.people.models import Page as PeoplePage
 
 register = template.Library()
 
@@ -63,4 +64,9 @@ def social_links():
 
 @register.simple_tag
 def theater_submenu():
-    return Page.objects.filter(is_visible=True).order_by('created_at')
+    return TheaterPage.objects.filter(is_visible=True).order_by('created_at')
+
+
+@register.simple_tag
+def people_submenu():
+    return PeoplePage.objects.filter(is_visible=True).order_by('created_at')
