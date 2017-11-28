@@ -1,4 +1,5 @@
 {% load project_tags %}
+{% load staticfiles %}
 
 <footer class="g-bg-gray-dark-v1 g-color-white-opacity-0_8 g-py-20">
     <div class="container">
@@ -13,7 +14,8 @@
                 <div class="d-lg-flex">
                     <ul class="u-list-inline">
                         <li class="list-inline-item">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Оценка качества услуг
+                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://quality.mkrf.ru/" target="_blank"><img
+                                    src="{% static "assets/img/logo/logo-mkrf.png" %}" alt="" class="img-fluid g-height-25 g-pr-5">Оценка качества услуг
                                 учреждений культуры</a>
                         </li>
                     </ul>
