@@ -1,5 +1,6 @@
 from django.views.generic import DetailView
-from apps.people.models import Page, Person
+from apps.theater.models import Person
+from apps.people.models import Page
 
 
 class PageDetailView(DetailView):

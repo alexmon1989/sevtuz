@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib import admin
-from apps.theater.models import Season, Play, PlayPhoto, PlayVideo, Genre, Page
+from apps.theater.models import (Season, Play, PlayPhoto, PlayVideo, Genre, Page, Person, PersonPhoto, Position,
+                                 PersonPlayRole)
 
 
 class SeasonForm(forms.ModelForm):
@@ -45,13 +46,18 @@ class PlayVideoInline(admin.TabularInline):
     extra = 3
 
 
+class PlayRoleInline(admin.TabularInline):
+    model = PersonPlayRole
+    extra = 3
+
+
 @admin.register(Play)
 class PlayAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования спектакля."""
     list_display = ('title', 'created_at', 'updated_at')
     ordering = ('-created_at',)
     search_fields = ('title',)
-    inlines = (PlayPhotoInline, PlayVideoInline)
+    inlines = (PlayPhotoInline, PlayVideoInline, PlayRoleInline)
     prepopulated_fields = {"slug": ("title",)}
 
 
@@ -71,3 +77,36 @@ class PageAdmin(admin.ModelAdmin):
     list_editable = ('is_visible',)
     search_fields = ('title',)
     prepopulated_fields = {"slug": ("title",)}
+
+
+class PersonPhotoInline(admin.TabularInline):
+    model = PersonPhoto
+    extra = 3
+
+
+class CurrentPlayInline(admin.TabularInline):
+    model = Person.current_plays.through
+    extra = 3
+
+
+class LastPlayInline(admin.TabularInline):
+    model = Person.last_plays.through
+    extra = 3
+
+
+@admin.register(Person)
+class PersonAdmin(admin.ModelAdmin):
+    """Класс для описания интерфейса администрирования сотрудников."""
+    list_display = ('name', 'created_at', 'updated_at')
+    ordering = ('name',)
+    search_fields = ('name',)
+    prepopulated_fields = {"slug": ("name",)}
+    inlines = (PersonPhotoInline, CurrentPlayInline, LastPlayInline)
+
+
+@admin.register(Position)
+class PositionsAdmin(admin.ModelAdmin):
+    """Класс для описания интерфейса администрирования должностей."""
+    list_display = ('title', 'created_at', 'updated_at')
+    ordering = ('-created_at',)
+    search_fields = ('title',)

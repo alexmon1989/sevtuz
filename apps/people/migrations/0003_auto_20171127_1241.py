@@ -38,12 +38,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='page',
             name='persons',
-            field=models.ManyToManyField(blank=True, null=True, to='people.Person', verbose_name='Сотрудники'),
+            field=models.ManyToManyField(blank=True, null=True, to='theater.Person', verbose_name='Сотрудники'),
         ),
         migrations.AlterField(
             model_name='person',
             name='current_plays',
-            field=models.ManyToManyField(blank=True, null=True, related_name='current_plays', through='people.CurrentPlay', to='theater.Play'),
+            field=models.ManyToManyField(blank=True, null=True, related_name='current_plays', through='theater.CurrentPlay', to='theater.Play'),
         ),
         migrations.AlterField(
             model_name='person',
@@ -53,6 +53,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='person',
             name='last_plays',
-            field=models.ManyToManyField(blank=True, null=True, related_name='last_plays', through='people.LastPlay', to='theater.Play'),
+            field=models.ManyToManyField(blank=True, null=True, related_name='last_plays', through='theater.LastPlay', to='theater.Play'),
         ),
     ]

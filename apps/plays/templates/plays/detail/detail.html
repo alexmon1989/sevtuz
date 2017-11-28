@@ -28,6 +28,11 @@
                 {{ play.text|safe }}
             </div>
 
+            {% if play.roles.all|length > 0 %}
+                <div class="col-lg-12 g-pt-50">
+                    {% include 'plays/detail/_partial/roles.html' %}
+                </div>
+            {% endif %}
 
             {% if play.get_photos|length > 0 or play.get_videos|length > 0 %}
                 <div class="col-lg-12 g-pt-50">
