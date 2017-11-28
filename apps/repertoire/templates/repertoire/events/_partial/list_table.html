@@ -45,7 +45,9 @@
                     {{ event.play.author|default_if_none:"" }}
                 </td>
                 <td class="g-py-0">
-                    <i class="fa fa-hourglass-o" aria-hidden="true"></i> {{ event.play.duration|duration }}
+                    {% if event.play.duration %}
+                        <i class="fa fa-hourglass-o" aria-hidden="true"></i> {{ event.play.duration|duration }}
+                    {% endif %}
                 </td>
                 <td class="g-pa-0 text-right g-font-weight-600">
                     {{ event.scene }}
