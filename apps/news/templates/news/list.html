@@ -11,6 +11,18 @@
     {% include 'news/_partial/breadcrumbs_list.html' %}
 {% endblock %}
 
+{% block extra_meta %}
+    {% if request.GET.page %}
+        <meta name="robots" content="noindex, follow" />
+    {% endif %}
+    {% if page_obj.has_previous %}
+        <link rel="prev" href="?{% url_replace request 'page' page_obj.previous_page_number %}">
+    {% endif %}
+    {% if page_obj.has_next %}
+        <link rel="next" href="?{% url_replace request 'page' page_obj.next_page_number %}">
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="container g-pt-100 g-pb-20">
         <div class="row justify-content-between">

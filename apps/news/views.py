@@ -1,4 +1,6 @@
 from django.views.generic import ListView, DetailView
+from django.shortcuts import redirect, reverse
+from django.http import Http404
 from apps.news.models import News
 from apps.theater.models import Season
 
@@ -8,6 +10,21 @@ class NewsListView(ListView):
     model = News
     template_name = 'news/list.html'
     paginate_by = 5
+
+    def get(self, *args, **kwargs):
+        page = self.request.GET.get('page')
+        if page:
+            try:
+                if int(page) == 1:
+                    if len(self.request.GET) == 1:
+                        return redirect(self.request.resolver_match.url_name)
+                    else:
+                        dict_ = self.request.GET.copy()
+                        dict_.pop('page')
+                        return redirect('{}?{}'.format(reverse('news_list'), dict_.urlencode()))
+            except ValueError:
+                raise Http404
+        return super(NewsListView, self).get(*args, **kwargs)
 
     def get_queryset(self):
         qs = News.objects.filter(is_visible=True).order_by('-created_at')

@@ -2,6 +2,18 @@
 
 {% load thumbnail %}
 
+{% block extra_meta %}
+    {% if request.GET.page %}
+        <meta name="robots" content="noindex, follow" />
+    {% endif %}
+    {% if page_obj.has_previous %}
+        <link rel="prev" href="?page={{ page_obj.previous_page_number }}">
+    {% endif %}
+    {% if page_obj.has_next %}
+        <link rel="next" href="?page={{ page_obj.next_page_number }}">
+    {% endif %}
+{% endblock %}
+
 {% block title %}Спектакли / {% if 'current' in request.get_full_path %}
     Текущие
 {% elif 'archive' in request.get_full_path %}
