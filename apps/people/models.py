@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 from apps.theater.models import Play, Person
 
@@ -20,6 +21,9 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('people_page', args=[self.slug])
 
     def get_persons(self):
         """Возвращает список отсортированных по весу должности сотрудников, относящихся к данной странице."""

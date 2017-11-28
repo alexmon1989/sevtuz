@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -10,6 +11,9 @@ class Page(models.Model):
 
     def __str__(self):
         return 'Страница "Билеты"'
+
+    def get_absolute_url(self):
+        return reverse('tickets')
 
     class Meta:
         verbose_name = 'Данные страницы'

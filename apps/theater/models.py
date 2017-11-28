@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils import timezone
 
@@ -84,6 +85,9 @@ class Person(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('person_detail', args=[self.slug])
 
     def get_photos(self):
         """Возвращает список фотографий сотрудника."""
@@ -193,6 +197,9 @@ class Play(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('play_detail', args=[self.slug])
+
     class Meta:
         verbose_name = 'Спектакль'
         verbose_name_plural = 'Спектакли'
@@ -291,6 +298,9 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('theater_page', args=[self.slug])
 
     class Meta:
         verbose_name = 'Страница'
