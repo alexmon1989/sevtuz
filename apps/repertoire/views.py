@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from apps.repertoire.models import Event
 from datetime import datetime
+from django.urls import reverse
 
 
 def events_list(request):
@@ -8,6 +9,9 @@ def events_list(request):
     date_now = datetime.now()
     month = int(request.GET.get('month', date_now.month))
     year = int(request.GET.get('year', date_now.year))
+
+    if request.GET and year == date_now.year and month == date_now.month:
+        return redirect(reverse('events_list'))
 
     # Предыдущие и следующие месяц, год
     prev_month = month - 1
@@ -27,6 +31,7 @@ def events_list(request):
         request,
         'repertoire/events/list.html',
         {
+            'current_year': date_now.year,
             'month': month,
             'year': year,
             'prev_month': prev_month,
