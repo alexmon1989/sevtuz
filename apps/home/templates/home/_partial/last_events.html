@@ -36,9 +36,15 @@
                                 <div class="col-12">
                                     <a class="d-block u-block-hover g-pos-rel g-px-30"
                                        href="{% url "play_detail" slug=event.play.slug %}">
+                                        {% if event.play.image %}
                                         <img class="img-fluid rounded-circle u-block-hover__main--zoom-v1"
                                              src="{{ event.play.image|thumbnail_url:'play_main_page' }}"
-                                             alt="Image Description">
+                                             alt="">
+                                        {% else %}
+                                            <img class="img-fluid rounded-circle u-block-hover__main--zoom-v1"
+                                                 src="//placehold.it/200?text=No+Image"
+                                                 alt="">
+                                        {% endif %}
                                         <span class="u-icon-v2 u-icon-size--md g-pt-8 g-brd-3 g-brd-yellow g-brd-style-solid g-font-size-20 g-font-weight-600 g-bg-white g-color-black g-rounded-50x g-cursor-pointer g-pos-abs g-bottom-0 g-right-30">
                                             {{ event.play.age }}+
                                         </span>
