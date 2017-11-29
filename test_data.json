@@ -1,0 +1,986 @@
+[
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "example.com",
+      "name": "example.com"
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatapath",
+    "pk": 1,
+    "fields": {
+      "title": "\u0413\u043b\u0430\u0432\u043d\u0430\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430 / \u0421\u0435\u0432\u0422\u042e\u0417",
+      "description": "\u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0442\u0435\u0430\u0442\u0440 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f. \u041f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0442\u0435\u0430\u0442\u0440, \u043f\u0440\u0435\u0434\u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044b\u0439 \u0434\u043b\u044f \u0434\u0435\u0442\u0441\u043a\u043e\u0439, \u043f\u043e\u0434\u0440\u043e\u0441\u0442\u043a\u043e\u0432\u043e\u0439 \u0438 \u044e\u043d\u043e\u0448\u0435\u0441\u043a\u043e\u0439 \u0430\u0443\u0434\u0438\u0442\u043e\u0440\u0438\u0438. \u041f\u0440. \u042e. \u0413\u0430\u0433\u0430\u0440\u0438\u043d\u0430, 16.",
+      "keywords": "",
+      "heading": "",
+      "_path": "/"
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatapath",
+    "pk": 2,
+    "fields": {
+      "title": "\u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0421\u0435\u0432\u0422\u042e\u0417",
+      "description": "\u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u043e\u0433\u043e \u0442\u0435\u0430\u0442\u0440\u0430 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f. \u0412\u0441\u0451 \u043e\u0431 \u0430\u043a\u0442\u0451\u0440\u0430\u0445 \u0442\u0435\u0430\u0442\u0440\u0430, \u043d\u043e\u0432\u044b\u0445 \u0441\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u044f\u0445, \u043c\u0435\u0440\u043e\u043f\u0440\u0438\u044f\u0442\u0438\u044f\u0445 \u0438 \u0442.\u0434.",
+      "keywords": "",
+      "heading": "\u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0421\u0435\u0432\u0422\u042e\u0417",
+      "_path": "/news/"
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatapath",
+    "pk": 3,
+    "fields": {
+      "title": "\u0420\u0435\u043f\u0435\u0440\u0442\u0443\u0430\u0440 \u0421\u0435\u0432\u0422\u042e\u0417",
+      "description": "\u0420\u0435\u043f\u0435\u0440\u0442\u0443\u0430\u0440 \u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u043e\u0433\u043e \u0442\u0435\u0430\u0442\u0440\u0430 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f. \u0412\u044b\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u0434\u0430\u0442\u0443, \u0441\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u044c \u0438 \u043f\u0440\u0438\u0445\u043e\u0434\u0438\u0442\u0435 \u043a \u043d\u0430\u043c \u0435\u0433\u043e \u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c. \u041c\u044b \u0432\u0430\u0441 \u0436\u0434\u0451\u043c!",
+      "keywords": "",
+      "heading": "\u0420\u0435\u043f\u0435\u0440\u0442\u0443\u0430\u0440 \u0421\u0435\u0432\u0422\u042e\u0417",
+      "_path": "/repertoire/"
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatapath",
+    "pk": 4,
+    "fields": {
+      "title": "\u0422\u0435\u043a\u0443\u0449\u0438\u0435 \u0441\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u0438 \u0421\u0435\u0432\u0422\u042e\u0417",
+      "description": "\u0421\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0441\u0442\u0430\u0432\u044f\u0442\u0441\u044f \u0432 \u043d\u0430\u0441\u0442\u043e\u044f\u0449\u0435\u0435 \u0432\u0440\u0435\u043c\u044f \u0432 \u0421\u0432\u0435\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u043e\u043c \u0442\u0435\u0430\u0442\u0440\u0435 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f.",
+      "keywords": "",
+      "heading": "",
+      "_path": "/plays/current/"
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatapath",
+    "pk": 5,
+    "fields": {
+      "title": "\u0410\u0440\u0445\u0438\u0432 \u0441\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u0435\u0439",
+      "description": "\u0421\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0432 \u0434\u0430\u043d\u043d\u043e\u0435 \u0432\u0435\u0440\u043c\u044f \u043d\u0435 \u0441\u0442\u0430\u0432\u044f\u0442\u0441\u044f \u0432 \u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u043e\u043c \u0442\u0435\u0430\u0442\u0440\u0435 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f.",
+      "keywords": "",
+      "heading": "",
+      "_path": "/plays/archive/"
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatapath",
+    "pk": 6,
+    "fields": {
+      "title": "",
+      "description": "\u0421\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0432 \u0431\u043b\u0438\u0436\u0430\u0451\u0448\u0435\u043c \u0431\u0443\u0434\u0443\u0449\u0435\u043c \u0441\u0442\u043e\u0438\u0442\u044c \u043e\u0436\u0438\u0434\u0430\u0442\u044c \u043d\u0430 \u0441\u0446\u0435\u043d\u0435 \u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u043e\u0433\u043e \u0442\u0435\u0430\u0442\u0440\u0430 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f.",
+      "keywords": "",
+      "heading": "",
+      "_path": "/plays/plans/"
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatamodelinstance",
+    "pk": 1,
+    "fields": {
+      "title": "\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b",
+      "description": "",
+      "keywords": "",
+      "heading": "",
+      "_path": "/contacts/",
+      "_content_type": 24,
+      "_object_id": 1
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatamodelinstance",
+    "pk": 2,
+    "fields": {
+      "title": "\u041d\u043e\u0432\u043e\u0441\u0442\u044c 4",
+      "description": "",
+      "keywords": "",
+      "heading": "\u041d\u043e\u0432\u043e\u0441\u0442\u044c 4",
+      "_path": "/news/4/",
+      "_content_type": 10,
+      "_object_id": 4
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatamodelinstance",
+    "pk": 3,
+    "fields": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "heading": "",
+      "_path": "/plays/show/o-malenkih-dlya-bolshih/",
+      "_content_type": 12,
+      "_object_id": 1
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatamodelinstance",
+    "pk": 4,
+    "fields": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "heading": "",
+      "_path": "/people/person/testovyj-aktyor/",
+      "_content_type": 36,
+      "_object_id": 1
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatamodelinstance",
+    "pk": 5,
+    "fields": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "heading": "",
+      "_path": "/plays/show/kurochka-ryaba/",
+      "_content_type": 12,
+      "_object_id": 3
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatamodelinstance",
+    "pk": 6,
+    "fields": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "heading": "",
+      "_path": "/plays/show/inoplanetenok/",
+      "_content_type": 12,
+      "_object_id": 4
+    }
+  },
+  {
+    "model": "djangoseo.mymetadatamodelinstance",
+    "pk": 7,
+    "fields": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "heading": "",
+      "_path": "/plays/show/kak-ivanushka-za-dedom-morozom-letal/",
+      "_content_type": 12,
+      "_object_id": 5
+    }
+  },
+  {
+    "model": "home.playbill",
+    "pk": 1,
+    "fields": {
+      "event": 2,
+      "image": "home/1.jpg"
+    }
+  },
+  {
+    "model": "news.news",
+    "pk": 1,
+    "fields": {
+      "title": "\u041d\u043e\u0432\u043e\u0441\u0442\u044c 1",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n\r\n<p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>\r\n\r\n<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>\r\n\r\n<p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>\r\n\r\n<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>",
+      "is_visible": true,
+      "image": "news/img1_Yhf1CuX.jpg",
+      "created_at": "2017-11-15T12:50:07.065Z",
+      "updated_at": "2017-11-15T12:51:06.918Z"
+    }
+  },
+  {
+    "model": "news.news",
+    "pk": 2,
+    "fields": {
+      "title": "\u041d\u043e\u0432\u043e\u0441\u0442\u044c 2",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n\r\n<p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>\r\n\r\n<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>\r\n\r\n<p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>\r\n\r\n<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>",
+      "is_visible": true,
+      "image": "news/img1_Yhf1CuX_MSzJ6yS.jpg",
+      "created_at": "2017-11-15T12:50:20.862Z",
+      "updated_at": "2017-11-15T12:51:12.903Z"
+    }
+  },
+  {
+    "model": "news.news",
+    "pk": 3,
+    "fields": {
+      "title": "\u041d\u043e\u0432\u043e\u0441\u0442\u044c 3",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n\r\n<p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>\r\n\r\n<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>\r\n\r\n<p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>\r\n\r\n<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>",
+      "is_visible": true,
+      "image": "news/img1_Yhf1CuX_xmYfjJm.jpg",
+      "created_at": "2017-11-15T12:51:27.359Z",
+      "updated_at": "2017-11-15T12:51:27.359Z"
+    }
+  },
+  {
+    "model": "news.news",
+    "pk": 4,
+    "fields": {
+      "title": "\u041d\u043e\u0432\u043e\u0441\u0442\u044c 4",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n\r\n<p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>\r\n\r\n<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>\r\n\r\n<p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>\r\n\r\n<p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>",
+      "is_visible": true,
+      "image": "news/img1_Yhf1CuX_BqtcwXY.jpg",
+      "created_at": "2017-11-15T12:51:40.607Z",
+      "updated_at": "2017-11-29T11:43:30.035Z"
+    }
+  },
+  {
+    "model": "theater.season",
+    "pk": 1,
+    "fields": {
+      "title": "27 \u0441\u0435\u0437\u043e\u043d",
+      "year_from": 2014,
+      "year_to": 2015,
+      "month_from": 9,
+      "month_to": 5,
+      "created_at": "2017-11-16T08:21:55.773Z",
+      "updated_at": "2017-11-16T08:22:13.339Z"
+    }
+  },
+  {
+    "model": "theater.season",
+    "pk": 2,
+    "fields": {
+      "title": "28 \u0441\u0435\u0437\u043e\u043d",
+      "year_from": 2015,
+      "year_to": 2016,
+      "month_from": 9,
+      "month_to": 5,
+      "created_at": "2017-11-16T08:22:30.653Z",
+      "updated_at": "2017-11-16T08:22:30.653Z"
+    }
+  },
+  {
+    "model": "theater.season",
+    "pk": 3,
+    "fields": {
+      "title": "29 \u0441\u0435\u0437\u043e\u043d",
+      "year_from": 2016,
+      "year_to": 2017,
+      "month_from": 9,
+      "month_to": 5,
+      "created_at": "2017-11-16T08:22:58.936Z",
+      "updated_at": "2017-11-16T08:22:58.936Z"
+    }
+  },
+  {
+    "model": "theater.season",
+    "pk": 4,
+    "fields": {
+      "title": "30 \u0441\u0435\u0437\u043e\u043d",
+      "year_from": 2017,
+      "year_to": 2018,
+      "month_from": 9,
+      "month_to": 5,
+      "created_at": "2017-11-16T08:23:18.672Z",
+      "updated_at": "2017-11-16T11:21:10.824Z"
+    }
+  },
+  {
+    "model": "theater.position",
+    "pk": 1,
+    "fields": {
+      "title": "\u041d\u0430\u0440\u043e\u0434\u043d\u044b\u0439 \u0430\u0440\u0442\u0438\u0441\u0442",
+      "weight": 10000,
+      "created_at": "2017-11-28T09:18:03.969Z",
+      "updated_at": "2017-11-28T09:18:03.969Z"
+    }
+  },
+  {
+    "model": "theater.position",
+    "pk": 2,
+    "fields": {
+      "title": "\u0417\u0430\u0441\u043b\u0443\u0436\u0435\u043d\u043d\u044b\u0439 \u0430\u0440\u0442\u0438\u0441\u0442",
+      "weight": 9999,
+      "created_at": "2017-11-28T09:20:24.738Z",
+      "updated_at": "2017-11-28T09:20:24.738Z"
+    }
+  },
+  {
+    "model": "theater.person",
+    "pk": 1,
+    "fields": {
+      "name": "\u0422\u0435\u0441\u0442\u043e\u0432\u044b\u0439 \u0410\u043a\u0442\u0451\u0440",
+      "slug": "testovyj-aktyor",
+      "image": "people/img1_NEr84aX.jpg",
+      "position": 1,
+      "birthdate": "2017-11-28",
+      "education": "\u0412\u044b\u0441\u0448\u0435\u0435",
+      "prizes": "\u041d\u0430\u0433\u0440\u0430\u0434\u0430 1\r\n\u041d\u0430\u0433\u0440\u0430\u0434\u0430 2",
+      "ranks": "\u0417\u0432\u0430\u043d\u0438\u0435 1\r\n\u0417\u0432\u0430\u043d\u0438\u0435 2",
+      "biography": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "has_page": true,
+      "created_at": "2017-11-28T09:19:10.257Z",
+      "updated_at": "2017-11-29T12:05:13.182Z"
+    }
+  },
+  {
+    "model": "theater.person",
+    "pk": 3,
+    "fields": {
+      "name": "\u0422\u0435\u0441\u0442\u043e\u0432\u044b\u0439 \u0410\u043a\u0442\u0451\u0440 2",
+      "slug": "testovyj-aktyor-2",
+      "image": "people/img1_RXpMNst.jpg",
+      "position": 1,
+      "birthdate": null,
+      "education": null,
+      "prizes": "",
+      "ranks": "",
+      "biography": "",
+      "has_page": true,
+      "created_at": "2017-11-28T09:22:38.687Z",
+      "updated_at": "2017-11-28T09:22:38.687Z"
+    }
+  },
+  {
+    "model": "theater.personphoto",
+    "pk": 1,
+    "fields": {
+      "image": "people/1/img1_RkklAbp.jpg",
+      "person": 1,
+      "is_visible": true,
+      "created_at": "2017-11-28T09:19:10.275Z",
+      "updated_at": "2017-11-28T09:19:10.275Z"
+    }
+  },
+  {
+    "model": "theater.personphoto",
+    "pk": 2,
+    "fields": {
+      "image": "people/1/img1_tXC9VFV.jpg",
+      "person": 1,
+      "is_visible": true,
+      "created_at": "2017-11-28T09:19:10.292Z",
+      "updated_at": "2017-11-28T09:19:10.292Z"
+    }
+  },
+  {
+    "model": "theater.personphoto",
+    "pk": 3,
+    "fields": {
+      "image": "people/1/img1_5R5wHe2.jpg",
+      "person": 1,
+      "is_visible": true,
+      "created_at": "2017-11-28T09:19:10.309Z",
+      "updated_at": "2017-11-28T09:19:10.309Z"
+    }
+  },
+  {
+    "model": "theater.genre",
+    "pk": 1,
+    "fields": {
+      "title": "\u041a\u043e\u043c\u0435\u0434\u0438\u044f",
+      "created_at": "2017-11-20T12:51:05.030Z",
+      "updated_at": "2017-11-20T12:51:05.030Z"
+    }
+  },
+  {
+    "model": "theater.genre",
+    "pk": 2,
+    "fields": {
+      "title": "\u0421\u043a\u0430\u0437\u043a\u0430",
+      "created_at": "2017-11-21T07:17:27.090Z",
+      "updated_at": "2017-11-21T07:17:27.090Z"
+    }
+  },
+  {
+    "model": "theater.genre",
+    "pk": 3,
+    "fields": {
+      "title": "\u041c\u044e\u0437\u0438\u043a\u043b",
+      "created_at": "2017-11-29T14:34:02.950Z",
+      "updated_at": "2017-11-29T14:34:02.950Z"
+    }
+  },
+  {
+    "model": "theater.play",
+    "pk": 1,
+    "fields": {
+      "title": "\u041e \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u0438\u0445 \u0434\u043b\u044f \u0431\u043e\u043b\u044c\u0448\u0438\u0445",
+      "slug": "o-malenkih-dlya-bolshih",
+      "age": 0,
+      "genre": 1,
+      "duration": "01:30:00",
+      "author": "\u0410\u0440\u043a\u0430\u0434\u0438\u0439 \u0410\u0432\u0435\u0440\u0447\u0435\u043d\u043a\u043e",
+      "staging": "\u0414\u0435\u043d\u0438\u0441 \u0410\u043b\u0442\u0443\u0445\u043e\u0432",
+      "director": "\u0418\u0440\u0438\u043d\u0430 \u041f\u043b\u0435\u0441\u043a\u0430\u0447\u0451\u0432\u0430",
+      "head_of_production": "\u041b\u044e\u0434\u043c\u0438\u043b\u0430 \u041e\u0440\u0448\u0430\u043d\u0441\u043a\u0430\u044f",
+      "production_designer": "\u0422\u0430\u0442\u044c\u044f\u043d\u0430 \u041a\u0430\u0440\u0430\u0441\u0451\u0432\u0430",
+      "lighting_designer": "\u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u041c\u0430\u0439\u043a\u043e",
+      "music": null,
+      "choreographer": "\u0418\u0440\u0438\u043d\u0430 \u041f\u043b\u0435\u0441\u043a\u0430\u0447\u0451\u0432\u0430",
+      "text": "<p>\u0412 \u0440\u0435\u043f\u0435\u0440\u0442\u0443\u0430\u0440\u0435 \u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u043e\u0433\u043e \u0442\u0435\u0430\u0442\u0440\u0430 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f \u043f\u0440\u043e\u0438\u0437\u043e\u0448\u043b\u043e \u0432\u0435\u0441\u0435\u043d\u043d\u0435\u0435 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435.</p>",
+      "image": "plays/main-images/img1.jpg",
+      "is_our_play": true,
+      "status": 1,
+      "created_at": "2017-11-16T14:11:34.401Z",
+      "updated_at": "2017-11-29T11:58:33.686Z"
+    }
+  },
+  {
+    "model": "theater.play",
+    "pk": 3,
+    "fields": {
+      "title": "\u041a\u0443\u0440\u043e\u0447\u043a\u0430 \u0420\u044f\u0431\u0430",
+      "slug": "kurochka-ryaba",
+      "age": 6,
+      "genre": 2,
+      "duration": null,
+      "author": null,
+      "staging": null,
+      "director": null,
+      "head_of_production": null,
+      "production_designer": null,
+      "lighting_designer": null,
+      "music": null,
+      "choreographer": null,
+      "text": "<p>\u0421\u043a\u0430\u0437\u043a\u0430 \u043e \u043f\u0440\u043e\u0441\u0442\u043e\u043c \u0441\u0447\u0430\u0441\u0442\u044c\u0435 \u0438 \u0437\u043e\u043b\u043e\u0442\u043e\u043c \u043d\u0435\u0441\u0447\u0430\u0441\u0442\u044c\u0435. \u041f\u043e \u043c\u043e\u0442\u0438\u0432\u0430\u043c \u0440\u0443\u0441\u0441\u043a\u0438\u0445 \u043d\u0430\u0440\u043e\u0434\u043d\u044b\u0445 \u0441\u043a\u0430\u0437\u043e\u043a.</p>",
+      "image": "",
+      "is_our_play": true,
+      "status": 1,
+      "created_at": "2017-11-29T14:32:37.119Z",
+      "updated_at": "2017-11-29T14:32:37.119Z"
+    }
+  },
+  {
+    "model": "theater.play",
+    "pk": 4,
+    "fields": {
+      "title": "\u0418\u043d\u043e\u043f\u043b\u0430\u043d\u0435\u0442\u0435\u043d\u043e\u043a",
+      "slug": "inoplanetenok",
+      "age": 0,
+      "genre": 2,
+      "duration": null,
+      "author": null,
+      "staging": null,
+      "director": null,
+      "head_of_production": null,
+      "production_designer": null,
+      "lighting_designer": null,
+      "music": null,
+      "choreographer": null,
+      "text": "",
+      "image": "",
+      "is_our_play": true,
+      "status": 1,
+      "created_at": "2017-11-29T14:33:11.825Z",
+      "updated_at": "2017-11-29T14:33:11.825Z"
+    }
+  },
+  {
+    "model": "theater.play",
+    "pk": 5,
+    "fields": {
+      "title": "\u041a\u0430\u043a \u0418\u0432\u0430\u043d\u0443\u0448\u043a\u0430 \u0437\u0430 \u0414\u0435\u0434\u043e\u043c \u041c\u043e\u0440\u043e\u0437\u043e\u043c \u043b\u0435\u0442\u0430\u043b",
+      "slug": "kak-ivanushka-za-dedom-morozom-letal",
+      "age": 3,
+      "genre": 3,
+      "duration": null,
+      "author": null,
+      "staging": null,
+      "director": null,
+      "head_of_production": null,
+      "production_designer": null,
+      "lighting_designer": null,
+      "music": null,
+      "choreographer": null,
+      "text": "<p>\u0416\u0430\u043d\u0440 \u0441\u043a\u0430\u0437\u043a\u0438 &mdash; \u043c\u044e\u0437\u0438\u043a\u043b. \u0418 \u043a\u043e\u0433\u043e \u0442\u043e\u043b\u044c\u043a\u043e \u043d\u0435\u0442 \u0432 \u044d\u0442\u043e\u0439 \u0438\u0441\u0442\u043e\u0440\u0438\u0438, \u0441\u043b\u0443\u0447\u0438\u0432\u0448\u0435\u0439\u0441\u044f \u043f\u043e\u0434 \u041d\u043e\u0432\u044b\u0439 \u0433\u043e\u0434! \u041f\u043e\u0447\u0442\u0438 \u0432\u0441\u0435 \u0441\u0442\u0430\u0440\u044b\u0435 \u0437\u043d\u0430\u043a\u043e\u043c\u0446\u044b! \u0421\u0443\u043c\u0430\u0441\u0431\u0440\u043e\u0434\u043d\u044b\u0439 \u0446\u0430\u0440\u044c \u0411\u0435\u0440\u0435\u043d\u0434\u0435\u0439 \u0438 \u0435\u0433\u043e \u0434\u043e\u0447\u043a\u0430 \u0446\u0430\u0440\u0435\u0432\u043d\u0430 \u041c\u0430\u0440\u044c\u044e\u0448\u043a\u0430, \u0411\u0430\u0431\u0430 \u042f\u0433\u0430 \u0441\u043e \u0441\u0432\u043e\u0438\u043c\u0438 \u0441\u043b\u0443\u0433\u0430\u043c\u0438 \u041f\u043e\u0433\u0430\u043d\u043a\u0430\u043c\u0438 \u0438 \u0417\u043c\u0435\u0439 \u0413\u043e\u0440\u044b\u043d\u044b\u0447, \u041a\u043e\u0449\u0435\u0439 \u0411\u0435\u0441\u0441\u043c\u0435\u0440\u0442\u043d\u044b\u0439 \u0441\u043e \u0441\u0432\u0438\u0442\u043e\u0439 \u041b\u0435\u0442\u0443\u0447\u0438\u0445 \u041c\u044b\u0448\u0435\u0439 \u0438... \u0414\u0430 \u0447\u0442\u043e \u0438 \u0433\u043e\u0432\u043e\u0440\u0438\u0442\u044c, \u0430\u0432\u0442\u043e\u0440 \u043f\u044c\u0435\u0441\u044b \u0414\u0435\u043d\u0438\u0441 \u0410\u043b\u0442\u0443\u0445\u043e\u0432 \u0432\u0435\u0441\u044c\u043c\u0430 \u0433\u0443\u0441\u0442\u043e \u043d\u0430\u0441\u0435\u043b\u0438\u043b \u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e \u0441\u0432\u043e\u0435\u0439 \u043f\u044c\u0435\u0441\u044b \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u0436\u0430\u043c\u0438 \u0440\u0443\u0441\u0441\u043a\u043e\u0433\u043e \u0444\u043e\u043b\u044c\u043a\u043b\u043e\u0440\u0430 \u0438 \u0433\u0435\u0440\u043e\u044f\u043c\u0438 \u0438\u0437\u0432\u0435\u0441\u0442\u043d\u0435\u0439\u0448\u0438\u0445 \u043e\u0442\u0435\u0447\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0445 \u0441\u043a\u0430\u0437\u043e\u043a. \u041e\u0434\u043d\u0430\u043a\u043e \u0435\u0441\u0442\u044c \u0432 \u043d\u0435\u0439 \u0438 \u0442\u0430\u043a\u043e\u0435 \u0441\u0442\u0440\u0430\u043d\u043d\u043e\u0435 \u0434\u043b\u044f \u0441\u0442\u0430\u0440\u044b\u0445 \u0441\u043a\u0430\u0437\u043e\u043a \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0435 \u043b\u0438\u0446\u043e, \u043a\u0430\u043a, \u043d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, \u041f\u0435\u0442\u044c\u043a\u0430-\u043b\u0435\u0442\u0447\u0438\u043a...</p>\r\n\r\n<p>\u0418 \u0432\u043e\u043e\u0431\u0449\u0435 \u043e\u0447\u0435\u043d\u044c \u043c\u043d\u043e\u0433\u043e\u0435 \u043d\u0430 \u043f\u043e\u0432\u0435\u0440\u043a\u0443 \u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0432 \u044d\u0442\u043e\u0439 \u0441\u043a\u0430\u0437\u043a\u0435 \u043d\u0435\u043e\u0431\u044b\u0447\u043d\u044b\u043c, \u0442\u0430\u043a \u043a\u0430\u043a \u0430\u0434\u0440\u0435\u0441\u043e\u0432\u0430\u043d\u043e \u0441\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u043c \u0434\u0435\u0442\u044f\u043c \u0438 \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u043d\u043e \u043d\u0430 \u0438\u0445 \u0432\u043e\u0441\u043f\u0440\u0438\u044f\u0442\u0438\u0435 \u0441\u043a\u0430\u0437\u043e\u0447\u043d\u043e\u0439 \u0440\u0435\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438. \u0418\u043c\u0435\u043d\u043d\u043e \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u0432 \u0441\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u0435 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u044b \u0442\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0441\u0446\u0435\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0432\u044b\u0440\u0430\u0437\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0434\u0435\u043b\u0430\u044e\u0442 \u043f\u0440\u043e\u0438\u0441\u0445\u043e\u0434\u044f\u0449\u0435\u0435 \u043d\u0430 \u043f\u043e\u0434\u043c\u043e\u0441\u0442\u043a\u0430\u0445 \u043d\u0430\u0441\u0442\u043e\u044f\u0449\u0438\u043c \u0437\u0440\u0435\u043b\u0438\u0449\u0435\u043c.</p>",
+      "image": "",
+      "is_our_play": true,
+      "status": 1,
+      "created_at": "2017-11-29T14:34:09.788Z",
+      "updated_at": "2017-11-29T14:34:09.788Z"
+    }
+  },
+  {
+    "model": "theater.playphoto",
+    "pk": 1,
+    "fields": {
+      "image": "plays/1/img1.jpg",
+      "play": 1,
+      "is_visible": true,
+      "created_at": "2017-11-22T12:12:54.106Z",
+      "updated_at": "2017-11-22T12:12:54.106Z"
+    }
+  },
+  {
+    "model": "theater.playphoto",
+    "pk": 2,
+    "fields": {
+      "image": "plays/1/img2.jpg",
+      "play": 1,
+      "is_visible": true,
+      "created_at": "2017-11-22T12:12:54.166Z",
+      "updated_at": "2017-11-22T12:12:54.166Z"
+    }
+  },
+  {
+    "model": "theater.playphoto",
+    "pk": 3,
+    "fields": {
+      "image": "plays/1/img3.jpg",
+      "play": 1,
+      "is_visible": true,
+      "created_at": "2017-11-22T12:12:54.186Z",
+      "updated_at": "2017-11-22T12:12:54.186Z"
+    }
+  },
+  {
+    "model": "theater.playphoto",
+    "pk": 4,
+    "fields": {
+      "image": "plays/1/img4.jpg",
+      "play": 1,
+      "is_visible": true,
+      "created_at": "2017-11-22T12:12:54.206Z",
+      "updated_at": "2017-11-22T12:12:54.206Z"
+    }
+  },
+  {
+    "model": "theater.playphoto",
+    "pk": 5,
+    "fields": {
+      "image": "plays/1/img5.jpg",
+      "play": 1,
+      "is_visible": true,
+      "created_at": "2017-11-22T12:12:54.236Z",
+      "updated_at": "2017-11-22T12:12:54.236Z"
+    }
+  },
+  {
+    "model": "theater.playphoto",
+    "pk": 6,
+    "fields": {
+      "image": "plays/1/img6.jpg",
+      "play": 1,
+      "is_visible": true,
+      "created_at": "2017-11-22T12:12:54.256Z",
+      "updated_at": "2017-11-22T12:12:54.256Z"
+    }
+  },
+  {
+    "model": "theater.playvideo",
+    "pk": 1,
+    "fields": {
+      "youtube_id": "JMJXvsCLu6s",
+      "play": 1,
+      "is_visible": true,
+      "created_at": "2017-11-22T12:33:40.409Z",
+      "updated_at": "2017-11-22T12:42:42.275Z"
+    }
+  },
+  {
+    "model": "theater.currentplay",
+    "pk": 2,
+    "fields": {
+      "person": 1,
+      "play": 1,
+      "text": "\u0440\u043e\u043b\u044c - \u0420\u043e\u043b\u044c"
+    }
+  },
+  {
+    "model": "theater.lastplay",
+    "pk": 2,
+    "fields": {
+      "person": 1,
+      "play": 1,
+      "text": "\u0440\u043e\u043b\u044c - \u0420\u043e\u043b\u044c"
+    }
+  },
+  {
+    "model": "theater.personplayrole",
+    "pk": 3,
+    "fields": {
+      "person": 1,
+      "play": 1,
+      "role": "\u0420\u043e\u043b\u044c 1"
+    }
+  },
+  {
+    "model": "theater.personplayrole",
+    "pk": 4,
+    "fields": {
+      "person": 3,
+      "play": 1,
+      "role": "\u0420\u043e\u043b\u044c 2"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 1,
+    "fields": {
+      "title": "\u041e\u0441\u043d\u043e\u0432\u043d\u0430\u044f \u0441\u0446\u0435\u043d\u0430",
+      "slug": "osnovnaya-scena",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-23T11:42:36.563Z",
+      "updated_at": "2017-11-23T12:02:10.602Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 2,
+    "fields": {
+      "title": "\u0422\u0435\u0430\u0442\u0440 \u043d\u0430 \u0411\u043e\u043b\u044c\u0448\u043e\u0439 \u041c\u043e\u0440\u0441\u043a\u043e\u0439",
+      "slug": "teatr-na-bolshoj-morskoj",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": false,
+      "created_at": "2017-11-23T11:42:48.245Z",
+      "updated_at": "2017-11-23T12:02:23.748Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 3,
+    "fields": {
+      "title": "\u0421\u0445\u0435\u043c\u0430 \u0437\u0430\u043b\u043e\u0432",
+      "slug": "shema-zalov",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-23T11:42:57.927Z",
+      "updated_at": "2017-11-23T12:02:16.724Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 4,
+    "fields": {
+      "title": "\u0424\u043e\u0439\u0435",
+      "slug": "foje",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-23T11:43:05.986Z",
+      "updated_at": "2017-11-23T12:02:33.471Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 5,
+    "fields": {
+      "title": "\u041c\u0443\u0437\u0435\u0439",
+      "slug": "muzej",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-23T12:05:21.990Z",
+      "updated_at": "2017-11-23T12:05:21.990Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 6,
+    "fields": {
+      "title": "\u041f\u0440\u0435\u0441\u0441-\u0446\u0435\u043d\u0442\u0440",
+      "slug": "press-centr",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-23T12:05:34.733Z",
+      "updated_at": "2017-11-23T12:05:34.733Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 7,
+    "fields": {
+      "title": "\u0421\u043e\u0431\u044b\u0442\u0438\u044f",
+      "slug": "sobytiya",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-23T12:06:11.897Z",
+      "updated_at": "2017-11-23T12:06:11.897Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 8,
+    "fields": {
+      "title": "\u041f\u0430\u0440\u0442\u043d\u0435\u0440\u044b",
+      "slug": "partnery",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-23T12:06:20.036Z",
+      "updated_at": "2017-11-23T12:06:20.036Z"
+    }
+  },
+  {
+    "model": "theater.page",
+    "pk": 9,
+    "fields": {
+      "title": "\u0418\u0441\u0442\u043e\u0440\u0438\u044f",
+      "slug": "history",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-22T11:42:36.563Z",
+      "updated_at": "2017-11-24T09:26:36.374Z"
+    }
+  },
+  {
+    "model": "repertoire.scene",
+    "pk": 1,
+    "fields": {
+      "title": "\u041e\u0441\u043d\u043e\u0432\u043d\u0430\u044f \u0441\u0446\u0435\u043d\u0430",
+      "show_in_filter": true,
+      "created_at": "2017-11-20T11:39:12.664Z",
+      "updated_at": "2017-11-29T12:25:30.036Z"
+    }
+  },
+  {
+    "model": "repertoire.scene",
+    "pk": 2,
+    "fields": {
+      "title": "\u0422\u0435\u0430\u0442\u0440 \u043d\u0430 \u0411\u043e\u043b\u044c\u0448\u043e\u0439 \u041c\u043e\u0440\u0441\u043a\u043e\u0439",
+      "show_in_filter": false,
+      "created_at": "2017-11-29T12:16:29.242Z",
+      "updated_at": "2017-11-29T14:28:50.611Z"
+    }
+  },
+  {
+    "model": "repertoire.event",
+    "pk": 2,
+    "fields": {
+      "datetime": "2017-11-30T12:00:00Z",
+      "play": 1,
+      "scene": 1,
+      "free_enter": false,
+      "is_premiere": false,
+      "gts": false,
+      "external": false,
+      "tour": false,
+      "guests": false,
+      "is_visible": true,
+      "created_at": "2017-11-21T07:18:26.523Z",
+      "updated_at": "2017-11-29T14:34:54.848Z"
+    }
+  },
+  {
+    "model": "repertoire.event",
+    "pk": 3,
+    "fields": {
+      "datetime": "2017-12-02T11:00:00Z",
+      "play": 3,
+      "scene": 1,
+      "free_enter": false,
+      "is_premiere": false,
+      "gts": false,
+      "external": false,
+      "tour": false,
+      "guests": false,
+      "is_visible": true,
+      "created_at": "2017-11-29T14:37:40.682Z",
+      "updated_at": "2017-11-29T14:37:40.682Z"
+    }
+  },
+  {
+    "model": "repertoire.event",
+    "pk": 4,
+    "fields": {
+      "datetime": "2017-12-03T11:00:00Z",
+      "play": 3,
+      "scene": 1,
+      "free_enter": false,
+      "is_premiere": false,
+      "gts": false,
+      "external": false,
+      "tour": false,
+      "guests": false,
+      "is_visible": true,
+      "created_at": "2017-11-29T14:38:00.125Z",
+      "updated_at": "2017-11-29T14:38:00.125Z"
+    }
+  },
+  {
+    "model": "repertoire.event",
+    "pk": 5,
+    "fields": {
+      "datetime": "2017-12-03T18:30:00Z",
+      "play": 1,
+      "scene": 1,
+      "free_enter": false,
+      "is_premiere": false,
+      "gts": false,
+      "external": false,
+      "tour": false,
+      "guests": false,
+      "is_visible": true,
+      "created_at": "2017-11-29T14:38:31.108Z",
+      "updated_at": "2017-11-29T14:38:31.108Z"
+    }
+  },
+  {
+    "model": "repertoire.event",
+    "pk": 6,
+    "fields": {
+      "datetime": "2017-12-10T11:00:00Z",
+      "play": 4,
+      "scene": 1,
+      "free_enter": false,
+      "is_premiere": false,
+      "gts": false,
+      "external": false,
+      "tour": false,
+      "guests": false,
+      "is_visible": true,
+      "created_at": "2017-11-29T14:38:58.652Z",
+      "updated_at": "2017-11-29T14:38:58.652Z"
+    }
+  },
+  {
+    "model": "repertoire.event",
+    "pk": 7,
+    "fields": {
+      "datetime": "2017-12-16T11:00:00Z",
+      "play": 5,
+      "scene": 1,
+      "free_enter": false,
+      "is_premiere": true,
+      "gts": false,
+      "external": false,
+      "tour": false,
+      "guests": false,
+      "is_visible": true,
+      "created_at": "2017-11-29T14:39:32.287Z",
+      "updated_at": "2017-11-29T14:39:32.287Z"
+    }
+  },
+  {
+    "model": "settings.footersettings",
+    "pk": 1,
+    "fields": {
+      "information_block_title": "\u041e \u043d\u0430\u0441",
+      "information_block_text": "\u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0442\u0435\u0430\u0442\u0440 \u044e\u043d\u043e\u0433\u043e \u0437\u0440\u0438\u0442\u0435\u043b\u044f \u2014 \u0442\u0435\u0430\u0442\u0440 \u0434\u043b\u044f \u0434\u0435\u0442\u0435\u0439 \u0438 \u043c\u043e\u043b\u043e\u0434\u0435\u0436\u0438, \u0430 \u0442\u0430\u043a\u0436\u0435 \u0438\u0445 \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439. \u041f\u0440\u0438\u0433\u043b\u0430\u0448\u0430\u0435\u043c \u0432\u0430\u0441 \u0445\u043e\u0440\u043e\u0448\u043e \u043f\u0440\u043e\u0432\u0435\u0441\u0442\u0438 \u0432\u0440\u0435\u043c\u044f!",
+      "contacts_block_html": "<address class=\"g-bg-no-repeat g-font-size-12 mb-0\" style=\"background-image: url('/static/assets/img/maps/map2.png');\">\r\n    <!-- Phone -->\r\n    <div class=\"d-flex g-mb-20\">\r\n        <div class=\"g-mr-10\">\r\n            <span class=\"u-icon-v3 u-icon-size--xs g-bg-white-opacity-0_1 g-color-white-opacity-0_6\">\r\n            <i class=\"fa fa-phone\"></i>\r\n            </span>\r\n        </div>\r\n        <p class=\"mb-0\">+7 (978) 333-37-07<br>+7 (8692) 53-42-15</p>\r\n    </div>\r\n    <!-- End Phone -->\r\n    <!-- Location -->\r\n    <div class=\"d-flex g-mb-20\">\r\n        <div class=\"g-mr-10\">\r\n            <span class=\"u-icon-v3 u-icon-size--xs g-bg-white-opacity-0_1 g-color-white-opacity-0_6\">\r\n            <i class=\"fa fa-map-marker\"></i>\r\n            </span>\r\n        </div>\r\n        <p class=\"mb-0\">\u0421\u0435\u0432\u0430\u0441\u0442\u043e\u043f\u043e\u043b\u044c, <br> \u043f\u0440.\u0413\u0430\u0433\u0430\u0440\u0438\u043d\u0430, 16</p>\r\n    </div>\r\n    <!-- End Location -->\r\n    <!-- Email and Website -->\r\n    <div class=\"d-flex g-mb-20\">\r\n        <div class=\"g-mr-10\">\r\n            <span class=\"u-icon-v3 u-icon-size--xs g-bg-white-opacity-0_1 g-color-white-opacity-0_6\">\r\n            <i class=\"fa fa-globe\"></i>\r\n            </span>\r\n        </div>\r\n        <p class=\"mb-0\">\r\n            <a class=\"g-color-white-opacity-0_8 g-color-white--hover\" href=\"mailto:info@\u0441\u0435\u0432\u0442\u044e\u0437.\u0440\u0444\">info@\u0441\u0435\u0432\u0442\u044e\u0437.\u0440\u0444</a>\r\n            <br>\r\n            <a class=\"g-color-white-opacity-0_8 g-color-white--hover\" href=\"http://\u0441\u0435\u0432\u0442\u044e\u0437.\u0440\u0444/\">\u0441\u0435\u0432\u0442\u044e\u0437.\u0440\u0444</a>\r\n        </p>\r\n    </div>\r\n    <!-- End Email and Website -->\r\n</address>"
+    }
+  },
+  {
+    "model": "settings.sociallinksmodel",
+    "pk": 1,
+    "fields": {
+      "fb": "https://fb.com/",
+      "vk": "https://vk.com/sevtyuz",
+      "instagram": "https://instagram.com/",
+      "ok": "https://ok.com/",
+      "twitter": "https://twitter.com/",
+      "youtube": "https://youtube.com/"
+    }
+  },
+  {
+    "model": "contacts.page",
+    "pk": 1,
+    "fields": {
+      "text": "<p>\u0422\u0435\u043a\u0441\u0442 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u044b</p>",
+      "created_at": "2017-11-24T11:57:39.073Z",
+      "updated_at": "2017-11-29T08:35:10.990Z"
+    }
+  },
+  {
+    "model": "tickets.page",
+    "pk": 1,
+    "fields": {
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u044b</p>",
+      "created_at": "2017-11-24T12:28:08.638Z",
+      "updated_at": "2017-11-24T12:29:27.770Z"
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 1,
+    "fields": {
+      "title": "\u0414\u0438\u0440\u0435\u043a\u0446\u0438\u044f",
+      "slug": "direkciya",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:42:13.712Z",
+      "updated_at": "2017-11-27T10:42:13.712Z",
+      "persons": []
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 2,
+    "fields": {
+      "title": "\u0425\u0443\u0434\u043e\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0430\u044f \u0447\u0430\u0441\u0442\u044c",
+      "slug": "hudozhestvennaya-chast",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:42:32.609Z",
+      "updated_at": "2017-11-27T10:42:32.609Z",
+      "persons": []
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 3,
+    "fields": {
+      "title": "\u041f\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043e\u0447\u043d\u0430\u044f \u0447\u0430\u0441\u0442\u044c",
+      "slug": "postanovochnaya-chast",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:42:45.288Z",
+      "updated_at": "2017-11-27T10:42:45.289Z",
+      "persons": []
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 4,
+    "fields": {
+      "title": "\u0417\u0440\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0430\u044f \u0447\u0430\u0441\u0442\u044c",
+      "slug": "zritelskaya-chast",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:43:09.995Z",
+      "updated_at": "2017-11-27T10:43:09.996Z",
+      "persons": []
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 5,
+    "fields": {
+      "title": "\u0422\u0440\u0443\u043f\u043f\u0430",
+      "slug": "truppa",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:43:23.372Z",
+      "updated_at": "2017-11-28T09:23:19.789Z",
+      "persons": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 6,
+    "fields": {
+      "title": "\u0410\u0432\u0442\u043e\u0440\u044b \u0441\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u0435\u0439",
+      "slug": "avtory-spektaklej",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:43:36.066Z",
+      "updated_at": "2017-11-27T10:43:36.066Z",
+      "persons": []
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 7,
+    "fields": {
+      "title": "\u0423 \u043d\u0430\u0441 \u0440\u0430\u0431\u043e\u0442\u0430\u043b\u0438",
+      "slug": "u-nas-rabotali",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:43:50.657Z",
+      "updated_at": "2017-11-27T10:43:50.657Z",
+      "persons": []
+    }
+  },
+  {
+    "model": "people.page",
+    "pk": 8,
+    "fields": {
+      "title": "\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438",
+      "slug": "vakansii",
+      "text": "<p>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</p>",
+      "is_visible": true,
+      "created_at": "2017-11-27T10:44:09.684Z",
+      "updated_at": "2017-11-27T10:44:09.684Z",
+      "persons": []
+    }
+  }
+]
