@@ -10,3 +10,5 @@ pytz==2017.3
 singlemodeladmin==0.8
 six==1.11.0
 sqlparse==0.2.4
+gunicorn==19.7.1
+psycopg2==2.7.3.2
