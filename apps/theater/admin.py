@@ -55,7 +55,7 @@ class PlayRoleInline(admin.TabularInline):
 class PlayAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования спектакля."""
     list_display = ('title', 'created_at', 'updated_at')
-    ordering = ('-created_at',)
+    ordering = ('title',)
     search_fields = ('title',)
     inlines = (PlayPhotoInline, PlayVideoInline, PlayRoleInline)
     prepopulated_fields = {"slug": ("title",)}
