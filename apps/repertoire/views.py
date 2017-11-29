@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from apps.repertoire.models import Event
+from apps.repertoire.models import Event, Scene
 from datetime import datetime
 from django.urls import reverse
+
+import re
 
 
 def events_list(request):
@@ -27,6 +29,9 @@ def events_list(request):
     elif prev_month == 0:
         next_month, next_year = 12, next_year - 1
 
+    # Сцены для вывода в фильтре
+    scenes = Scene.objects.filter(show_in_filter=True).order_by('title')
+
     return render(
         request,
         'repertoire/events/list.html',
@@ -38,6 +43,7 @@ def events_list(request):
             'prev_year': prev_year,
             'next_month': next_month,
             'next_year': next_year,
+            'scenes': scenes
         }
     )
 
@@ -53,10 +59,8 @@ def get_events_table(request):
     filter_1_value = request.GET.get('filter1')
     filter_2_value = request.GET.get('filter2')
 
-    if filter_1_value == 'main_scene':
-        event_list = event_list.filter(scene=1)
-    elif filter_1_value == 'b_morskaya':
-        event_list = event_list.filter(scene=2)
+    if re.search('scene_\d+', filter_1_value):
+        event_list = event_list.filter(scene=re.findall('\d+', filter_1_value)[0])
     elif filter_1_value == 'external':
         event_list = event_list.filter(external=True)
     elif filter_1_value == 'tour':

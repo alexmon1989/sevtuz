@@ -6,6 +6,11 @@ from django.utils import timezone
 class Scene(models.Model):
     """Модель сцены."""
     title = models.CharField('Название', max_length=255)
+    show_in_filter = models.BooleanField(
+        'Показывать в фильтре',
+        default=False,
+        help_text='Показывать в фильтре на странице "Репертуар"'
+    )
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
