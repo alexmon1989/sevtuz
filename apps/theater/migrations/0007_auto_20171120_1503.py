@@ -12,7 +12,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='play',
+            name='duration',
+        ),
+        migrations.AddField(
             model_name='play',
             name='duration',
             field=models.DurationField(blank=True, null=True, verbose_name='Продолжительность, минут'),
