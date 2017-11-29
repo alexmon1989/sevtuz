@@ -4,7 +4,7 @@
 
 {% block extra_meta %}
     {% if request.GET.page %}
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="noindex, follow"/>
     {% endif %}
     {% if page_obj.has_previous %}
         <link rel="prev" href="?page={{ page_obj.previous_page_number }}">
@@ -14,13 +14,19 @@
     {% endif %}
 {% endblock %}
 
-{% block title %}Спектакли / {% if 'current' in request.get_full_path %}
-    Текущие
-{% elif 'archive' in request.get_full_path %}
-    Архивные
-{% elif 'plans' in request.get_full_path %}
-    Планируемые
-{% endif %} / {{ block.super }}{% endblock %}
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        Спектакли / {% if 'current' in request.get_full_path %}
+            Текущие
+        {% elif 'archive' in request.get_full_path %}
+            Архивные
+        {% elif 'plans' in request.get_full_path %}
+            Планируемые
+        {% endif %} / СевТЮЗ
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbs %}
     {% include "plays/list/_partial/breadcrumbs.html" %}
@@ -40,7 +46,8 @@
                                             <img src="{{ play.image|thumbnail_url:'play_md' }}" alt="{{ play.title }}"
                                                  class="img-fluid">
                                         {% else %}
-                                            <img class="img-fluid" src="\\via.placeholder.com/600x375?text=No+Photo" alt="No photo">
+                                            <img class="img-fluid" src="\\via.placeholder.com/600x375?text=No+Photo"
+                                                 alt="No photo">
                                         {% endif %}
                                     </a>
                                 </div>

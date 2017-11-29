@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Контакты / {{ block.super }}{% endblock %}
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        Контакты / СевТЮЗ
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbs %}
     {% include 'contacts/breadcrumbs.html' %}

@@ -1,16 +1,20 @@
 {% load staticfiles %}
 {% load project_tags %}
+{% load seo %}
+{% get_metadata as metadata %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- Title -->
-    <title>{% block title %}{{ request.get_host }}{% endblock %}</title>
+    <title>{% block title %}{{ metadata.title.value|default_if_none:"" }}{% endblock %}</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{{ metadata.description.value|default_if_none:"" }}" />
+    <meta name="keywords" content="{{ metadata.keywords.value|default_if_none:"" }}" />
 
     {% block extra_meta %}{% endblock %}
 

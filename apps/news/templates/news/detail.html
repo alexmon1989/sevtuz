@@ -3,7 +3,7 @@
 {% load staticfiles %}
 {% load thumbnail %}
 
-{% block title %}{{ news.title }} / Новости / {{ block.super }}{% endblock %}
+{% block title %}{% if metadata.title.value %}{{ metadata.title.value }}{% else %}{{ news.title }} / Новости / CевТЮЗ{% endif %}{% endblock %}
 
 {% block breadcrumbs %}
     {% include 'news/_partial/breadcrumbs_detail.html' %}

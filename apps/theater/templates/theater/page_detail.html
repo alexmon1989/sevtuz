@@ -2,7 +2,13 @@
 
 {% load project_tags %}
 
-{% block title %}{{ page.title }} / Театр / {{ block.super }}{% endblock %}
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        {{ page.title }} / Театр / СевТЮЗ
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbs %}
     {% include "theater/_partial/breadcrumbs.html" %}

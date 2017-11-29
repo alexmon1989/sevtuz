@@ -5,7 +5,13 @@
 {% load project_tags %}
 {% load news_extras %}
 
-{% block title %}Новости{% if month_title %} за {{ month_title }} {{ request.GET.year }} г. {% endif %}{% if request.GET.page %} / Страница {{ request.GET.page }} {% endif %} / {{ block.super }}{% endblock %}
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}{% if month_title %} / {{ month_title }} {{ request.GET.year }} г. {% endif %}{% if request.GET.page %} / Страница {{ request.GET.page }} {% endif %}
+    {% else %}
+        Новости{% if month_title %} за {{ month_title }} {{ request.GET.year }} г. {% endif %}{% if request.GET.page %} / Страница {{ request.GET.page }} {% endif %} / СевТЮЗ
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbs %}
     {% include 'news/_partial/breadcrumbs_list.html' %}

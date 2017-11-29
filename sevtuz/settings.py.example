@@ -36,11 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'django.contrib.sitemaps',
     'ckeditor',
     'ckeditor_uploader',
     'easy_thumbnails',
     'debug_toolbar',
+    'djangoseo',
     'singlemodeladmin',
     'apps.home',
     'apps.news',
@@ -217,3 +219,5 @@ CKEDITOR_CONFIGS = {
 }
 
 INTERNAL_IPS = ['127.0.0.1']
+
+SITE_ID = 1

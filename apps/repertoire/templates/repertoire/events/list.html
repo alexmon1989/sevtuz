@@ -2,7 +2,13 @@
 
 {% load project_tags %}
 
-{% block title %}Репертуар на / {{ month|month_title }} {{ year }} / {{ block.super }}{% endblock %}
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }} / {{ month|month_title }} {{ year }}
+    {% else %}
+        Репертуар на / {{ month|month_title }} {{ year }}
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbs %}
     {% include 'repertoire/events/_partial/breadcrumbs_list.html' %}

@@ -2,7 +2,13 @@
 
 {% load project_tags %}
 
-{% block title %}{{ person.name }} / Люди театра / {{ block.super }}{% endblock %}
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        {{ person.name }} / Люди театра / СевТЮЗ
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbs %}
     {% include "people/person_detail/_partial/breadcrumbs.html" %}

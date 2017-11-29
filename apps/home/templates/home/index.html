@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %}Главная / {{ block.super }}{% endblock %}
+{% block title %}{% if metadata.title.value %}{{ metadata.title.value }}{% else %} Главная страница / CевТЮЗ{% endif %}{% endblock %}
 
 {% block content %}
 

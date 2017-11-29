@@ -2,9 +2,11 @@ Django==1.11.7
 django-ckeditor==5.3.1
 django-debug-toolbar==1.9.1
 django-js-asset==0.1.1
+django-seo2==1.0.1
 easy-thumbnails==2.5
 olefile==0.44
 Pillow==4.3.0
 pytz==2017.3
-sqlparse==0.2.4
 singlemodeladmin==0.8
+six==1.11.0
+sqlparse==0.2.4
