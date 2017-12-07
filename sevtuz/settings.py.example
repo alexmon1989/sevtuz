@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'djangoseo',
     'singlemodeladmin',
+    'compressor',
     'apps.home',
     'apps.news',
     'apps.theater',
@@ -142,6 +143,12 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../staticfiles'))
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
 
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../media'))
 MEDIA_URL = '/media/'
@@ -221,3 +228,8 @@ CKEDITOR_CONFIGS = {
 INTERNAL_IPS = ['127.0.0.1']
 
 SITE_ID = 1
+
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter'
+]
