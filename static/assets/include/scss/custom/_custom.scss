@@ -9,3 +9,9 @@
 .g-bg-orange-opacity-0_8 {
   background-color: rgba(229, 125, 32, 0.8) !important;
 }
+
+@media (min-width: 992px) {
+  .g-font-size-30--lg {
+    font-size: 30px !important;
+  }
+}

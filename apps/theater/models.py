@@ -184,7 +184,7 @@ class Play(models.Model):
 
     def get_events(self):
         """Возвращает 5 ближайших дат проведения спектакля."""
-        return self.event_set.filter(is_visible=True, datetime__gte=timezone.now()).order_by('-datetime').all()[:5]
+        return self.event_set.filter(is_visible=True, datetime__gte=timezone.now()).order_by('datetime').all()[:5]
 
     def get_photos(self):
         """Возвращает список фотографий спектакля."""
