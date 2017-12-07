@@ -6,6 +6,7 @@
 <html lang="ru">
 
 <head>
+    {% analytics_code %}
     <!-- Title -->
     <title>{% block title %}{{ metadata.title.value|default_if_none:"" }}{% endblock %}</title>
 

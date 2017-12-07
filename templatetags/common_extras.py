@@ -1,10 +1,12 @@
 from django import template
 from django.conf import settings
 from django.utils import timezone
+from django.utils.safestring import mark_safe
 from apps.settings.models import FooterSettings, SocialLinksModel
 from apps.repertoire.models import Event
 from apps.theater.models import Page as TheaterPage
 from apps.people.models import Page as PeoplePage
+from apps.settings.models import Analytics
 
 register = template.Library()
 
@@ -70,3 +72,10 @@ def theater_submenu():
 @register.simple_tag
 def people_submenu():
     return PeoplePage.objects.filter(is_visible=True).order_by('created_at')
+
+
+@register.simple_tag
+def analytics_code():
+    """Возвращает HTML-код аналитики."""
+    analytics, created = Analytics.objects.get_or_create()
+    return mark_safe(analytics.code)
