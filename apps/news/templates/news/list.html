@@ -50,7 +50,7 @@
                                         <a class="u-link-v5 g-color-black g-color-primary--hover"
                                            href="{% url 'news_detail' pk=news_item.pk %}">{{ news_item.title }}</a>
                                     </h2>
-                                    <p class="g-line-height-1_8">{{ news_item.text|striptags|truncatewords:40 }}</p>
+                                    <p class="g-line-height-1_8">{{ news_item.text|striptags|truncatewords:40|safe }}</p>
                                     <a class="g-font-size-13" href="{% url 'news_detail' pk=news_item.pk %}">Читать
                                         далее...</a>
                                 </div>

@@ -31,7 +31,7 @@
                                     <a class="u-link-v5 g-color-main g-color-primary--hover"
                                        href="{% url 'news_detail' pk=news.pk %}">{{ news.title }}</a>
                                 </h3>
-                                <p>{{ news.text|striptags|truncatewords:25 }}</p>
+                                <p>{{ news.text|striptags|truncatewords:25|safe }}</p>
 
                                 <strong>
                                     <a class="text-uppercase g-font-size-12" href="{% url 'news_detail' pk=news.pk %}">Детальнее</a>
