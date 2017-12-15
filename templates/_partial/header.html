@@ -1,13 +1,37 @@
 {% load staticfiles %}
 {% load project_tags %}
 
-<header id="js-header"
-        class="u-header u-header--static u-header--show-hide u-header--change-appearance g-brd-yellow-bottom u-brd-style-solid--bottom"
-        data-header-fix-moment="500" data-header-fix-effect="slide">
-    <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10"
-         data-header-fix-moment-exclude="g-bg-white g-py-10"
-         data-header-fix-moment-classes="g-bg-white-opacity-0_7 u-shadow-v18 g-py-0">
-        <nav class="navbar navbar-expand-lg">
+<!-- Header -->
+<header id="js-header" class="u-header u-header--static">
+    <!-- Top Bar -->
+    <div class="u-header__section u-header__section--hidden g-bg-red">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 text-center g-pt-10">
+                    <a href="/"><img src="{% static "assets/img/header/sevtuz.png" %}" alt="" class="w-100"></a>
+                </div>
+                <div class="col-md-2 text-center g-pt-10 g-pb-20 g-pb-0--md">
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="#" class="g-font-size-14 g-color-white">A</a>
+                            <a href="#" class="g-font-size-18 g-color-white">A</a>
+                            <a href="#" class="g-font-size-22 g-color-white">A</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="#"><img src="{% static "assets/img/header/buy-ticket.png" %}" alt=""
+                                             class="img-fluid"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Bar -->
+
+    <div class="u-header__section u-header__section--light g-bg-white g-brd-none g-brd-top g-brd-bottom g-brd-primary g-brd-3">
+        <nav class="js-mega-menu navbar navbar-expand-lg">
             <div class="container">
                 <!-- Responsive Toggle Button -->
                 <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-3 g-right-0"
@@ -21,177 +45,377 @@
                 </button>
                 <!-- End Responsive Toggle Button -->
 
-                <!-- Logo -->
-                <a href="/" class="navbar-brand">
-                    <img src="{% static "assets/img/logo/logo.jpg" %}" alt="Севтюз">
-                </a>
-                <!-- End Logo -->
-
                 <!-- Navigation -->
-                <div class="js-mega-menu collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm"
+                <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm"
                      id="navBar">
                     <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                        <li class="nav-item g-mx-15--lg  {% if request.resolver_match.url_name == 'events_list' %}active{% endif %}">
-                            <a href="{% url 'events_list' %}" class="nav-link px-0">Репертуар
-                                {% if request.resolver_match.url_name == 'events_list' %}
-                                    <span class="sr-only">(current)</span>
-                                {% endif %}
-                            </a>
-                        </li>
-
-                        <li class="nav-item hs-has-sub-menu g-mx-15--lg {% if request.resolver_match.url_name|in_list:'plays_list_current,plays_list_archive,plays_list_plans,play_detail' %}active{% endif %}">
-                            <a href="{% url 'plays_list_current' %}" class="nav-link px-0">Спектакли
-                                {% if request.resolver_match.url_name|in_list:'plays_list_current,plays_list_archive,plays_list_plans,play_detail' %}
-                                    <span class="sr-only">(current)</span>
-                                {% endif %}
-                            </a>
-                            <!-- Submenu -->
-                            <ul class="hs-sub-menu list-unstyled g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-mt-20 g-mt-10--lg--scrolling"
-                                id="nav-submenu-1" aria-labelledby="nav-link-1">
-                                <li class="dropdown-item">
-                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_current' %}active{% endif %}"
-                                       href="{% url "plays_list_current" %}">Текущие</a>
-                                </li>
-                                <li class="dropdown-item">
-                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_archive' %}active{% endif %}"
-                                       href="{% url "plays_list_archive" %}">Архивные</a>
-                                </li>
-                                <li class="dropdown-item">
-                                    <a class="nav-link g-px-0 {% if request.resolver_match.url_name == 'plays_list_plans' %}active{% endif %}"
-                                       href="{% url "plays_list_plans" %}">Планы</a>
-                                </li>
-                            </ul>
-                            <!-- End Submenu -->
-                        </li>
-
-                        <li class="nav-item g-mx-15--lg {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}active{% endif %}">
-                            <a href="{% url 'news_list' %}" class="nav-link px-0">Новости
-                                {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'news_detail' %}
-                                    <span class="sr-only">(current)</span>
-                                {% endif %}
-                            </a>
-                        </li>
-
-                        {% theater_submenu as theater_submenu %}
-                        <li class="nav-item {% if theater_submenu|length > 0 %}hs-has-sub-menu{% endif %} {% if request.resolver_match.url_name == 'theater_page' %}active{% endif %} g-mx-15--lg">
-                            <a href="#" class="nav-link px-0">Театр
+                        <!-- Билеты -->
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                               aria-expanded="false">Билеты
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
 
-                            {% if theater_submenu|length > 0 %}
-                                <!-- Submenu -->
-                                <ul class="hs-sub-menu list-unstyled g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-mt-20 g-mt-10--lg--scrolling"
-                                    id="nav-submenu-2" aria-labelledby="nav-link-2">
-                                    {% for page in theater_submenu %}
-                                        <li class="dropdown-item">
-                                            <a class="nav-link g-px-0 {% if page.slug in request.get_full_path %}active{% endif %}"
-                                               href="{% url "theater_page" slug=page.slug %}">{{ page.title }}</a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                                <!-- End Submenu -->
-                            {% endif %}
-                        </li>
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Купить билет
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Стоимость билетов
 
-                        {% people_submenu as people_submenu %}
-                        <li class="nav-item {% if people_submenu|length > 0 %}hs-has-sub-menu{% endif %} {% if request.resolver_match.url_name == 'people_page' %}active{% endif %} g-mx-15--lg">
-                            <a href="#" class="nav-link px-0">Люди театра
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Заказ билетов
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Билеты -->
+
+                        <!-- Театр -->
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                               aria-expanded="false">Театр
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
 
-                            {% if people_submenu|length > 0 %}
-                                <!-- Submenu -->
-                                <ul class="hs-sub-menu list-unstyled g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-mt-20 g-mt-10--lg--scrolling"
-                                    id="nav-submenu-2" aria-labelledby="nav-link-2">
-                                    {% for page in people_submenu %}
-                                        <li class="dropdown-item">
-                                            <a class="nav-link g-px-0 {% if page.slug in request.get_full_path %}active{% endif %}"
-                                               href="{% url "people_page" slug=page.slug %}">{{ page.title }}</a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                                <!-- End Submenu -->
-                            {% endif %}
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Новости
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">История
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Здание
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Технические характеристики
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Официальные документы
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Партнёры
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
                         </li>
+                        <!-- End Театр -->
 
-                        <li class="nav-item g-mx-15--lg {% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">
-                            <a href="{% url "contacts" %}" class="nav-link px-0">Контакты
-                                {% if request.resolver_match.url_name == 'contacts' %}
-                                    <span class="sr-only">(current)</span>
-                                {% endif %}
+                        <!-- Люди театра -->
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg active" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            <a id="mega-menu-label-1" class="nav-link active g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                               aria-expanded="false">Люди театра
+                                <span class="sr-only">(current)</span>
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
-                        </li>
 
-                        <li class="nav-item g-ml-15--lg g-mr-0--lg g-bg-red-opacity-0_8">
-                            <a href="{% url "tickets" %}" class="nav-link g-px-5 g-color-white">Билеты
-                                {% if request.resolver_match.url_name == 'tickets' %}
-                                    <span class="sr-only">(current)</span>
-                                {% endif %}
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                                            <li class="nav-item g-mx-20--lg active">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Труппа
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Художественная часть
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Авторы спектаклей
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Администрация
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Вакансии
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Люди театра -->
+
+                        <!-- Афиша -->
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                               aria-expanded="false">Афиша
+                                <span class="sr-only">(current)</span>
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                            </a>
+
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Репертуар
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Основная сцена
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Выездные спектакли
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Спектакли
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Гастроли
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">События
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Афиша -->
+
+                        <!-- Медиа -->
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                               aria-expanded="false">Медиа
+                                <span class="sr-only">(current)</span>
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                            </a>
+
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Социальные сети
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">СМИ о нас
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Журнал
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Информационнаые партнёры
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-color-black g-pa-0 g-color-white--hover">Зрительский форум
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Медиа -->
+
+                        <!-- Проекты -->
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                               aria-expanded="false">Проекты
+                                <span class="sr-only">(current)</span>
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                            </a>
+
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!"
+                                                   class="nav-link g-pa-0 g-color-black g-color-white--active g-color-white--hover">Фестивали
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Акции
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Школа театрального зрителя
+
+                                                </a>
+                                            </li>
+                                            <li class="nav-item g-mx-20--lg">
+                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Театры-детям
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Проекты -->
+
+                        <li class="nav-item g-mx-15--lg g-mr-0--lg">
+                            <a href="#!" class="nav-link g-pa-0 g-color-black">Контакты
+
                             </a>
                         </li>
                     </ul>
 
                     {% social_links as social_links %}
-                    <ul class="list-inline text-center text-md-right mb-0">
+                    <ul class="list-inline text-center text-md-right g-my-10 g-my-0--md ">
                         {% if social_links.fb %}
-                            <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
                                 title="Facebook">
                                 <a href="{{ social_links.fb }}"
                                    target="_blank"
-                                   class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                             </li>
                         {% endif %}
 
                         {% if social_links.vk %}
-                            <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
                                 title="Vkontakte">
                                 <a href="{{ social_links.vk }}"
                                    target="_blank"
-                                   class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                     <i class="fa fa-vk"></i>
                                 </a>
                             </li>
                         {% endif %}
 
                         {% if social_links.instagram %}
-                            <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
                                 title="Instagram">
                                 <a href="{{ social_links.instagram }}"
                                    target="_blank"
-                                   class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                     <i class="fa fa-instagram"></i>
                                 </a>
                             </li>
                         {% endif %}
 
                         {% if social_links.ok %}
-                            <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
                                 title="Одноклассники">
                                 <a href="{{ social_links.ok }}"
                                    target="_blank"
-                                   class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                     <i class="fa fa-odnoklassniki"></i>
                                 </a>
                             </li>
                         {% endif %}
 
                         {% if social_links.twitter %}
-                            <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
                                 title="Twitter">
                                 <a href="{{ social_links.twitter }}"
                                    target="_blank"
-                                   class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                     <i class="fa fa-twitter"></i>
                                 </a>
                             </li>
                         {% endif %}
 
                         {% if social_links.youtube %}
-                            <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
                                 title="Youtube">
                                 <a href="{{ social_links.youtube }}"
                                    target="_blank"
-                                   class="g-color-black-opacity-0_5 g-color-black--hover g-font-size-16">
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                     <i class="fa fa-youtube"></i>
                                 </a>
                             </li>
@@ -199,7 +423,32 @@
                     </ul>
                 </div>
                 <!-- End Navigation -->
+
+                <!-- Search -->
+                <div class="d-inline-block g-pos-rel g-valign-middle g-ml-40 g-ml-10--lg g-py-7 g-py-0--lg">
+                    <a href="#!" class="g-font-size-18 g-color-black-opacity-0_6 g-color-black--hover" aria-haspopup="true" aria-expanded="false"
+                       aria-controls="searchform-1" data-dropdown-target="#searchform-1"
+                       data-dropdown-type="css-animation" data-dropdown-duration="300"
+                       data-dropdown-animation-in="fadeInUp"
+                       data-dropdown-animation-out="fadeOutDown">
+                        <i class="fa fa-search"></i>
+                    </a>
+
+                    <!-- Search Form -->
+                    <form action="/"
+                          id="searchform-1"
+                          class="u-searchform-v1 u-dropdown--css-animation u-dropdown--hidden g-mt-11--lg g-mt-20--lg--scrolling g-brd-primary g-brd-around g-brd-3">
+                        <div class="input-group">
+                            <input class="form-control rounded-0 u-form-control" type="search" name="s"
+                                   placeholder="Введите поисковый запрос">
+                        </div>
+                    </form>
+                    <!-- End Search Form -->
+                </div>
+                <!-- End Search -->
+
             </div>
         </nav>
     </div>
 </header>
+<!-- End Header -->

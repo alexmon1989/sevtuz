@@ -38,7 +38,7 @@ $g-xl: 1200px !default; // Extra large devices (large desktops, >=1200)
 // tertiary, quaternary, quinary, senary, septenary, octonary, nonary
 
 // Primary Color
-$g-color-primary: #d9534f !default;
+$g-color-primary: #fbc233 !default;
 $g-color-primary-dark-v1: darken($g-color-primary, 2%) !default;
 $g-color-primary-dark-v2: darken($g-color-primary, 5%) !default;
 $g-color-primary-dark-v3: darken($g-color-primary, 10%) !default;
@@ -118,7 +118,7 @@ $g-color-darkblue: #009 !default;
 $g-color-indigo: #4263a3 !default;
 
 // Color Red
-$g-color-red: #f00 !default;
+$g-color-red: #cc3333 !default;
 
 // Color Light Red
 $g-color-lightred: #e64b3b !default;
@@ -139,13 +139,13 @@ $g-color-pink-dark-v1: darken($g-color-pink, 27%) !default;
 
 // Color Orange
 //$g-color-orange: #e57d20 !default;
-$g-color-orange: #ff9a00 !default;
+$g-color-orange: #ff9900 !default;
 
 // Color Deep Orange
 $g-color-deeporange: #fe541e !default;
 
 // Color Yellow
-$g-color-yellow: #ffcd0e !default;
+$g-color-yellow: #ffcc33 !default;
 
 // Color Aqua
 $g-color-aqua: #29d6e6 !default;

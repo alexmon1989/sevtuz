@@ -15,12 +15,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="{{ metadata.description.value|default_if_none:"" }}" />
-    <meta name="keywords" content="{{ metadata.keywords.value|default_if_none:"" }}" />
+    <meta name="description" content="{{ metadata.description.value|default_if_none:"" }}"/>
+    <meta name="keywords" content="{{ metadata.keywords.value|default_if_none:"" }}"/>
 
     {% block extra_meta %}{% endblock %}
 
-    <link rel="icon" type="image/jpg" href="{% static "assets/img/favicon.jpg" %}" />
+    <link rel="icon" type="image/jpg" href="{% static "assets/img/favicon.jpg" %}"/>
 
     <!-- Google Fonts -->
     <link rel="stylesheet"
@@ -118,6 +118,13 @@
         $(document).ready(function () {
             // initialization of carousel
             $.HSCore.components.HSCarousel.init('.js-carousel');
+
+            // initialization of HSDropdown component
+            $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+                afterOpen: function () {
+                    $(this).find('input[type="search"]').focus();
+                }
+            });
 
             // initialization of popups
             $.HSCore.components.HSPopup.init('.js-fancybox');

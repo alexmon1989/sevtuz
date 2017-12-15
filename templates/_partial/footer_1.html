@@ -1,91 +1,237 @@
 {% load staticfiles %}
-<div id="contacts-section" class="g-bg-black-opacity-0_9 g-color-white-opacity-0_8 g-py-60">
+
+<div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-orange g-brd-3">
+    <img src="{% static "assets/img/point-orange.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
+</div>
+
+<div class="g-bg-yellow g-color-black g-pt-20 g-pb-40">
     <div class="container">
         <div class="row">
-            <!-- Footer Content -->
-            <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
-                <div class="u-heading-v2-3--bottom g-brd-black-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">{{ footer_data.information_block_title }}</h2>
-                </div>
-
-                {{ footer_data.information_block_text|safe }}
-            </div>
-            <!-- End Footer Content -->
-
-            <!-- Footer Content -->
-            <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
-                <div class="u-heading-v2-3--bottom g-brd-black-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Ближайшие представления</h2>
-                </div>
-
-                {% for event in last_events %}
-                    <article>
-                        <h3 class="h6 g-mb-2">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover"
-                               href="{% url "play_detail" slug=event.play.slug %}">{{ event.play.title }}</a>
-                        </h3>
-                        <div class="small g-color-white-opacity-0_6">{{ event.datetime|date:"d E" }} в {{ event.datetime.time }}</div>
-                    </article>
-
-                    {% if not forloop.last %}
-                        <hr class="g-brd-white-opacity-0_1 g-my-10">
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <!-- End Footer Content -->
-
-            <!-- Footer Content -->
-            <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
-                <div class="u-heading-v2-3--bottom g-brd-black-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Ссылки</h2>
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Билеты</h2>
                 </div>
 
                 <nav class="text-uppercase1">
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
-                        <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
-                            <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="{% url "events_list" %}">Репертуар</a>
-                                <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
-                            <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="{% url "people_page" slug="truppa" %}">Труппа</a>
-                                <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
-                            <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="{% url "news_list" %}">Новости</a>
-                                <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
-                            <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="{% url "contacts" %}">Контакты</a>
-                                <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Купить билет</a>
                             </h4>
                         </li>
                         <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="{% url "tickets" %}">Билеты</a>
-                                <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Стоимость билетов</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Заказ билетов</a>
                             </h4>
                         </li>
                     </ul>
                 </nav>
             </div>
-            <!-- End Footer Content -->
 
-            <!-- Footer Content -->
-            <div class="col-lg-3 col-md-6">
-                <div class="u-heading-v2-3--bottom g-brd-black-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Контакты</h2>
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Театр</h2>
                 </div>
 
-                {{ footer_data.contacts_block_html|safe }}
+                <nav class="text-uppercase1">
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Новости</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">История</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Здание</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Технические характеристики</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Официальные документы</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Партнёры</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Как добраться</a>
+                            </h4>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <!-- End Footer Content -->
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Люди театра</h2>
+                </div>
+
+                <nav class="text-uppercase1">
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Труппа</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Художественная часть</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Авторы спектаклей</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Администрация</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Вакансии</a>
+                            </h4>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Афиша</h2>
+                </div>
+
+                <nav class="text-uppercase1">
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Репертуар</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="g-color-black" href="#">Основная сцена Гагарина 16</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Выездные спектакли</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Спектакли</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Гастроли</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">События</a>
+                            </h4>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Медиа</h2>
+                </div>
+
+                <nav class="text-uppercase1">
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Социальные сети</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">СМИ о нас</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Журнал</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Информационные партнёры</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Зрительский форум</a>
+                            </h4>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Проекты</h2>
+                </div>
+
+                <nav class="text-uppercase1">
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Фестивали</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Акции</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Школа театрального зрителя</a>
+                            </h4>
+                        </li>
+                        <li class="g-pos-rel g-py-10">
+                            <h4 class="h6 mb-0">
+                                <a class="text-lowercase g-color-black" href="#">Театры-детям</a>
+                            </h4>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0"><a class="g-color-black" href="#">Контакты</a></h2>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+
+<div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-3" style="border-color: #f2ec4e !important;">
+    <img src="{% static "assets/img/point-yellow.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
 </div>

@@ -1,35 +1,30 @@
 {% load project_tags %}
 {% load staticfiles %}
 
-<footer class="g-bg-gray-dark-v1 g-color-white-opacity-0_8 g-py-20">
+<footer class="g-bg-orange g-color-black g-pt-30 g-py-60">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 text-center text-md-left g-mb-10 g-mb-0--md">
+            <div class="col-md-4 text-center text-md-left g-mb-20">
                 <div class="d-lg-flex">
-                    <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">{% now 'Y' %} &copy; Все права защищены
+                    <small class="d-block g-font-size-10 g-mb-0--md">
+                        Государственное бюджетное учреждение культуры г. Севастополя<br>
+                        «Севастопольский театр юного зрителя»<br>
+                        г. Севастополь, пр. Гагарина, 16<br>
+                        sevstyuz@mail.ru +78692 53-42-15
                     </small>
                 </div>
             </div>
-            <div class="col-md-4 text-center text-md-left g-mb-10 g-mb-0--md">
-                <div class="d-lg-flex">
-                    <ul class="u-list-inline">
-                        <li class="list-inline-item">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://quality.mkrf.ru/" target="_blank"><img
-                                    src="{% static "assets/img/logo/logo-mkrf.png" %}" alt="" class="img-fluid g-height-25 g-pr-5">Оценка качества услуг
-                                учреждений культуры</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="col-md-4 align-self-center">
+            <div class="col-md-4 align-self-center g-mb-20">
+                <div class="text-center g-font-size-22 g-font-weight-600">+7978 33-33-707</div>
+
                 {% social_links as social_links %}
-                <ul class="list-inline text-center text-md-right mb-0">
+                <ul class="list-inline text-center g-mt-10">
                     {% if social_links.fb %}
                         <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
                             title="Facebook">
                             <a href="{{ social_links.fb }}" target="_blank"
-                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                               class="g-color-black-opacity-0_7 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
@@ -39,7 +34,7 @@
                         <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
                             title="Vkontakte">
                             <a href="{{ social_links.vk }}" target="_blank"
-                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                               class="g-color-black-opacity-0_7 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                 <i class="fa fa-vk"></i>
                             </a>
                         </li>
@@ -50,7 +45,7 @@
                             title="Instagram">
                             <a href="{{ social_links.instagram }}"
                                target="_blank"
-                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                               class="g-color-black-opacity-0_7 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </li>
@@ -61,7 +56,7 @@
                             title="Одноклассники">
                             <a href="{{ social_links.ok }}"
                                target="_blank"
-                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                               class="g-color-black-opacity-0_7 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                 <i class="fa fa-odnoklassniki"></i>
                             </a>
                         </li>
@@ -70,7 +65,7 @@
                     {% if social_links.twitter %}
                         <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Twitter">
                             <a href="{{ social_links.twitter }}" target="_blank"
-                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                               class="g-color-black-opacity-0_7 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
@@ -80,12 +75,32 @@
                         <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
                             title="Youtube">
                             <a href="{{ social_links.youtube }}" target="_blank"
-                               class="g-color-white-opacity-0_5 g-color-white--hover">
+                               class="g-color-black-opacity-0_7 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
                                 <i class="fa fa-youtube"></i>
                             </a>
                         </li>
                     {% endif %}
                 </ul>
+
+
+                <div class="text-center g-font-size-14 g-font-weight-600">#СЕВТЮЗ</div>
+            </div>
+
+            <div class="col-md-4 g-pl-30 g-mb-20">
+                <div class="row no-gutters">
+                    <div class="col-6 text-right g-pt-5 g-pr-5">
+                        <a href="http://quality.mkrf.ru/" target="_blank"><img
+                                    src="{% static "assets/img/logo/logo-mkrf.png" %}" alt="" class="img-fluid"></a>
+                    </div>
+                    <div class="col-6 g-line-height-1_2 g-font-size-13">
+                        <a class="g-color-gray-dark-v2" href="http://quality.mkrf.ru/" target="_blank">Оценка качества услуг учреждений культуры</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-right g-pt-10 g-pr-40 g-font-size-20 g-font-weight-600">
+                        <a class="g-color-black" href="#" >служебный вход <i class="fa fa-play g-font-size-16"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

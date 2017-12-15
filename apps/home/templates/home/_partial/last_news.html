@@ -1,8 +1,8 @@
 {% load staticfiles %}
 {% load thumbnail %}
 
-<section class="g-py-50">
-    <div class="container">
+<section>
+    <div class="container g-mb-20">
         <header class="text-center g-width-60x--md mx-auto g-mb-50">
             <div class="g-brd-primary g-mb-20">
                 <h2 class="h4 u-heading-v2__title g-color-gray-dark-v2 g-font-weight-600 text-uppercase">
@@ -13,31 +13,33 @@
         <div class="row">
             {% if last_news|length > 0 %}
                 {% for news in last_news %}
-                    <div class="col-lg-4 g-mb-30">
+                    <div class="col-lg-6 g-mb-40 g-color-black">
                         <!-- Article -->
-                        <article class="g-bg-secondary">
-                            <figure class="g-pos-rel">
-                                <img class="img-fluid w-100" src="{{ news.image|thumbnail_url:'news_sm' }}"
-                                     alt="{{ news.title }}">
-
-                                <figcaption class="g-pos-abs g-bottom-20 g-left-20">
-                                    <a class="btn btn-sm g-bg-white g-brd-3 g-brd-yellow g-brd-style-solid u-btn-outline-yellow rounded-0"
-                                       href="{% url 'news_detail' pk=news.pk %}">{{ news.created_at }}</a>
-                                </figcaption>
-                            </figure>
-
-                            <div class="g-pa-30">
-                                <h3 class="h4 g-font-weight-600 g-mb-15">
-                                    <a class="u-link-v5 g-color-main g-color-primary--hover"
-                                       href="{% url 'news_detail' pk=news.pk %}">{{ news.title }}</a>
-                                </h3>
-                                <p>{{ news.text|striptags|truncatewords:25|safe }}</p>
-
-                                <strong>
-                                    <a class="text-uppercase g-font-size-12" href="{% url 'news_detail' pk=news.pk %}">Детальнее</a>
-                                </strong>
+                        <div class="row">
+                            <div class="col-4 g-pt-30--lg">
+                                {% if news.image %}
+                                <a href="{% url "news_detail" pk=news.pk %}"><img class="rounded-circle img-fluid" src="{{ news.image|thumbnail_url:'news_sm_square' }}"
+                                     alt="{{ news.title }}"></a>
+                                {% else %}
+                                <a href="{% url "news_detail" pk=news.pk %}"><img class="rounded-circle img-fluid" src="//via.placeholder.com/350?text=No+Image"
+                                     alt="{{ news.title }}"></a>
+                                {% endif %}
                             </div>
-                        </article>
+
+                            <div class="col-8">
+                                <p class="g-mb-0"><time>{{ news.created_at|date:"d.m.Y" }}</time></p>
+
+                                <h3 class="h5 g-font-weight-600">
+                                    <a class="u-link-v5 g-color-black g-color-primary--hover" href="{% url "news_detail" pk=news.pk %}">{{ news.title }}</a>
+                                </h3>
+
+                                <p class="g-mt-60--lg">{{ news.text|striptags|truncatewords:25|safe }}</p>
+
+                                <p class="text-right text-lowercase"><a class="g-color-black small" href="{% url "news_detail" pk=news.pk %}">Далее <img
+                                        src="{% static "assets/img/right.png" %}" alt=""></a></p>
+
+                            </div>
+                        </div>
                         <!-- End Article -->
                     </div>
                 {% endfor %}

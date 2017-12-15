@@ -15,3 +15,44 @@
     font-size: 30px !important;
   }
 }
+
+.hs-mega-menu::before {
+  right: 100%;
+}
+
+.hs-mega-menu::after {
+  left: 100%;
+}
+
+@media (min-width: 992px) {
+  .hs-mega-menu::before, .hs-mega-menu::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    width: 2000%;
+    border-top: inherit;
+    border-bottom: inherit;
+    background-color: #fbc233;
+  }
+}
+
+.u-bg-left-arrow {
+  background-image: url("/static/assets/img/left.png");
+  background-repeat: no-repeat;
+}
+
+.u-bg-right-arrow {
+  background-image: url("/static/assets/img/right.png");
+  background-repeat: no-repeat;
+}
+
+.js-slide:hover {
+  .day {
+    border-left-color: #ff9b02 !important;
+  }
+}
+
+.u-text-underline--hover:hover {
+  text-decoration: underline;
+}
