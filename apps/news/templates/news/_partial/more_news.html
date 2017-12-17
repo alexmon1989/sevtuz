@@ -16,7 +16,7 @@
 
                     <figcaption class="g-pos-abs g-bottom-20 g-left-20">
                         <a class="btn btn-sm g-bg-white g-brd-3 g-brd-yellow g-brd-style-solid u-btn-outline-yellow rounded-0"
-                           href="{% url 'news_detail' pk=news.pk %}">{{ news.created_at }}</a>
+                           href="{% url 'news_detail' pk=news.pk %}">{{ news.created_at|date }}</a>
                     </figcaption>
                 </figure>
 
