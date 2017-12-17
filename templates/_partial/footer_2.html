@@ -7,16 +7,13 @@
             <div class="col-md-4 text-center text-md-left g-mb-20">
                 <div class="d-lg-flex">
                     <small class="d-block g-font-size-10 g-mb-0--md">
-                        Государственное бюджетное учреждение культуры г. Севастополя<br>
-                        «Севастопольский театр юного зрителя»<br>
-                        г. Севастополь, пр. Гагарина, 16<br>
-                        sevstyuz@mail.ru +78692 53-42-15
+                        {{ footer_data.information_block_text|safe }}
                     </small>
                 </div>
             </div>
 
             <div class="col-md-4 align-self-center g-mb-20">
-                <div class="text-center g-font-size-22 g-font-weight-600">+7978 33-33-707</div>
+                <div class="text-center g-font-size-22 g-font-weight-600">{{ footer_data.phone }}</div>
 
                 {% social_links as social_links %}
                 <ul class="list-inline text-center g-mt-10">

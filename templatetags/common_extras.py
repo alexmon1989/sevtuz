@@ -51,11 +51,10 @@ def month_title(month_num):
     return months[month_num - 1]
 
 
-@register.inclusion_tag('_partial/footer_1.html')
-def footer_1():
+@register.inclusion_tag('_partial/footer_2.html')
+def footer_2():
     return {
         'footer_data': FooterSettings.objects.first(),
-        'last_events': Event.objects.filter(is_visible=True, datetime__gte=timezone.now()).order_by('datetime')[:3]
     }
 
 
