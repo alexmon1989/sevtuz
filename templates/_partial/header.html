@@ -52,7 +52,7 @@
                         <!-- Билеты -->
                         <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
                             data-animation-out="fadeOut" data-position="right">
-                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                            <a id="mega-menu-label-1" class="nav-link g-pa-0" href="#" aria-haspopup="true"
                                aria-expanded="false">Билеты
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
@@ -89,9 +89,11 @@
                         <!-- End Билеты -->
 
                         <!-- Театр -->
-                        <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
-                            data-animation-out="fadeOut" data-position="right">
-                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg"
+                            data-animation-in="fadeIn"
+                            data-animation-out="fadeOut"
+                            data-position="right">
+                            <a id="mega-menu-label-2" class="nav-link g-pa-0 {% if request.resolver_match.url_name|in_list:"news_list,news_detail" %}active{% endif %}" href="#" aria-haspopup="true"
                                aria-expanded="false">Театр
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
@@ -103,8 +105,8 @@
                                     <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                                            <li class="nav-item g-mx-20--lg">
-                                                <a href="#!"
+                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name|in_list:"news_list,news_detail" %}active{% endif %}">
+                                                <a href="{% url "news_list" %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Новости
                                                 </a>
                                             </li>
@@ -143,9 +145,9 @@
                         <!-- End Театр -->
 
                         <!-- Люди театра -->
-                        <li class="hs-has-mega-menu nav-item g-mx-15--lg active" data-animation-in="fadeIn"
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
                             data-animation-out="fadeOut" data-position="right">
-                            <a id="mega-menu-label-1" class="nav-link active g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                            <a id="mega-menu-label-3" class="nav-link g-pa-0" href="#" aria-haspopup="true"
                                aria-expanded="false">Люди театра
                                 <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
@@ -158,7 +160,7 @@
                                     <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                                            <li class="nav-item g-mx-20--lg active">
+                                            <li class="nav-item g-mx-20--lg">
                                                 <a href="#!"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Труппа
 
@@ -196,7 +198,7 @@
                         <!-- Афиша -->
                         <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
                             data-animation-out="fadeOut" data-position="right">
-                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                            <a id="mega-menu-label-4" class="nav-link g-pa-0" href="#" aria-haspopup="true"
                                aria-expanded="false">Афиша
                                 <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
@@ -252,7 +254,7 @@
                         <!-- Медиа -->
                         <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
                             data-animation-out="fadeOut" data-position="right">
-                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                            <a id="mega-menu-label-5" class="nav-link g-pa-0" href="#" aria-haspopup="true"
                                aria-expanded="false">Медиа
                                 <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
@@ -303,7 +305,7 @@
                         <!-- Проекты -->
                         <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
                             data-animation-out="fadeOut" data-position="right">
-                            <a id="mega-menu-label-1" class="nav-link g-pa-0 g-color-black" href="#" aria-haspopup="true"
+                            <a id="mega-menu-label-6" class="nav-link g-pa-0" href="#" aria-haspopup="true"
                                aria-expanded="false">Проекты
                                 <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
@@ -346,8 +348,8 @@
                         </li>
                         <!-- End Проекты -->
 
-                        <li class="nav-item g-mx-15--lg g-mr-0--lg">
-                            <a href="#!" class="nav-link g-pa-0 g-color-black">Контакты
+                        <li class="hs-has-mega-menu nav-item g-mx-15--lg g-mr-0--lg">
+                            <a href="{% url "contacts" %}" class="nav-link g-pa-0 {% if request.resolver_match.url_name == "contacts" %}active{% endif %}">Контакты
 
                             </a>
                         </li>

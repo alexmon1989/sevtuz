@@ -56,3 +56,30 @@
 .u-text-underline--hover:hover {
   text-decoration: underline;
 }
+
+.u-top-minus-7 {
+  top: -7px;
+}
+
+.u-left-minus-12 {
+  left: -10px;
+}
+
+li.month {
+  position: relative !important;
+  a {
+    img {
+      position: absolute !important;
+      left: -16px;
+      top: 8px;
+    }
+  }
+}
+
+li.hs-has-mega-menu > .nav-link {
+  color: #000 !important;
+}
+
+li.hs-has-mega-menu > .nav-link.active {
+  color: #fbc233 !important;
+}

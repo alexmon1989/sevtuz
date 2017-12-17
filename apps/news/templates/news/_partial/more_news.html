@@ -11,8 +11,8 @@
             <!-- Article -->
             <article class="g-bg-secondary">
                 <figure class="g-pos-rel">
-                    <img class="img-fluid w-100" src="{{ news.image|thumbnail_url:'news_sm' }}"
-                         alt="{{ news.title }}">
+                    <a href="{% url 'news_detail' pk=news.pk %}"><img class="img-fluid w-100" src="{{ news.image|thumbnail_url:'news_md' }}"
+                         alt="{{ news.title }}"></a>
 
                     <figcaption class="g-pos-abs g-bottom-20 g-left-20">
                         <a class="btn btn-sm g-bg-white g-brd-3 g-brd-yellow g-brd-style-solid u-btn-outline-yellow rounded-0"

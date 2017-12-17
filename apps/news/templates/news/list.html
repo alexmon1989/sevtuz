@@ -13,10 +13,6 @@
     {% endif %}
 {% endblock %}
 
-{% block breadcrumbs %}
-    {% include 'news/_partial/breadcrumbs_list.html' %}
-{% endblock %}
-
 {% block extra_meta %}
     {% if request.GET.page %}
         <meta name="robots" content="noindex, follow" />
@@ -32,32 +28,42 @@
 {% block content %}
     <div class="container g-pt-100 g-pb-20">
         <div class="row justify-content-between">
-            <div class="col-lg-9 order-lg-2 g-mb-80">
+
+            <div class="col-lg-12 text-center">
+                <h1 class="h3 text-uppercase g-color-black g-font-weight-600 g-mb-30">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}Новости{% endif %}</h1>
+            </div>
+
+            <div class="col-lg-10 order-lg-2 g-mb-80">
                 <div class="g-pl-20--lg">
                     {% if news_list|length > 0 %}
-                        {% for news_item in news_list %}
-                            <!-- Blog Minimal Blocks -->
-                            <article class="g-mb-60">
-                                <div class="g-mb-30">
-                                    <span class="d-block g-color-gray-dark-v4 g-font-weight-700 g-font-size-12 text-uppercase mb-2">{{ news_item.created_at|date }}</span>
-
-                                    {% if news_item.image %}
-                                        <img class="img-fluid w-100 g-mb-25"
-                                             src="{{ news_item.image|thumbnail_url:'news_lg' }}"
-                                             alt="{{ news_item.title }}">
+                        {% for news in news_list %}
+                            <!-- Article -->
+                            <div class="row g-mb-40">
+                                <div class="col-md-2 g-mb-20 text-center">
+                                    {% if news.image %}
+                                    <a href="{% url "news_detail" pk=news.pk %}"><img class="rounded-circle img-fluid" src="{{ news.image|thumbnail_url:'news_xs_square' }}"
+                                         alt="{{ news.title }}"></a>
+                                    {% else %}
+                                    <a href="{% url "news_detail" pk=news.pk %}"><img class="rounded-circle img-fluid" src="//via.placeholder.com/200?text=No+Image"
+                                         alt="{{ news.title }}"></a>
                                     {% endif %}
-                                    <h2 class="h4 g-color-black g-font-weight-600 mb-3">
-                                        <a class="u-link-v5 g-color-black g-color-primary--hover"
-                                           href="{% url 'news_detail' pk=news_item.pk %}">{{ news_item.title }}</a>
-                                    </h2>
-                                    <p class="g-line-height-1_8">{{ news_item.text|striptags|truncatewords:40|safe }}</p>
-                                    <a class="g-font-size-13" href="{% url 'news_detail' pk=news_item.pk %}">Читать
-                                        далее...</a>
                                 </div>
 
-                                <hr>
-                            </article>
-                            <!-- End Blog Minimal Blocks -->
+                                <div class="col-md-10 g-color-black">
+                                    <p class="g-mb-0 g-font-weight-600"><time>{{ news.created_at|date }}</time></p>
+
+                                    <h3 class="h5 g-font-weight-600 text-uppercase">
+                                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="{% url "news_detail" pk=news.pk %}">{{ news.title }}</a>
+                                    </h3>
+
+                                    <p class="">{{ news.text|striptags|truncatewords:40|safe }}</p>
+
+                                    <p class="text-right text-lowercase"><a class="g-color-black small" href="{% url "news_detail" pk=news.pk %}">Далее <img
+                                            src="{% static "assets/img/right.png" %}" alt=""></a></p>
+
+                                </div>
+                            </div>
+                            <!-- End Article -->
                         {% endfor %}
                     {% else %}
                         Новости отсутствуют
@@ -71,42 +77,40 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 order-lg-1 g-brd-right--lg g-brd-gray-light-v4 g-mb-80">
+            <div class="col-lg-2 order-lg-1 g-brd-right--lg g-brd-gray-light-v4 g-mb-80">
                 <div class="g-pr-20--lg">
                     <div id="stickyblock-start" class="js-sticky-block g-sticky-block--lg"
                          data-start-point="#stickyblock-start" data-end-point="#stickyblock-end">
 
-                        <div class="g-mb-50 u-brd-style-solid--left g-brd-yellow-left">
+                        <div class="g-mb-50 u-brd-style-solid--left g-brd-primary-left">
                             <ul class="list-unstyled mb-0 g-pl-10">
                                 {% now 'Y' as year_now %}
                                 {% for season in seasons %}
                                     {% if season.year_from <= year_now|to_int %}
-                                        <li>
+                                        <li class="g-mb-20">
                                             <span class="g-font-size-20 g-font-weight-600">{{ season.title }}</span><br>
                                             <span class="g-font-size-20 g-font-weight-600 g-line-height-0">{{ season.year_from }} - {{ season.year_to }}</span>
 
                                             <ul class="list-unstyled g-pt-5 mb-0 g-font-size-14">
                                                 {% for month in months %}
                                                     {% if month.0 >= season.month_from %}
-                                                        <li>
-                                                            <a class="{% if request.GET.year == season.year_from|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}g-color-primary{% else %}g-color-gray-dark-v1{% endif %}"
-                                                               href="{% url 'news_list' %}?year={{ season.year_from }}&month={{ month.0 }}">{{ month.1 }} ({% news_count season.year_from month.0 %})</a>
+                                                        <li class="month">
+                                                            <a class="g-color-black"
+                                                               href="{% url 'news_list' %}?year={{ season.year_from }}&month={{ month.0 }}"
+                                                            >{% if request.GET.year == season.year_from|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}<img src="{% static "assets/img/point-primary.png" %}" alt="">{% endif %}{{ month.1 }} ({% news_count season.year_from month.0 %})</a>
                                                         </li>
                                                     {% endif %}
                                                 {% endfor %}
                                                 {% for month in months %}
                                                     {% if month.0 <= season.month_to %}
-                                                        <li>
-                                                            <a class="{% if request.GET.year == season.year_to|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}g-color-primary{% else %}g-color-gray-dark-v1{% endif %}"
-                                                               href="{% url 'news_list' %}?year={{ season.year_to }}&month={{ month.0 }}">{{ month.1 }} ({% news_count season.year_from month.0 %})</a>
+                                                        <li class="month">
+                                                            <a class="g-color-black"
+                                                               href="{% url 'news_list' %}?year={{ season.year_to }}&month={{ month.0 }}"
+                                                            >{% if request.GET.year == season.year_to|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}<img src="{% static "assets/img/point-primary.png" %}" alt="">{% endif %}{{ month.1 }} ({% news_count season.year_to month.0 %})</a>
                                                         </li>
                                                     {% endif %}
                                                 {% endfor %}
                                             </ul>
-
-                                            {% if not forloop.last %}
-                                                <hr class="g-brd-gray-light-v4 g-my-10">
-                                            {% endif %}
                                         </li>
                                     {% endif %}
                                 {% endfor %}
@@ -117,7 +121,7 @@
             </div>
         </div>
 
-        <div class="row justify-content-between">
+        <div class="row justify-content-between g-mb-40">
             <div class="col-lg-12" id="stickyblock-end"></div>
         </div>
     </div>

@@ -42,7 +42,7 @@ class NewsListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(NewsListView, self).get_context_data(**kwargs)
-        context['seasons'] = Season.objects.order_by('-created_at')[:3]
+        context['seasons'] = Season.objects.order_by('-year_to')[:3]
         context['months'] = Season.MONTHS_CHOICES
         if self.request.GET.get('year') and self.request.GET.get('month'):
             try:
