@@ -25,16 +25,18 @@ from apps.contacts import urls as contacts_urls
 from apps.tickets import urls as tickets_urls
 from apps.people import urls as people_urls
 from sevtuz.sitemap import (StaticSitemap, TheaterNewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
-                            PersonPagesSitemap)
+                            PersonPagesSitemap, TheaterHistorySitemap, TicketsPagesSitemap)
 from django.contrib.sitemaps.views import sitemap
 
 
 sitemaps = {
     'static': StaticSitemap,
-    'theater_news': TheaterNewsSitemap,
     'plays': PlaysSitemap,
     'persons': PersonsSitemap,
     'theater_pages': TheaterPagesSitemap,
+    'theater_news': TheaterNewsSitemap,
+    'theater_history': TheaterHistorySitemap,
+    'tickets_pages': TicketsPagesSitemap,
     'person_pages': PersonPagesSitemap,
 }
 

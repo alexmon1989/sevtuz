@@ -95,7 +95,7 @@
                                                 {% for month in months %}
                                                     {% if month.0 >= season.month_from %}
                                                         <li class="month">
-                                                            <a class="g-color-black"
+                                                            <a class="g-color-black g-color-primary--hover"
                                                                href="{% url 'theater_news_list' %}?year={{ season.year_from }}&month={{ month.0 }}"
                                                             >{% if request.GET.year == season.year_from|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}<img src="{% static "assets/img/point-primary.png" %}" alt="">{% endif %}{{ month.1 }} ({% news_count season.year_from month.0 %})</a>
                                                         </li>
@@ -104,7 +104,7 @@
                                                 {% for month in months %}
                                                     {% if month.0 <= season.month_to %}
                                                         <li class="month">
-                                                            <a class="g-color-black"
+                                                            <a class="g-color-black g-color-primary--hover"
                                                                href="{% url 'theater_news_list' %}?year={{ season.year_to }}&month={{ month.0 }}"
                                                             >{% if request.GET.year == season.year_to|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}<img src="{% static "assets/img/point-primary.png" %}" alt="">{% endif %}{{ month.1 }} ({% news_count season.year_to month.0 %})</a>
                                                         </li>

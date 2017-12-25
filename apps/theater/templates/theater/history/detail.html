@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load project_tags %}
+
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        {{ history.season.title }} / История театра / СевТЮЗ
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="container g-py-100">
+        <div class="row">
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h3 g-font-weight-600">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}{{ history.season.title }}{% endif %}</h1>
+            </div>
+
+            <div class="col-lg-10 order-lg-2 g-mb-80">
+                <div class="g-pl-20--lg">
+                    <div class="row">
+                        <div class="col-lg-12 g-color-black">
+                            <div class="g-line-height-1_8 g-mb-40">{{ history.text|safe }}</div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="row no-gutters">
+                                <div class="col-auto text-uppercase g-pt-10 g-pr-10 g-font-weight-600">Поделиться</div>
+                                <div class="col-auto">{% include "_partial/pluso.html" %}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include "theater/history/_partial/seasons.html" %}
+        </div>
+
+        <div class="row justify-content-between g-mb-40">
+            <div class="col-lg-12" id="stickyblock-end"></div>
+        </div>
+    </div>
+{% endblock %}

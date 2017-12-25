@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<div class="col-lg-2 order-lg-1 g-brd-right--lg g-brd-gray-light-v4 g-mb-80">
+    <div class="g-pr-20--lg">
+        <div id="stickyblock-start" class="js-sticky-block g-sticky-block--lg"
+             data-start-point="#stickyblock-start" data-end-point="#stickyblock-end">
+
+            <div class="g-mb-50 u-brd-style-solid--left g-brd-primary-left">
+                <ul class="list-unstyled mb-0 g-pl-10 g-pr-20">
+                    {% for item in histories %}
+                        <li class="text-right season">
+                            <a href="{% url 'theater_history' pk=item.pk %}"
+                               class="g-color-black g-color-primary--hover">
+                                {% if item.pk == history.pk %}<img src="{% static "assets/img/point-primary.png" %}" alt="">{% endif %}
+                                <span class="g-font-size-20 g-font-weight-600">{{ item.season.title }}</span><br>
+                                <span class="g-font-size-20 g-line-height-0">{{ item.season.year_from }}-{{ item.season.year_to }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

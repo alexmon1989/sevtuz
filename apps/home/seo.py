@@ -22,6 +22,7 @@ class MyMetadata(seo.Metadata):
             'theater.Page',
             'theater.Person',
             'theater.Play',
+            'theater.History',
         )
         verbose_name = "SEO"
         verbose_name_plural = "SEO"

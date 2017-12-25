@@ -337,3 +337,21 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+
+class History(models.Model):
+    """Модель истории сезона."""
+    season = models.OneToOneField(Season, verbose_name='Сезон', on_delete=models.CASCADE, blank=True, null=True)
+    text = RichTextUploadingField('Текст', blank=False)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.season.title
+
+    def get_absolute_url(self):
+        return reverse('theater_history', args=[str(self.pk)])
+
+    class Meta:
+        verbose_name = 'История сезона'
+        verbose_name_plural = 'История'

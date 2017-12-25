@@ -76,6 +76,15 @@ li.month {
   }
 }
 
+li.season {
+  @extend li.month;
+  a {
+    img {
+      top: 13px;
+    }
+  }
+}
+
 li.hs-has-mega-menu > .nav-link {
   color: #000 !important;
 }
