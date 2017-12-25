@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'singlemodeladmin',
     'compressor',
     'apps.home',
-    'apps.news',
     'apps.theater',
     'apps.repertoire',
     'apps.settings',
@@ -155,8 +154,10 @@ MEDIA_URL = '/media/'
 
 THUMBNAIL_ALIASES = {
     '': {
-        'news_lg': {'size': (740, 380), 'crop': False},
-        'news_sm': {'size': (500, 450), 'crop': True},
+        'news_lg': {'size': (800, 500), 'crop': False},
+        'news_md': {'size': (500, 320), 'crop': False},
+        'news_sm_square': {'size': (350, 350), 'crop': True},
+        'news_xs_square': {'size': (200, 200), 'crop': True},
         'play_lg': {'size': (800, 500), 'crop': False},
         'play_md': {'size': (600, 375), 'crop': False},
         'play_sm': {'size': (320, 180), 'crop': True},

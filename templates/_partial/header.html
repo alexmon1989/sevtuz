@@ -64,7 +64,7 @@
                             data-animation-in="fadeIn"
                             data-animation-out="fadeOut"
                             data-position="right">
-                            <a id="mega-menu-label-2" class="nav-link g-pa-0 {% if request.resolver_match.url_name|in_list:"news_list,news_detail" %}active{% endif %}" href="#" aria-haspopup="true"
+                            <a id="mega-menu-label-2" class="nav-link g-pa-0 {% if request.resolver_match.url_name|in_list:"theater_news_list,theater_news_detail" %}active{% endif %}" href="#" aria-haspopup="true"
                                aria-expanded="false">Театр
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
@@ -76,8 +76,8 @@
                                     <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name|in_list:"news_list,news_detail" %}active{% endif %}">
-                                                <a href="{% url "news_list" %}"
+                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name|in_list:"theater_news_list,theater_news_detail" %}active{% endif %}">
+                                                <a href="{% url "theater_news_list" %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Новости
                                                 </a>
                                             </li>

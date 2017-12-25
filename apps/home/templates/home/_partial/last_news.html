@@ -18,10 +18,10 @@
                         <div class="row">
                             <div class="col-4 g-pt-30--lg">
                                 {% if news.image %}
-                                <a href="{% url "news_detail" pk=news.pk %}"><img class="rounded-circle img-fluid" src="{{ news.image|thumbnail_url:'news_sm_square' }}"
+                                <a href="{% url "theater_news_detail" slug=news.slug %}"><img class="rounded-circle img-fluid" src="{{ news.image|thumbnail_url:'news_sm_square' }}"
                                      alt="{{ news.title }}"></a>
                                 {% else %}
-                                <a href="{% url "news_detail" pk=news.pk %}"><img class="rounded-circle img-fluid" src="//via.placeholder.com/350?text=No+Image"
+                                <a href="{% url "theater_news_detail" slug=news.slug %}"><img class="rounded-circle img-fluid" src="//via.placeholder.com/350?text=No+Image"
                                      alt="{{ news.title }}"></a>
                                 {% endif %}
                             </div>
@@ -30,12 +30,12 @@
                                 <p class="g-mb-0"><time>{{ news.created_at|date:"d.m.Y" }}</time></p>
 
                                 <h3 class="h5 g-font-weight-600">
-                                    <a class="u-link-v5 g-color-black g-color-primary--hover" href="{% url "news_detail" pk=news.pk %}">{{ news.title }}</a>
+                                    <a class="u-link-v5 g-color-black g-color-primary--hover" href="{% url "theater_news_detail" slug=news.slug %}">{{ news.title }}</a>
                                 </h3>
 
                                 <p class="g-mt-60--lg">{{ news.text|striptags|truncatewords:25|safe }}</p>
 
-                                <p class="text-right text-lowercase"><a class="g-color-black small" href="{% url "news_detail" pk=news.pk %}">Далее <img
+                                <p class="text-right text-lowercase"><a class="g-color-black small" href="{% url "theater_news_detail" slug=news.slug %}">Далее <img
                                         src="{% static "assets/img/right.png" %}" alt=""></a></p>
 
                             </div>

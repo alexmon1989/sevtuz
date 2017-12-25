@@ -1,0 +1,38 @@
+{% load staticfiles %}
+{% load thumbnail %}
+
+<div class="text-center g-my-30">
+    <h4>Ещё новости</h4>
+</div>
+
+<div class="row">
+    {% for news in more_news %}
+        <div class="col-lg-4">
+            <!-- Article -->
+            <article class="g-bg-secondary">
+                <figure class="g-pos-rel">
+                    <a href="{% url 'theater_news_detail' slug=news.slug %}"><img class="img-fluid w-100" src="{{ news.image|thumbnail_url:'news_md' }}"
+                         alt="{{ news.title }}"></a>
+
+                    <figcaption class="g-pos-abs g-bottom-20 g-left-20">
+                        <a class="btn btn-sm g-bg-white g-brd-3 g-brd-yellow g-brd-style-solid u-btn-outline-yellow rounded-0"
+                           href="{% url 'theater_news_detail' slug=news.slug %}">{{ news.created_at|date }}</a>
+                    </figcaption>
+                </figure>
+
+                <div class="g-pa-30">
+                    <h3 class="h4 g-font-weight-600 g-mb-15">
+                        <a class="u-link-v5 g-color-main g-color-primary--hover"
+                           href="{% url 'theater_news_detail' slug=news.slug %}">{{ news.title }}</a>
+                    </h3>
+                    <p>{{ news.text|striptags|truncatewords:25|safe }}</p>
+
+                    <strong>
+                        <a class="text-uppercase g-font-size-12" href="{% url 'theater_news_detail' slug=news.slug %}">Детальнее</a>
+                    </strong>
+                </div>
+            </article>
+            <!-- End Article -->
+        </div>
+    {% endfor %}
+</div>

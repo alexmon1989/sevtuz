@@ -1,7 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse
-from apps.news.models import News
-from apps.theater.models import Play, Page as TheaterPage, Person
+from apps.theater.models import News, Play, Page as TheaterPage, Person
 from apps.people.models import Page as PersonPage
 
 
@@ -21,7 +20,7 @@ class StaticSitemap(Sitemap):
         return reverse(item)
 
 
-class NewsSitemap(Sitemap):
+class TheaterNewsSitemap(Sitemap):
     def items(self):
         return News.objects.filter(is_visible=True)
 

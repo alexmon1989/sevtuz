@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from apps.theater.models import (Season, Play, PlayPhoto, PlayVideo, Genre, Page, Person, PersonPhoto, Position,
-                                 PersonPlayRole)
+                                 PersonPlayRole, News)
 
 
 class SeasonForm(forms.ModelForm):
@@ -110,3 +110,13 @@ class PositionsAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'updated_at')
     ordering = ('-created_at',)
     search_fields = ('title',)
+
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    """Класс для описания интерфейса администрирования новостей."""
+    list_display = ('title', 'is_visible', 'created_at', 'updated_at')
+    ordering = ('-created_at',)
+    list_editable = ('is_visible',)
+    search_fields = ('title',)
+    prepopulated_fields = {"slug": ("title",)}

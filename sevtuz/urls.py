@@ -18,21 +18,20 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from apps.home.views import home
-from apps.news import urls as news_urls
 from apps.repertoire import urls as repertoire_urls
 from apps.theater import urls as theater_urls
 from apps.plays import urls as plays_urls
 from apps.contacts import urls as contacts_urls
 from apps.tickets import urls as tickets_urls
 from apps.people import urls as people_urls
-from sevtuz.sitemap import (StaticSitemap, NewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
+from sevtuz.sitemap import (StaticSitemap, TheaterNewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
                             PersonPagesSitemap)
 from django.contrib.sitemaps.views import sitemap
 
 
 sitemaps = {
     'static': StaticSitemap,
-    'news': NewsSitemap,
+    'theater_news': TheaterNewsSitemap,
     'plays': PlaysSitemap,
     'persons': PersonsSitemap,
     'theater_pages': TheaterPagesSitemap,
@@ -42,7 +41,6 @@ sitemaps = {
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
-    url(r'^news/', include(news_urls)),
     url(r'^repertoire/', include(repertoire_urls)),
     url(r'^theater/', include(theater_urls)),
     url(r'^plays/', include(plays_urls)),

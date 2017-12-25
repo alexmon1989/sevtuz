@@ -15,10 +15,10 @@ class MyMetadata(seo.Metadata):
 
     class Meta:
         seo_models = (
-            'news.News',
             'contacts.Page',
             'people.Page',
             'tickets.Page',
+            'theater.News',
             'theater.Page',
             'theater.Person',
             'theater.Play',
