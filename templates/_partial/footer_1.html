@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load tickets_extras %}
+{% load theater_extras %}
 
 <div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-orange g-brd-3">
     <img src="{% static "assets/img/point-orange.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
@@ -36,7 +37,7 @@
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Новости</a>
+                                <a class="text-lowercase g-color-black" href="{% url "theater_news_list" %}">Новости</a>
                             </h4>
                         </li>
                         <li class="g-pos-rel g-py-10">
@@ -44,16 +45,14 @@
                                 <a class="text-lowercase g-color-black" href="#">История</a>
                             </h4>
                         </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Здание</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Технические характеристики</a>
-                            </h4>
-                        </li>
+                        {% theater_pages as t_p %}
+                        {% for page in t_p|slice:":2" %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "theater_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 mb-0">
                                 <a class="text-lowercase g-color-black" href="#">Официальные документы</a>
@@ -64,11 +63,13 @@
                                 <a class="text-lowercase g-color-black" href="#">Партнёры</a>
                             </h4>
                         </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Как добраться</a>
-                            </h4>
-                        </li>
+                        {% for page in t_p|slice:"2:" %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "theater_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </nav>
             </div>

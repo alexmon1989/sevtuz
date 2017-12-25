@@ -7,6 +7,7 @@ from apps.theater.models import Page, News, Season
 class PageDetailView(DetailView):
     """Отображает статичную страницу приложения."""
     model = Page
+    template_name = 'theater/pages/page_detail.html'
     queryset = Page.objects.filter(is_visible=True)
 
 
