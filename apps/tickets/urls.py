@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from apps.tickets.views import page_detail
+from apps.tickets.views import PageDetailView
 
 urlpatterns = [
-    url(r'^$', page_detail, name='tickets'),
+    url(r'^(?P<slug>[-\w]+)/$', PageDetailView.as_view(), name='tickets_page'),
 ]

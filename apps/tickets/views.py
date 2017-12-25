@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
 from apps.tickets.models import Page
 
 
-def page_detail(request):
-    """Отображает страницу Билеты."""
-    page, created = Page.objects.get_or_create(defaults={'text': ''})
-    return render(request, 'tickets/page_details.html', {'page': page})
+class PageDetailView(DetailView):
+    """Отображает страницу приложения."""
+    model = Page
+    queryset = Page.objects.filter(is_visible=True)

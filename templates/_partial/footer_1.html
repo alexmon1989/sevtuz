@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load tickets_extras %}
 
 <div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-orange g-brd-3">
     <img src="{% static "assets/img/point-orange.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
@@ -12,23 +13,16 @@
                     <h2 class="h5 text-uppercase mb-0">Билеты</h2>
                 </div>
 
-                <nav class="text-uppercase1">
+                <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Купить билет</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Стоимость билетов</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Заказ билетов</a>
-                            </h4>
-                        </li>
+                        {% tickets_pages as t_p %}
+                        {% for page in t_p %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "tickets_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </nav>
             </div>
@@ -38,7 +32,7 @@
                     <h2 class="h5 text-uppercase mb-0">Театр</h2>
                 </div>
 
-                <nav class="text-uppercase1">
+                <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 mb-0">
@@ -84,7 +78,7 @@
                     <h2 class="h5 text-uppercase mb-0">Люди театра</h2>
                 </div>
 
-                <nav class="text-uppercase1">
+                <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 mb-0">
@@ -120,7 +114,7 @@
                     <h2 class="h5 text-uppercase mb-0">Афиша</h2>
                 </div>
 
-                <nav class="text-uppercase1">
+                <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 mb-0">
@@ -161,7 +155,7 @@
                     <h2 class="h5 text-uppercase mb-0">Медиа</h2>
                 </div>
 
-                <nav class="text-uppercase1">
+                <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 mb-0">
@@ -197,7 +191,7 @@
                     <h2 class="h5 text-uppercase mb-0">Проекты</h2>
                 </div>
 
-                <nav class="text-uppercase1">
+                <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 mb-0">
