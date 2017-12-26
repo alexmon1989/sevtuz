@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        Партнёры / СевТЮЗ
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="container g-pt-100 g-pb-20">
+        <div class="row">
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h3 g-font-weight-600">
+                    {% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}Партнёры{% endif %}</h1>
+            </div>
+
+            <div class="col-lg-12 g-mb-80">
+                <div class="g-overflow-hidden">
+                    <div class="row text-center mx-0 g-ml-minus-1 g-mb-minus-1">
+                        {% for partner in partner_list %}
+                            <div class="col-sm-3 col-md-2 px-0">
+                                <div class="g-py-30 g-px-15">
+                                    {% if partner.link %}
+                                        <a href="{{ partner.link }}" target="_blank" rel="noopener"><img
+                                                class="img-fluid g-opacity-0_8--hover g-transition-0_2"
+                                                src="{{ partner.image|thumbnail_url:"partner" }}"
+                                                alt="{{ partner.title }}"
+                                                title="{{ partner.title }}"></a>
+                                    {% else %}
+                                        <img class="img-fluid g-opacity-0_8--hover g-transition-0_2"
+                                             src="{{ partner.image|thumbnail_url:"partner" }}"
+                                             alt="{{ partner.title }}"
+                                             title="{{ partner.title }}">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
