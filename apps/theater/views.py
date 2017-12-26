@@ -80,7 +80,11 @@ class HistoryDetailView(DetailView):
 
     def get(self, *args, **kwargs):
         if not self.kwargs.get('pk'):
-            return redirect('theater_history', pk=History.objects.order_by('-season__year_from').first().pk)
+            try:
+                history = History.objects.order_by('-season__year_from').first()
+                return redirect('theater_history', pk=history.pk)
+            except AttributeError:
+                raise Http404
         self.object = self.get_object()
         return super(HistoryDetailView, self).get(*args, **kwargs)
 
