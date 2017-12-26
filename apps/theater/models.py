@@ -352,6 +352,58 @@ class History(models.Model):
     def get_absolute_url(self):
         return reverse('theater_history', args=[str(self.pk)])
 
+    def get_photos(self):
+        """Возвращает список фотографий истории сезона."""
+        return self.historyphoto_set.filter(is_visible=True).order_by('created_at').all()
+
+    def get_videos(self):
+        """Возвращает список видео истории сезона."""
+        return self.historyvideo_set.filter(is_visible=True).order_by('created_at').all()
+
     class Meta:
         verbose_name = 'История сезона'
         verbose_name_plural = 'История'
+
+
+class HistoryPhoto(models.Model):
+    """Модель фотографии."""
+
+    def upload_to(instance, filename):
+        return 'histories/{}/{}'.format(instance.history.pk, filename)
+
+    image = models.ImageField(
+        'Изображение',
+        upload_to=upload_to,
+        help_text='Оптимальный размер: 800px*500px.'
+    )
+    history = models.ForeignKey(History, on_delete=models.CASCADE, verbose_name='Сезон')
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return 'Изображение #{}'.format(self.pk)
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
+
+
+class HistoryVideo(models.Model):
+    """Модель видео спектакля."""
+    youtube_id = models.CharField(
+        'Идентификатор на Youtube',
+        help_text='Например, для видео https://www.youtube.com/watch?v=JMJXvsCLu6, его идентификатором будет JMJXvsCLu6.',
+        max_length=32
+    )
+    history = models.ForeignKey(History, on_delete=models.CASCADE, verbose_name='Сезон')
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return 'Видео #{}'.format(self.pk)
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'

@@ -14,7 +14,8 @@
     <div class="container g-py-100">
         <div class="row">
             <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
-                <h1 class="h3 g-font-weight-600">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}{{ history.season.title }}{% endif %}</h1>
+                <h1 class="h3 g-font-weight-600">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}
+                    {{ history.season.title }}{% endif %}</h1>
             </div>
 
             <div class="col-lg-10 order-lg-2 g-mb-80">
@@ -23,6 +24,12 @@
                         <div class="col-lg-12 g-color-black">
                             <div class="g-line-height-1_8 g-mb-40">{{ history.text|safe }}</div>
                         </div>
+
+                        {% if history.get_videos|length > 0 or history.get_photos|length > 0  %}
+                            <div class="col-lg-12 g-mb-40">
+                                {% include 'plays/detail/_partial/images_videos.html' %}
+                            </div>
+                        {% endif %}
 
                         <div class="col-lg-12">
                             <div class="row no-gutters">
@@ -40,5 +47,21 @@
         <div class="row justify-content-between g-mb-40">
             <div class="col-lg-12" id="stickyblock-end"></div>
         </div>
+
     </div>
+{% endblock %}
+
+{% block extrascript %}
+    <script>
+        $(document).on('ready', function () {
+            $('#carousel-10').slick('setOption', 'responsive', [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    centerPadding: 0
+                }
+            }], true);
+        });
+    </script>
 {% endblock %}
