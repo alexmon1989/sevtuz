@@ -443,3 +443,20 @@ class Document(models.Model):
         verbose_name = 'Документ'
         verbose_name_plural = 'Документы'
         ordering = ('title',)
+
+
+class Partner(models.Model):
+    """Модель партнёра."""
+    title = models.CharField('Название', max_length=255)
+    image = models.ImageField('Изображение', upload_to='partners/', help_text='Оптимальный размер, px: 200 х 100.')
+    link = models.URLField('Ссылка', blank=True, null=True)
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Партнёр'
+        verbose_name_plural = 'Партнёры'

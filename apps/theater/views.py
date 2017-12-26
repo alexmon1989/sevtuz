@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import redirect, reverse, get_object_or_404
 from django.http import Http404
-from apps.theater.models import Page, News, Season, History, DocumentType
+from apps.theater.models import Page, News, Season, History, DocumentType, Partner
 
 
 class PageDetailView(DetailView):
@@ -101,3 +101,10 @@ class DocumentTypeListView(ListView):
     """Отображает страницу с типами документов."""
     model = DocumentType
     template_name = 'theater/document_types/list.html'
+
+
+class PartnersListView(ListView):
+    """Отображает страницу с партнёрами театра."""
+    model = Partner
+    template_name = 'theater/partners/list.html'
+    queryset = Partner.objects.filter(is_visible=True)

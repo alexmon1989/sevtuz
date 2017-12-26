@@ -166,6 +166,7 @@ THUMBNAIL_ALIASES = {
         'person_avatar': {'size': (400, 450), 'crop': True},
         'person_gallery_item_sm': {'size': (320, 180), 'crop': True},
         'person_gallery_item_lg': {'size': (800, 500), 'crop': False},
+        'partner': {'size': (200, 100), 'crop': False},
     },
 }
 
