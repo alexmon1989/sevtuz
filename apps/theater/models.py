@@ -407,3 +407,39 @@ class HistoryVideo(models.Model):
     class Meta:
         verbose_name = 'Видео'
         verbose_name_plural = 'Видео'
+
+
+class DocumentType(models.Model):
+    """Модель типа документа."""
+    title = models.CharField('Название', max_length=255)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_documents(self):
+        """Возвращает список документов типа."""
+        return self.document_set.filter(is_visible=True).order_by('title').all()
+
+    class Meta:
+        verbose_name = 'Тип документа'
+        verbose_name_plural = 'Типы документов'
+
+
+class Document(models.Model):
+    """Модель документа."""
+    title = models.CharField('Название', max_length=255)
+    document_type = models.ForeignKey(DocumentType, verbose_name='Тип документа', on_delete=models.CASCADE)
+    file = models.FileField('Файл', upload_to='documents/')
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Документ'
+        verbose_name_plural = 'Документы'
+        ordering = ('title',)

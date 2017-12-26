@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import redirect, reverse, get_object_or_404
 from django.http import Http404
-from apps.theater.models import Page, News, Season, History
+from apps.theater.models import Page, News, Season, History, DocumentType
 
 
 class PageDetailView(DetailView):
@@ -74,7 +74,7 @@ class NewsDetailView(DetailView):
 
 
 class HistoryDetailView(DetailView):
-    """Отображает страницу с историе сезона."""
+    """Отображает страницу с историей сезона."""
     model = History
     template_name = 'theater/history/detail.html'
 
@@ -95,3 +95,9 @@ class HistoryDetailView(DetailView):
         context = super(HistoryDetailView, self).get_context_data(**kwargs)
         context['histories'] = History.objects.order_by('-season__year_from')
         return context
+
+
+class DocumentTypeListView(ListView):
+    """Отображает страницу с типами документов."""
+    model = DocumentType
+    template_name = 'theater/document_types/list.html'

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        Официальные документы / СевТЮЗ
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="container g-pt-100 g-pb-20">
+        <div class="row">
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h3 g-font-weight-600">
+                    {% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}Официальные
+                        документы{% endif %}</h1>
+            </div>
+
+            <div class="col-lg-12 g-mb-80">
+                <div id="accordion-07" class="u-accordion u-accordion-color-primary" role="tablist"
+                     aria-multiselectable="true">
+                    {% for type in documenttype_list %}
+                        {% if type.get_documents|length > 0 %}
+                            <!-- Card -->
+                            <div class="card rounded-0 g-brd-none g-brd-2 g-brd-left g-brd-primary">
+                                <div id="accordion-07-heading-{{ type.pk }}" class="u-accordion__header g-pa-0" role="tab">
+                                    <h5 class="mb-0 text-uppercase g-font-size-default g-font-weight-700 mb-0">
+                                        <a class="collapsed d-block g-color-main g-text-underline--none--hover"
+                                           href="#accordion-07-body-{{ type.pk }}" data-toggle="collapse" data-parent="#accordion-07"
+                                           aria-expanded="false" aria-controls="accordion-07-body-{{ type.pk }}">
+                                              <span class="u-accordion__control-icon g-pos-rel g-color-primary">
+                                                <img src="{% static "assets/img/point-primary.png" %}" alt="">
+                                              </span>
+                                              <span class="d-inline-block g-pa-15">
+                                                {{ type.title }}
+                                              </span>
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="accordion-07-body-{{ type.pk }}" class="collapse" role="tabpanel"
+                                     aria-labelledby="accordion-07-heading-{{ type.pk }}">
+                                    <div class="u-accordion__body g-py-0">
+                                        <ul class="list-unstyled g-mb-0">
+                                            {% for document in type.get_documents %}
+                                                <li>
+                                                    <a class="g-color-black g-color-primary--hover g-text-underline--none--hover" href="{{ document.file.url }}" target="_blank">{{ document }}&nbsp;&nbsp;<i class="fa fa-file-pdf-o g-color-red" aria-hidden="true"></i></a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Card -->
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

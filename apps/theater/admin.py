@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from apps.theater.models import (Season, Play, PlayPhoto, PlayVideo, Genre, Page, Person, PersonPhoto, Position,
-                                 PersonPlayRole, News, History, HistoryPhoto, HistoryVideo)
+                                 PersonPlayRole, News, History, HistoryPhoto, HistoryVideo, Document, DocumentType)
 
 
 class SeasonForm(forms.ModelForm):
@@ -139,3 +139,19 @@ class HistoryAdmin(admin.ModelAdmin):
     ordering = ('season__title',)
     search_fields = ('season__title',)
     inlines = (HistoryPhotoInline, HistoryVideoInline)
+
+
+@admin.register(Document)
+class DocumentsAdmin(admin.ModelAdmin):
+    """Класс для описания интерфейса администрирования документов."""
+    list_display = ('title', 'is_visible', 'created_at', 'updated_at')
+    list_editable = ('is_visible',)
+    search_fields = ('title',)
+
+
+@admin.register(DocumentType)
+class DocumentTypesAdmin(admin.ModelAdmin):
+    """Класс для описания интерфейса администрирования типов документов."""
+    list_display = ('title', 'created_at', 'updated_at')
+    ordering = ('title',)
+    search_fields = ('title',)

@@ -92,3 +92,20 @@ li.hs-has-mega-menu > .nav-link {
 li.hs-has-mega-menu > .nav-link.active {
   color: #fbc233 !important;
 }
+
+.u-accordion {
+  &__control-icon {
+    position: relative !important;
+
+    & img {
+      position: absolute !important;
+      display: inline;
+      left: -5px;
+      top: 5px;
+
+      .collapsed & {
+        display: none;
+      }
+    }
+  }
+}
