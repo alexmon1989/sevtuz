@@ -90,12 +90,12 @@ class Person(models.Model):
         return reverse('person_detail', args=[self.slug])
 
     def get_photos(self):
-        """Возвращает список фотографий сотрудника."""
+        """Возвращает список фотографий персоны."""
         return self.personphoto_set.filter(is_visible=True).order_by('created_at').all()
 
     class Meta:
-        verbose_name = 'Сотрудник'
-        verbose_name_plural = 'Сотрудники'
+        verbose_name = 'Персона'
+        verbose_name_plural = 'Персоны'
 
 
 class PersonPhoto(models.Model):
