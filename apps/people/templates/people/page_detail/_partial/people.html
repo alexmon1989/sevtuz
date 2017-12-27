@@ -2,36 +2,38 @@
 {% load thumbnail %}
 
 <!-- Team Block -->
-<div class="row g-mt-50">
+<div class="row g-mb-40">
     {% for person in page.get_persons %}
-        <div class="col-lg-4 col-sm-6 g-mb-30">
+        <div class="col-md-4 g-mb-30">
             <!-- Figure -->
-            <figure class="text-center">
+            <div class="row">
                 <!-- Figure Image -->
-                {% if person.has_page %}
+                <div class="col-lg-7 text-center">
+                    {% if person.has_page %}
                     <a href="{% url "person_detail" slug=person.slug %}">
-                        <img class="w-100 g-mb-20" src="{% if person.image %}{{person.image|thumbnail_url:'person_avatar' }}{% else %}//via.placeholder.com/400x450?text=No+Image{% endif %}"
+                        <img class="rounded-circle img-fluid" src="{% if person.image %}{{ person.image|thumbnail_url:'person_avatar_square' }}{% else %}//via.placeholder.com/200?text=No+Image{% endif %}"
                              alt="{{ person.name }}">
                     </a>
-                {% else %}
-                    <img class="w-100 g-mb-20" src="{% if person.image %}{{person.image|thumbnail_url:'person_avatar' }}{% else %}//via.placeholder.com/400x450?text=No+Image{% endif %}"
-                         alt="{{ person.name }}">
-                {% endif %}
-                <!-- End Figure Image -->
+                    {% else %}
+                        <img class="rounded-circle img-fluid" src="{% if person.image %}{{ person.image|thumbnail_url:'person_avatar_square' }}{% else %}//via.placeholder.com/200?text=No+Image{% endif %}"
+                             alt="{{ person.name }}">
+                    {% endif %}
+                </div>
 
                 <!-- Figure Info -->
-                <div class="g-mb-20">
-                    <h4 class="h5 g-color-black g-mb-5">
+                <div class="col-lg-5 g-pt-20 g-pt-60--lg g-pl-10--lg">
+                    <h4 class="h5 g-color-black g-mb-5 text-uppercase">
                         {% if person.has_page %}
-                            <a class="g-color-black" href="{% url "person_detail" slug=person.slug %}">{{ person.name }}</a>
+                            <a class="g-color-black g-font-weight-600"
+                               href="{% url "person_detail" slug=person.slug %}">{{ person.name }}</a>
                         {% else %}
                             {{ person.name }}
                         {% endif %}
                     </h4>
-                    <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary g-mb-12">{{ person.position.title }}</em>
+                    <em class="d-block g-font-style-normal g-font-size-11 g-color-black g-mb-12">{{ person.position.title }}</em>
                 </div>
                 <!-- End Info -->
-            </figure>
+            </div>
             <!-- End Figure -->
         </div>
     {% endfor %}
