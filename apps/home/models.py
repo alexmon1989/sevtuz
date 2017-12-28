@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from easy_thumbnails.fields import ThumbnailerImageField
-from apps.repertoire.models import Event
+from apps.playbill.models import Event
 
 
 def limit_event_choices():

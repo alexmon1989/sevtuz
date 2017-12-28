@@ -47,12 +47,11 @@ INSTALLED_APPS = [
     'compressor',
     'apps.home',
     'apps.theater',
-    'apps.repertoire',
     'apps.settings',
-    'apps.plays',
     'apps.contacts',
     'apps.tickets',
     'apps.people',
+    'apps.playbill',
 ]
 
 MIDDLEWARE = [

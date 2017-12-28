@@ -18,12 +18,11 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from apps.home.views import home
-from apps.repertoire import urls as repertoire_urls
 from apps.theater import urls as theater_urls
-from apps.plays import urls as plays_urls
 from apps.contacts import urls as contacts_urls
 from apps.tickets import urls as tickets_urls
 from apps.people import urls as people_urls
+from apps.playbill import urls as playbill_urls
 from sevtuz.sitemap import (StaticSitemap, TheaterNewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
                             PersonPagesSitemap, TheaterHistorySitemap, TicketsPagesSitemap)
 from django.contrib.sitemaps.views import sitemap
@@ -43,12 +42,11 @@ sitemaps = {
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
-    url(r'^repertoire/', include(repertoire_urls)),
     url(r'^theater/', include(theater_urls)),
-    url(r'^plays/', include(plays_urls)),
     url(r'^contacts/', include(contacts_urls)),
     url(r'^tickets/', include(tickets_urls)),
     url(r'^people/', include(people_urls)),
+    url(r'^playbill/', include(playbill_urls)),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

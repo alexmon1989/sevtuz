@@ -21,7 +21,7 @@
     <p class="g-mb-5"><span class="g-font-weight-600 text-uppercase">Текущие спеклакли:</span></p>
     <ul class="list-unstyled">
         {% for play in person.currentplay_set.all %}
-            <li><a href="{% url "play_detail" slug=play.play.slug %}">{{ play.play.title }}</a>
+            <li><a href="{% url "playbill_play_detail" slug=play.play.slug %}">{{ play.play.title }}</a>
                 {% if play.text %} ({{ play.text }}){% endif %}</li>
         {% endfor %}
     </ul>
@@ -31,7 +31,7 @@
     <p class="g-mb-5"><span class="g-font-weight-600 text-uppercase">Спеклакли прошлых лет:</span></p>
     <ul class="list-unstyled">
         {% for play in person.lastplay_set.all %}
-            <li><a href="{% url "play_detail" slug=play.play.slug %}">{{ play.play.title }}</a>
+            <li><a href="{% url "playbill_play_detail" slug=play.play.slug %}">{{ play.play.title }}</a>
                 {% if play.text %} ({{ play.text }}){% endif %}</li>
         {% endfor %}
     </ul>

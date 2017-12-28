@@ -1,0 +1,61 @@
+{% load staticfiles %}
+{% load project_tags %}
+
+{% if event_list|length > 0 %}
+    <table class="table">
+        <tbody>
+        {% for event in event_list %}
+            <tr>
+                <td class="text-center g-color-black g-pa-0 g-font-weight-600 g-brd-top-none" rowspan="2">
+                    <div class="g-pt-20">
+                        <div class="row no-gutters g-height-80 g-min-width-65">
+                            <div class="col-10 g-bg-yellow g-pt-5">
+                                <span class="g-font-size-22 g-font-size-30--lg g-line-height-1_4">{{ event.datetime|date:"d" }}</span>
+                                <span>{{ event.datetime|date:"D"|upper }}</span><br>
+                                <span class="g-font-size-20--sm g-font-weight-600">{{ event.datetime|time }}</span>
+                            </div>
+                            {% if event.is_premiere %}
+                                <div class="col-2 text-left">
+                                    <img class="g-height-80" src="{% static "assets/img/premier.jpg" %}"
+                                         alt="">
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </td>
+
+                <td class="g-pt-20 g-pb-0 g-brd-top-none g-valign-bottom g-font-size-16 g-font-size-20--md g-font-weight-600">
+                    <a href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title|upper }}</a>
+                </td>
+                <td class="g-py-0 g-brd-top-none g-valign-bottom">
+                    <span class="g-font-weight-600">{{ event.play.genre.title }}</span>, {{ event.play.age }}+
+                </td>
+                <td class="g-pa-0 g-brd-top-none g-valign-bottom text-right">
+                    {% if not event.is_past_due %}
+                        {% if event.free_enter %}
+                            <span class="text-success">Свободный вход</span>
+                        {% else %}
+                            <a class="btn btn-sm u-btn-red" href="{% url "tickets_page" slug="kupit-bilet" %}">Купить билет</a>
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr class="g-brd-white-bottom">
+                <td class="g-py-0">
+                    {{ event.play.author|default_if_none:"" }}
+                </td>
+                <td class="g-py-0">
+                    {% if event.play.duration %}
+                        <i class="fa fa-hourglass-o" aria-hidden="true"></i> {{ event.play.duration|duration }}
+                    {% endif %}
+                </td>
+                <td class="g-pa-0 text-right g-font-weight-600">
+                    {{ event.scene }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <span class="g-font-size-20">События отсутствуют.</span>
+{% endif %}

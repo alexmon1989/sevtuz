@@ -34,7 +34,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <a class="d-block u-block-hover g-pos-rel g-px-30"
-                                       href="{% url "play_detail" slug=event.play.slug %}">
+                                       href="{% url "playbill_play_detail" slug=event.play.slug %}">
                                         {% if event.play.image %}
                                         <img class="img-fluid rounded-circle u-block-hover__main--zoom-v1"
                                              src="{{ event.play.image|thumbnail_url:'play_main_page' }}"
@@ -55,7 +55,7 @@
                                 <div class="col-12 g-pt-10 g-pb-30">
                                     <h3 class="h5 text-uppercase g-font-weight-600 g-px-9"><a
                                             class="u-link-v5 g-color-black u-text-underline--hover"
-                                            href="{% url "play_detail" slug=event.play.slug %}">{{ event.play.title }}</a>
+                                            href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title }}</a>
                                     </h3>
                                     <span class="g-font-weight-600 text-lowercase g-px-9">{{ event.play.genre.title }}</span>
                                 </div>
