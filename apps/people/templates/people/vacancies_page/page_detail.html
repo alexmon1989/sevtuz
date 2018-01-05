@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load project_tags %}
+{% load staticfiles %}
+
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        Вакансии / Люди театра / СевТЮЗ
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container g-pt-100 g-pb-20">
+        <div class="row">
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h3 g-font-weight-600">
+                    {% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}Вакансии{% endif %}</h1>
+            </div>
+
+            <div class="col-lg-12 g-mb-50">
+                <div class="row">
+                    <div class="col-lg-12 g-color-black g-mb-50">
+                        {{ vacanciespage.hr_contacts|safe }}
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="g-brd-none g-brd-left g-brd-3 g-py-10" style="border-color: #f2ec4e !important;">
+                                    {% for vacancy in vacanciespage.get_vacancies %}
+                                        <div class="row g-color-black">
+                                            <div class="col-11">
+                                                <div class="g-pl-10 g-pos-rel">
+                                                    <img class="g-pos-abs g-left-minus-6" style="top: 0.5rem"
+                                                         src="{% static "assets/img/point-yellow.png" %}" alt="">
+                                                    {{ vacancy }}
+                                                </div>
+                                            </div>
+                                            <div class="col-1 text-center">{{ vacancy.count }} чел.</div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="row no-gutters">
+                            <div class="col-auto text-uppercase g-pt-10 g-pr-10 g-font-weight-600">Поделиться</div>
+                            <div class="col-auto">{% include "_partial/pluso.html" %}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
