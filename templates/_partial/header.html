@@ -131,7 +131,6 @@
                             data-animation-out="fadeOut" data-position="right">
                             <a id="mega-menu-label-3" class="nav-link g-pa-0 {% if request.resolver_match.url_name|in_list:"people_page,person_detail,vacancies_page" %}active{% endif %}" href="#" aria-haspopup="true"
                                aria-expanded="false">Люди театра
-                                <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
 
@@ -169,7 +168,6 @@
                             data-animation-out="fadeOut" data-position="right">
                             <a id="mega-menu-label-4" class="nav-link g-pa-0 {% if 'playbill' in request.path %}active{% endif %}" href="#" aria-haspopup="true"
                                aria-expanded="false">Афиша
-                                <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
 
@@ -180,8 +178,8 @@
                                     <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                                            <li class="nav-item g-mx-20--lg">
-                                                <a href="#!"
+                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == 'playbill_events_list' %}active{% endif %}">
+                                                <a href="{% url 'playbill_events_list' %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Репертуар
 
                                                 </a>
@@ -205,7 +203,6 @@
                             data-animation-out="fadeOut" data-position="right">
                             <a id="mega-menu-label-5" class="nav-link g-pa-0" href="#" aria-haspopup="true"
                                aria-expanded="false">Медиа
-                                <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
 
@@ -256,7 +253,6 @@
                             data-animation-out="fadeOut" data-position="right">
                             <a id="mega-menu-label-6" class="nav-link g-pa-0" href="#" aria-haspopup="true"
                                aria-expanded="false">Проекты
-                                <span class="sr-only">(current)</span>
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
 
