@@ -126,3 +126,9 @@ li.hs-has-mega-menu > .nav-link.active {
     top: 46% !important;
   }
 }
+
+@media (min-width: $g-md) {
+  .g-height-80--md {
+    height: 80px !important;
+  }
+}
