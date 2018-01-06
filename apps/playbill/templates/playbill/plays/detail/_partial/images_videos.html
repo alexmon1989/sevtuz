@@ -9,14 +9,14 @@
              data-arrow-right-classes="fa fa-angle-right g-right-0"
              data-pagi-classes="u-carousel-indicators-v1 g-absolute-centered--x g-bottom-0">
 
-            {% for video in history.get_videos %}
+            {% for video in play.get_videos %}
                 <div class="js-slide g-pa-10">
                     <a class="js-fancybox d-block u-block-hover u-bg-overlay g-bg-black-opacity-0_3--after g-bg-primary-opacity-0_8--hover--after g-transition-0_3"
                        data-fancybox-gallery="lightbox-gallery--10"
                        href="https://www.youtube.com/embed/{{ video.youtube_id }}?autoplay=1"
                        title="Смотреть">
                         <img class="img-fluid" src="//img.youtube.com/vi/{{ video.youtube_id }}/mqdefault.jpg"
-                             alt="{{ history.season.title }}">
+                             alt="{{ play.title }}">
 
                         <span class="u-icon-v3 u-icon-size--xs g-bg-white g-color-black g-rounded-50x g-cursor-pointer g-pos-abs g-bottom-10 g-right-10"><i
                             class="hs-icon hs-icon-play"></i></span>
@@ -27,14 +27,14 @@
                 </div>
             {% endfor %}
 
-            {% for image in history.get_photos %}
+            {% for image in play.get_photos %}
                 <div class="js-slide g-pa-10">
                     <a class="js-fancybox d-block u-block-hover u-bg-overlay g-bg-black-opacity-0_1--after g-bg-primary-opacity-0_8--hover--after g-transition-0_3"
                        data-fancybox-gallery="lightbox-gallery--10"
                        href="{{ image.image|thumbnail_url:'play_lg' }}"
                        title="Увеличить">
                         <img class="img-fluid" src="{{ image.image|thumbnail_url:'play_sm' }}"
-                             alt="{{ history.season.title }}">
+                             alt="{{ play.title }}">
 
                         <span class="u-block-hover__additional--fade g-color-white g-z-index-2">
                             <i class="hs-icon hs-icon-magnifier g-absolute-centered g-font-size-25"></i>
