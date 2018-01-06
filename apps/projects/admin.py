@@ -15,7 +15,7 @@ class PageAdmin(admin.ModelAdmin):
 # django-seo
 from django.contrib.sites.models import Site
 from djangoseo.admin import register_seo_admin, auto_register_inlines
-from apps.home.seo import MyMetadata
+from sevtuz.seo import MyMetadata
 
 # django-seo
 register_seo_admin(admin.site, MyMetadata)

@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse
 from apps.theater.models import News, Play, Page as TheaterPage, Person, History
 from apps.tickets.models import Page as TicketPage
 from apps.people.models import Page as PersonPage
+from apps.media.models import Page as MediaPage
+from apps.projects.models import Page as ProjectsPage
 
 
 class StaticSitemap(Sitemap):
@@ -10,10 +12,11 @@ class StaticSitemap(Sitemap):
         return [
             'home',
             'contacts',
-            'events_list',
-            'plays_list_current',
-            'plays_list_archive',
-            'plays_list_plans',
+            'playbill_events_list',
+            'playbill_plays_current',
+            'playbill_plays_archive',
+            'playbill_plays_plans',
+            'vacancies_page',
         ]
 
     def location(self, item):
@@ -22,7 +25,7 @@ class StaticSitemap(Sitemap):
 
 class TheaterNewsSitemap(Sitemap):
     def items(self):
-        return History.objects.all()
+        return News.objects.filter(is_visible=True)
 
     def lastmod(self, obj):
         return obj.updated_at
@@ -30,7 +33,7 @@ class TheaterNewsSitemap(Sitemap):
 
 class TheaterHistorySitemap(Sitemap):
     def items(self):
-        return News.objects.filter(is_visible=True)
+        return History.objects.all()
 
     def lastmod(self, obj):
         return obj.updated_at
@@ -71,6 +74,22 @@ class PersonPagesSitemap(Sitemap):
 class PersonsSitemap(Sitemap):
     def items(self):
         return Person.objects.filter(has_page=True)
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+
+class MediaPagesSitemap(Sitemap):
+    def items(self):
+        return MediaPage.objects.filter(is_visible=True)
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+
+class ProjectsPagesSitemap(Sitemap):
+    def items(self):
+        return ProjectsPage.objects.filter(is_visible=True)
 
     def lastmod(self, obj):
         return obj.updated_at

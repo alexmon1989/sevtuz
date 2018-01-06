@@ -102,6 +102,7 @@ class Person(models.Model):
     class Meta:
         verbose_name = 'Персона'
         verbose_name_plural = 'Персоны'
+        ordering = ('name',)
 
 
 class PersonPhoto(models.Model):
@@ -209,6 +210,7 @@ class Play(models.Model):
     class Meta:
         verbose_name = 'Спектакль'
         verbose_name_plural = 'Спектакли'
+        ordering = ('title',)
 
 
 class PlayPhoto(models.Model):
@@ -289,6 +291,7 @@ class Page(models.Model):
     class Meta:
         verbose_name = 'Страница'
         verbose_name_plural = 'Страницы'
+        ordering = ('created_at',)
 
 
 class News(models.Model):
@@ -321,6 +324,7 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+        ordering = ('-created_at',)
 
 
 class History(models.Model):
@@ -347,6 +351,7 @@ class History(models.Model):
     class Meta:
         verbose_name = 'История сезона'
         verbose_name_plural = 'История'
+        ordering = ('season__year_from',)
 
 
 class HistoryPhoto(models.Model):

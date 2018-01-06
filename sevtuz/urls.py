@@ -26,7 +26,8 @@ from apps.playbill import urls as playbill_urls
 from apps.media import urls as media_urls
 from apps.projects import urls as projects_urls
 from sevtuz.sitemap import (StaticSitemap, TheaterNewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
-                            PersonPagesSitemap, TheaterHistorySitemap, TicketsPagesSitemap)
+                            PersonPagesSitemap, TheaterHistorySitemap, TicketsPagesSitemap, MediaPagesSitemap,
+                            ProjectsPagesSitemap)
 from django.contrib.sitemaps.views import sitemap
 
 
@@ -39,6 +40,8 @@ sitemaps = {
     'theater_history': TheaterHistorySitemap,
     'tickets_pages': TicketsPagesSitemap,
     'person_pages': PersonPagesSitemap,
+    'media_pages': MediaPagesSitemap,
+    'projects_pages': ProjectsPagesSitemap,
 }
 
 urlpatterns = [
