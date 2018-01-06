@@ -16,6 +16,14 @@ class Page(models.Model):
     )
     text = RichTextUploadingField('Текст', blank=False)
     persons = models.ManyToManyField(Person, verbose_name='Сотрудники', blank=True)
+    template = models.SmallIntegerField(
+        'Шаблон',
+        default=1,
+        choices=(
+            (1, '2 колонки, прямоугольные изображения'),
+            (2, '3 колонки, круглые изображения'),
+        )
+    )
     is_visible = models.BooleanField('Включено', default=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)

@@ -26,7 +26,11 @@
                         {% endif %}
 
                         {% if page.get_persons|length > 0 %}
-                            {% include "people/page_detail/_partial/people.html" %}
+                            {% if page.template == 1 %}
+                                {% include "people/page_detail/_partial/people_2_columns.html" %}
+                            {% else %}
+                                {% include "people/page_detail/_partial/people_3_columns.html" %}
+                            {% endif %}
                         {% endif %}
                     </div>
 
