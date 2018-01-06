@@ -36,7 +36,8 @@
                 {% if person.plays %}
                     <div class="row">
                         <div class="col-12 g-mb-20">
-                            <h3 class="h5 g-font-weight-600 text-uppercase g-mb-0">Спектакли Севастопольского театра юного зрителя</h3>
+                            <h3 class="h5 g-font-weight-600 text-uppercase g-mb-0">Спектакли Севастопольского театра
+                                юного зрителя</h3>
                             <div class="person-plays">
                                 {{ person.plays|safe }}
                             </div>
@@ -56,6 +57,13 @@
                 {% if person.get_photos|length > 0 %}
                     {% include "people/person_detail/_partial/gallery.html" %}
                 {% endif %}
+
+                <div class="col-lg-12 g-my-40">
+                    <div class="row no-gutters">
+                        <div class="col-auto text-uppercase g-pt-10 g-pr-10 g-font-weight-600">Поделиться</div>
+                        <div class="col-auto">{% include "_partial/pluso.html" %}</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
