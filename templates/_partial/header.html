@@ -3,6 +3,7 @@
 {% load tickets_extras %}
 {% load theater_extras %}
 {% load people_extras %}
+{% load media_extras %}
 
 <!-- Header -->
 <header id="js-header" class="u-header u-header--static">
@@ -201,7 +202,7 @@
                         <!-- Медиа -->
                         <li class="hs-has-mega-menu nav-item g-mx-15--lg" data-animation-in="fadeIn"
                             data-animation-out="fadeOut" data-position="right">
-                            <a id="mega-menu-label-5" class="nav-link g-pa-0" href="#" aria-haspopup="true"
+                            <a id="mega-menu-label-5" class="nav-link g-pa-0 {% if request.resolver_match.url_name == "media_page" %}active{% endif %}" href="#" aria-haspopup="true"
                                aria-expanded="false">Медиа
                                 <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                             </a>
@@ -213,32 +214,14 @@
                                     <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                                            <li class="nav-item g-mx-20--lg">
-                                                <a href="#!"
-                                                   class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Социальные сети
-
-                                                </a>
-                                            </li>
-                                            <li class="nav-item g-mx-20--lg">
-                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">СМИ о нас
-
-                                                </a>
-                                            </li>
-                                            <li class="nav-item g-mx-20--lg">
-                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Журнал
-
-                                                </a>
-                                            </li>
-                                            <li class="nav-item g-mx-20--lg">
-                                                <a href="#!" class="nav-link g-color-black g-pa-0 g-color-white--hover">Информационнаые партнёры
-
-                                                </a>
-                                            </li>
-                                            <li class="nav-item g-mx-20--lg">
-                                                <a href="#!" class="nav-link g-color-black g-color-black g-pa-0 g-color-white--hover">Зрительский форум
-
-                                                </a>
-                                            </li>
+                                            {% media_pages as m_p %}
+                                            {% for page in m_p %}
+                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "media_page" and page.slug in request.path %}active{% endif %}">
+                                                    <a href="{% url "media_page" slug=page.slug %}"
+                                                       class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
                                         </ul>
                                         <!-- End Inline Lists -->
                                     </div>

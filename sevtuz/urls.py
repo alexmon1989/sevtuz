@@ -23,6 +23,7 @@ from apps.contacts import urls as contacts_urls
 from apps.tickets import urls as tickets_urls
 from apps.people import urls as people_urls
 from apps.playbill import urls as playbill_urls
+from apps.media import urls as media_urls
 from sevtuz.sitemap import (StaticSitemap, TheaterNewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
                             PersonPagesSitemap, TheaterHistorySitemap, TicketsPagesSitemap)
 from django.contrib.sitemaps.views import sitemap
@@ -47,6 +48,7 @@ urlpatterns = [
     url(r'^tickets/', include(tickets_urls)),
     url(r'^people/', include(people_urls)),
     url(r'^playbill/', include(playbill_urls)),
+    url(r'^media/', include(media_urls)),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

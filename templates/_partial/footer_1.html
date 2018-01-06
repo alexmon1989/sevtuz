@@ -2,6 +2,7 @@
 {% load tickets_extras %}
 {% load theater_extras %}
 {% load people_extras %}
+{% load media_extras %}
 
 <div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-orange g-brd-3">
     <img src="{% static "assets/img/point-orange.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
@@ -128,31 +129,14 @@
 
                 <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Социальные сети</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">СМИ о нас</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Журнал</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Информационные партнёры</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Зрительский форум</a>
-                            </h4>
-                        </li>
+                        {% media_pages as m_p %}
+                        {% for page in m_p %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "media_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </nav>
             </div>

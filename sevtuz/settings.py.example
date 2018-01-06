@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'apps.tickets',
     'apps.people',
     'apps.playbill',
+    'apps.media',
 ]
 
 MIDDLEWARE = [

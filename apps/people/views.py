@@ -1,4 +1,3 @@
-from django.http import Http404
 from django.views.generic import DetailView
 from apps.theater.models import Person
 from apps.people.models import Page, VacanciesPage
