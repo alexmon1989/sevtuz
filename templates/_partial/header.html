@@ -144,7 +144,7 @@
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                                             {% people_pages as p_p %}
                                             {% for page in p_p %}
-                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "people_page" and page.slug in request.path %}active{% endif %}">
+                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "people_page" and page.slug in request.path %}active{% elif request.resolver_match.url_name == "person_detail" %}{% if person.is_actor and page.slug == "truppa" %}active{% elif not person.is_actor and page.slug == "hudozhestvennaya-chast" %}active{% endif %}{% endif %}">
                                                     <a href="{% url "people_page" slug=page.slug %}"
                                                        class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
                                                     </a>

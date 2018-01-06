@@ -71,7 +71,13 @@ class Person(models.Model):
         blank=True,
         help_text='Оптимальный размер: 400px*550px.'
     )
-    position = models.ForeignKey(Position, on_delete=models.CASCADE, verbose_name='Должность')
+    is_actor = models.BooleanField(
+        'Является актёром',
+        default=False,
+        help_text="Если выбрано, то на странице персоны активным пунктом меню будет Труппа, "
+                  "иначе - Художественная часть (если эти страницы существуют)."
+    )
+    position = models.ForeignKey(Position, on_delete=models.CASCADE, verbose_name='Должность или звание')
     birthdate = models.DateField('Дата рождения', blank=True, null=True)
     education = models.CharField('Образование', max_length=255, blank=True, null=True)
     prizes = models.TextField('Награды', blank=True, null=True)
