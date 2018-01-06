@@ -71,21 +71,21 @@ class Person(models.Model):
         blank=True,
         help_text='Оптимальный размер: 400px*550px.'
     )
-    is_actor = models.BooleanField(
-        'Является актёром',
-        default=False,
-        help_text="Если выбрано, то на странице персоны активным пунктом меню будет Труппа, "
-                  "иначе - Художественная часть (если эти страницы существуют)."
-    )
     position = models.ForeignKey(Position, on_delete=models.CASCADE, verbose_name='Должность или звание')
     birthdate = models.DateField('Дата рождения', blank=True, null=True)
     education = models.CharField('Образование', max_length=255, blank=True, null=True)
     prizes = models.TextField('Награды', blank=True, null=True)
     ranks = models.TextField('Звания', blank=True, null=True)
     biography = RichTextUploadingField('Биография', blank=True, null=True)
+    plays = RichTextUploadingField('Спектакли СевТЮЗа', blank=True, null=True)
+    cinema = RichTextUploadingField('Роли в кино', blank=True, null=True)
+    is_actor = models.BooleanField(
+        'Является актёром',
+        default=False,
+        help_text="Если выбрано, то на странице персоны активным пунктом меню будет Труппа, "
+                  "иначе - Художественная часть (если эти страницы существуют)."
+    )
     has_page = models.BooleanField('Есть собственная страница?', default=True)
-    current_plays = models.ManyToManyField('Play', through='CurrentPlay', related_name='current_plays', blank=True)
-    last_plays = models.ManyToManyField('Play', through='LastPlay', related_name='last_plays', blank=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
@@ -253,28 +253,6 @@ class PlayVideo(models.Model):
     class Meta:
         verbose_name = 'Видео'
         verbose_name_plural = 'Видео'
-
-
-class CurrentPlay(models.Model):
-    """Модель для связи многие-ко-многим моделей Person и Play (текущие спектакли)."""
-    person = models.ForeignKey(Person)
-    play = models.ForeignKey(Play, verbose_name='Спектакль')
-    text = models.CharField('Текст', max_length=255, blank=True, null=True)
-
-    class Meta:
-        verbose_name = 'Спектакль'
-        verbose_name_plural = 'Текущие спектакли'
-
-
-class LastPlay(models.Model):
-    """Модель для связи многие-ко-многим моделей Person и Play (спектакли прошлых лет)."""
-    person = models.ForeignKey(Person)
-    play = models.ForeignKey(Play, verbose_name='Спектакль')
-    text = models.CharField('Текст', max_length=255, blank=True, null=True)
-
-    class Meta:
-        verbose_name = 'Спектакль'
-        verbose_name_plural = 'Спектакли прошлых лет'
 
 
 class PersonPlayRole(models.Model):

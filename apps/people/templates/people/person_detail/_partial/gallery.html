@@ -1,17 +1,29 @@
 {% load thumbnail %}
 
 <div class="row">
-    {% for photo in person.get_photos %}
-        <div class="col-6 col-md-4 g-mb-30">
-            <a class="js-fancybox d-block u-block-hover g-pos-rel"
-               data-fancybox-gallery="lightbox-gallery--04"
-               href="{{ photo.image|thumbnail_url:'person_gallery_item_lg' }}">
-                <img class="img-fluid u-block-hover__main--zoom-v1"
-                     src="{{ photo.image|thumbnail_url:'person_gallery_item_sm' }}"
-                     alt="{{ person.name }}">
-                <span class="u-icon-v3 u-icon-size--xs g-bg-white g-color-black g-rounded-50x g-cursor-pointer g-pos-abs g-bottom-10 g-right-10"><i
-                        class="hs-icon hs-icon-magnifier"></i></span>
-            </a>
+    <div class="col-12">
+        <div id="carousel-person-photos" class="js-carousel text-center g-font-size-0 g-pb-20" data-infinite="true"
+             data-center-padding="60px" data-slides-show="4" data-slides-scroll="4" data-rows="2"
+             data-arrows-classes="u-arrow-v1 g-absolute-centered--y g-width-25 g-height-25"
+             data-arrow-left-classes="g-left-0 u-bg-left-arrow"
+             data-arrow-right-classes="g-right-0 u-bg-right-arrow"
+             data-pagi-classes="u-carousel-indicators-v1 g-absolute-centered--x g-bottom-0">
+
+            {% for photo in person.get_photos %}
+                <div class="js-slide g-pa-10">
+                    <a class="js-fancybox d-block u-block-hover u-bg-overlay g-bg-black-opacity-0_1--after g-bg-primary-opacity-0_8--hover--after g-transition-0_3"
+                       data-fancybox-gallery="lightbox-gallery--10"
+                       href="{{ photo.image|thumbnail_url:'person_gallery_item_lg' }}"
+                       title="Увеличить">
+                        <img class="img-fluid" src="{{ photo.image|thumbnail_url:'person_gallery_item_sm' }}"
+                             alt="{{ person.name }}">
+
+                        <span class="u-block-hover__additional--fade g-color-white g-z-index-2">
+                            <i class="hs-icon hs-icon-magnifier g-absolute-centered g-font-size-25"></i>
+                        </span>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </div>
 </div>

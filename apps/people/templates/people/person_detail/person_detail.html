@@ -12,22 +12,50 @@
 
 {% block content %}
     <div class="container g-pt-100 g-pb-20">
-        <div class="row">
+        <div class="row g-color-black">
             <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
-                <h1 class="h3 g-font-weight-600">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}{{ person.name }}{% endif %}</h1>
-
-            <em class="d-block g-font-style-normal g-font-size-11 g-color-black g-mb-12">{{ person.position }}</em>
+                <h1 class="h3 g-font-weight-600">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}
+                    {{ person.name }}{% endif %}</h1>
+                <em class="d-block g-font-style-normal g-font-size-11 g-color-black g-mb-12">{{ person.position }}</em>
             </div>
 
             <div class="col-md-3">
                 {% include "people/person_detail/_partial/properties.html" %}
             </div>
             <div class="col-md-9">
+
+                {% if person.biography %}
+                    <div class="row">
+                        <div class="col-12 g-mb-20">
+                            <h3 class="h5 g-font-weight-600 text-uppercase g-mb-0">Биография</h3>
+                            {{ person.biography|safe }}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if person.plays %}
+                    <div class="row">
+                        <div class="col-12 g-mb-20">
+                            <h3 class="h5 g-font-weight-600 text-uppercase g-mb-0">Спектакли Севастопольского театра юного зрителя</h3>
+                            <div class="person-plays">
+                                {{ person.plays|safe }}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if person.cinema %}
+                    <div class="row">
+                        <div class="col-12 g-mb-20">
+                            <h3 class="h5 g-font-weight-600 text-uppercase g-mb-0">Роли в кино</h3>
+                            {{ person.cinema|safe }}
+                        </div>
+                    </div>
+                {% endif %}
+
                 {% if person.get_photos|length > 0 %}
                     {% include "people/person_detail/_partial/gallery.html" %}
                 {% endif %}
-
-                {{ person.biography|safe }}
             </div>
         </div>
     </div>

@@ -85,16 +85,6 @@ class PersonPhotoInline(admin.TabularInline):
     extra = 3
 
 
-class CurrentPlayInline(admin.TabularInline):
-    model = Person.current_plays.through
-    extra = 3
-
-
-class LastPlayInline(admin.TabularInline):
-    model = Person.last_plays.through
-    extra = 3
-
-
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования сотрудников."""
@@ -102,7 +92,7 @@ class PersonAdmin(admin.ModelAdmin):
     ordering = ('name',)
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}
-    inlines = (PersonPhotoInline, CurrentPlayInline, LastPlayInline)
+    inlines = (PersonPhotoInline,)
 
 
 @admin.register(Position)

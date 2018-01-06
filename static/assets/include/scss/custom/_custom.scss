@@ -109,3 +109,20 @@ li.hs-has-mega-menu > .nav-link.active {
     }
   }
 }
+
+.person-plays {
+  a {
+    text-decoration: underline;
+    color: black;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $g-color-primary;
+  }
+}
+
+#carousel-person-photos {
+  .g-absolute-centered--y {
+    top: 46% !important;
+  }
+}
