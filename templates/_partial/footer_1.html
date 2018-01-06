@@ -3,6 +3,7 @@
 {% load theater_extras %}
 {% load people_extras %}
 {% load media_extras %}
+{% load projects_extras %}
 
 <div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-orange g-brd-3">
     <img src="{% static "assets/img/point-orange.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
@@ -148,26 +149,14 @@
 
                 <nav>
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Фестивали</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Акции</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Школа театрального зрителя</a>
-                            </h4>
-                        </li>
-                        <li class="g-pos-rel g-py-10">
-                            <h4 class="h6 mb-0">
-                                <a class="text-lowercase g-color-black" href="#">Театры-детям</a>
-                            </h4>
-                        </li>
+                        {% projects_pages as p_p %}
+                        {% for page in p_p %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "projects_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </nav>
             </div>
