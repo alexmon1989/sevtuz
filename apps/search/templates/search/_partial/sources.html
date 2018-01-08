@@ -1,0 +1,51 @@
+<h2 class="h5 text-uppercase g-color-gray-dark-v1">Источники поиска</h2>
+<hr class="g-brd-gray-light-v4 g-my-15">
+<form action="{% url "search" %}">
+    <!-- Checkbox -->
+    <div class="form-group g-mb-10">
+        <label class="u-check g-pl-30">
+            <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" name="source" value="theater_news" {% if not sources_selected or "theater_news" in sources_selected %}checked{% endif %}>
+            <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                <i class="fa" data-check-icon="&#xf00c"></i>
+            </div>
+            Новости
+        </label>
+    </div>
+    <!-- End Checkbox -->
+
+    <!-- Checkbox -->
+    <div class="form-group g-mb-10">
+        <label class="u-check g-pl-30">
+            <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" name="source" value="theater_play" {% if not sources_selected or "theater_play" in sources_selected %}checked{% endif %}>
+            <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                <i class="fa" data-check-icon="&#xf00c"></i>
+            </div>
+            Спектакли
+        </label>
+    </div>
+    <!-- End Checkbox -->
+
+    <!-- Checkbox -->
+    <div class="form-group g-mb-10">
+        <label class="u-check g-pl-30">
+            <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" name="source" value="theater_person" {% if not sources_selected or "theater_person" in sources_selected %}checked{% endif %}>
+            <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                <i class="fa" data-check-icon="&#xf00c"></i>
+            </div>
+            Персоны (актёры, сотрудники)
+        </label>
+    </div>
+    <!-- End Checkbox -->
+
+    <!-- Checkbox -->
+    <div class="form-group g-mb-10">
+        <label class="u-check g-pl-30">
+            <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" name="source" value="others" {% if not sources_selected or "others" in sources_selected %}checked{% endif %}>
+            <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                <i class="fa" data-check-icon="&#xf00c"></i>
+            </div>
+            Прочие страницы веб-сайта
+        </label>
+    </div>
+    <!-- End Checkbox -->
+</form>

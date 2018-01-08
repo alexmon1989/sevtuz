@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{% if metadata.title.value %}{{ metadata.title.value }}{% else %}Результаты поиска / CевТЮЗ
+{% endif %}{% endblock %}
+
+{% block content %}
+    <form action="{% url "search" %}">
+        <!-- Page Title -->
+        <div class="g-bg-gray-light-v4">
+            <div class="container text-center g-pt-100 g-pb-50">
+                <h1 class="text-uppercase g-font-weight-300 g-mb-30">Результаты поиска</h1>
+                <!-- Search Form -->
+                {% include "search/_partial/form.html" %}
+                <!-- End Search Form -->
+            </div>
+        </div>
+        <!-- Page Title -->
+
+        <section class="g-py-50">
+            <div class="container">
+                <div class="row">
+                    <!-- Sidebar -->
+                    <div class="col-lg-3 g-pr-40--lg g-mb-50 g-mb-0--lg">
+                        <!-- Result Types -->
+                        {% include "search/_partial/sources.html" %}
+                        <!-- End Result Types -->
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <!-- Search Results -->
+                    <div class="col-lg-9">
+                        <!-- Search Info -->
+                        <div class="d-md-flex justify-content-between g-mb-30">
+                            <h3 class="h6 text-uppercase g-mb-10 g-mb--lg">Всего результатов: <span class="g-color-gray-dark-v2 g-font-weight-600">{{ count }}</span></h3>
+                        </div>
+                        <!-- End Search Info -->
+
+                        {% include "search/_partial/results.html" %}
+
+                        {% if count > 10 %}
+                            <!-- Pagination -->
+                            {% include 'search/_partial/pagination.html' %}
+                            <!-- End Pagination -->
+                        {% endif %}
+                    </div>
+                    <!-- End Search Results -->
+                </div>
+            </div>
+        </section>
+    </form>
+{% endblock %}

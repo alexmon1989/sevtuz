@@ -353,11 +353,11 @@
                     </a>
 
                     <!-- Search Form -->
-                    <form action="/"
+                    <form action="{% url 'search' %}"
                           id="searchform-1"
                           class="u-searchform-v1 u-dropdown--css-animation u-dropdown--hidden g-mt-11--lg g-mt-20--lg--scrolling g-brd-primary g-brd-around g-brd-3">
                         <div class="input-group">
-                            <input class="form-control rounded-0 u-form-control" type="search" name="s"
+                            <input class="form-control rounded-0 u-form-control" type="search" name="q"
                                    placeholder="Введите поисковый запрос">
                         </div>
                     </form>

@@ -132,3 +132,8 @@ li.hs-has-mega-menu > .nav-link.active {
     height: 80px !important;
   }
 }
+
+.results em {
+  color: $g-color-danger;
+  font-weight: 600;
+}

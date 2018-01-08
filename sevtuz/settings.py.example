@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'apps.playbill',
     'apps.media',
     'apps.projects',
+    'apps.search',
 ]
 
 MIDDLEWARE = [
