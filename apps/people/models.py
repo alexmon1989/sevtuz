@@ -14,7 +14,7 @@ class Page(models.Model):
         default='',
         unique=True
     )
-    text = RichTextUploadingField('Текст', blank=False)
+    text = RichTextUploadingField('Текст', blank=True, null=True)
     persons = models.ManyToManyField(Person, verbose_name='Сотрудники', blank=True)
     template = models.SmallIntegerField(
         'Шаблон',
