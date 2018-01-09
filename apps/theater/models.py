@@ -54,6 +54,7 @@ class Position(models.Model):
     class Meta:
         verbose_name = 'Должность'
         verbose_name_plural = 'Должности'
+        ordering = ('title',)
 
 
 class Person(models.Model):

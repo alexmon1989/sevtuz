@@ -99,7 +99,6 @@ class PersonAdmin(admin.ModelAdmin):
 class PositionsAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования должностей."""
     list_display = ('title', 'created_at', 'updated_at')
-    ordering = ('-created_at',)
     search_fields = ('title',)
 
 
