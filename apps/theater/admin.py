@@ -32,7 +32,7 @@ class SeasonForm(forms.ModelForm):
 class SeasonAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования сезонов."""
     list_display = ('title', 'year_from', 'year_to', 'month_from', 'month_to', 'created_at', 'updated_at')
-    ordering = ('-created_at',)
+    ordering = ('year_from',)
     search_fields = ('title',)
     form = SeasonForm
 
@@ -127,7 +127,7 @@ class HistoryVideoInline(admin.TabularInline):
 class HistoryAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования новостей."""
     list_display = ('season', 'created_at', 'updated_at')
-    ordering = ('season__title',)
+    ordering = ('season__year_from',)
     search_fields = ('season__title',)
     inlines = (HistoryPhotoInline, HistoryVideoInline)
 

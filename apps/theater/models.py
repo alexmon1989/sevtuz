@@ -23,8 +23,8 @@ class Season(models.Model):
     title = models.CharField('Название', max_length=255)
     year_from = models.PositiveIntegerField('Год с', default=None)
     year_to = models.PositiveIntegerField('Год по', default=None)
-    month_from = models.PositiveIntegerField('Месяц с', choices=MONTHS_CHOICES, default=None)
-    month_to = models.PositiveIntegerField('Месяц по', choices=MONTHS_CHOICES, default=None)
+    month_from = models.PositiveIntegerField('Месяц с', choices=MONTHS_CHOICES, default=9)
+    month_to = models.PositiveIntegerField('Месяц по', choices=MONTHS_CHOICES, default=5)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
@@ -34,6 +34,7 @@ class Season(models.Model):
     class Meta:
         verbose_name = 'Сезон'
         verbose_name_plural = 'Сезоны'
+        ordering = ('year_from',)
 
 
 class Position(models.Model):
