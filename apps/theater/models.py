@@ -73,6 +73,13 @@ class Person(models.Model):
         blank=True,
         help_text='Оптимальный размер: 400px*550px.'
     )
+    has_page = models.BooleanField('Есть собственная страница', default=True)
+    is_actor = models.BooleanField(
+        'Является актёром',
+        default=False,
+        help_text="Если выбрано, то на странице персоны активным пунктом меню будет Труппа, "
+                  "иначе - Художественная часть (если эти страницы существуют)."
+    )
     position = models.ForeignKey(Position, on_delete=models.CASCADE, verbose_name='Должность или звание')
     birthdate = models.DateField('Дата рождения', blank=True, null=True)
     education = models.CharField('Образование', max_length=255, blank=True, null=True)
@@ -81,13 +88,6 @@ class Person(models.Model):
     biography = RichTextUploadingField('Биография', blank=True, null=True)
     plays = RichTextUploadingField('Спектакли СевТЮЗа', blank=True, null=True)
     cinema = RichTextUploadingField('Роли в кино', blank=True, null=True)
-    is_actor = models.BooleanField(
-        'Является актёром',
-        default=False,
-        help_text="Если выбрано, то на странице персоны активным пунктом меню будет Труппа, "
-                  "иначе - Художественная часть (если эти страницы существуют)."
-    )
-    has_page = models.BooleanField('Есть собственная страница?', default=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
