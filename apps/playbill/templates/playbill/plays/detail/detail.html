@@ -35,16 +35,14 @@
             </div>
 
             {% if play.roles.all|length > 0 %}
-                <div class="col-lg-12 g-pt-50">
+                <div class="col-lg-12 g-pt-30">
                     {% include 'playbill/plays/detail/_partial/roles.html' %}
                 </div>
             {% endif %}
 
             {% if play.get_photos|length > 0 or play.get_videos|length > 0 %}
                 <div class="col-lg-12 g-pt-50">
-                    <div class="row">
-                        {% include 'playbill/plays/detail/_partial/images_videos.html' %}
-                    </div>
+                    {% include 'playbill/plays/detail/_partial/images_videos.html' %}
                 </div>
             {% endif %}
         </div>
