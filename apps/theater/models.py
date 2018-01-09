@@ -143,6 +143,7 @@ class Genre(models.Model):
     class Meta:
         verbose_name = 'Жанр'
         verbose_name_plural = 'Жанры'
+        ordering = ('title',)
 
 
 class Play(models.Model):
