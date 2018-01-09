@@ -43,12 +43,12 @@
                             <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
                                  aria-labelledby="mega-menu-label-1">
                                 <div class="row">
-                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                                             {% tickets_pages as t_p %}
                                             {% for page in t_p %}
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == 'tickets_page' and page.slug in request.path %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == 'tickets_page' and page.slug in request.path %}active{% endif %}">
                                                 <a href="{% url "tickets_page" slug=page.slug %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
                                                 </a>
@@ -77,15 +77,15 @@
                             <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
                                  aria-labelledby="mega-menu-label-1">
                                 <div class="row">
-                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name|in_list:"theater_news_list,theater_news_detail" %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name|in_list:"theater_news_list,theater_news_detail" %}active{% endif %}">
                                                 <a href="{% url "theater_news_list" %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Новости
                                                 </a>
                                             </li>
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "theater_history" %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_history" %}active{% endif %}">
                                                 <a href="{% url "theater_history" %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">История
                                                 </a>
@@ -93,27 +93,27 @@
 
                                             {% theater_pages as t_p %}
                                             {% for page in t_p|slice:":2" %}
-                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "theater_page" and page.slug in request.path %}active{% endif %}">
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_page" and page.slug in request.path %}active{% endif %}">
                                                     <a href="{% url "theater_page" slug=page.slug %}"
                                                        class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
                                                     </a>
                                                 </li>
                                             {% endfor %}
 
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "theater_documents" %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_documents" %}active{% endif %}">
                                                 <a href="{% url "theater_documents" %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Официальные документы
                                                 </a>
                                             </li>
 
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "theater_partners" %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_partners" %}active{% endif %}">
                                                 <a href="{% url "theater_partners" %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Партнёры
                                                 </a>
                                             </li>
 
                                             {% for page in t_p|slice:"2:" %}
-                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "theater_page" and page.slug in request.path %}active{% endif %}">
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_page" and page.slug in request.path %}active{% endif %}">
                                                     <a href="{% url "theater_page" slug=page.slug %}"
                                                        class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
                                                     </a>
@@ -140,18 +140,18 @@
                             <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
                                  aria-labelledby="mega-menu-label-1">
                                 <div class="row">
-                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
-                                        <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                                        <ul class="navbar-nav flex-wrap text-uppercase g-font-weight-600 mr-auto">
                                             {% people_pages as p_p %}
                                             {% for page in p_p %}
-                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "people_page" and page.slug in request.path %}active{% elif request.resolver_match.url_name == "person_detail" %}{% if person.is_actor and page.slug == "truppa" %}active{% elif not person.is_actor and page.slug == "hudozhestvennaya-chast" %}active{% endif %}{% endif %}">
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "people_page" and page.slug in request.path %}active{% elif request.resolver_match.url_name == "person_detail" %}{% if person.is_actor and page.slug == "truppa" %}active{% elif not person.is_actor and page.slug == "hudozhestvennaya-chast" %}active{% endif %}{% endif %}">
                                                     <a href="{% url "people_page" slug=page.slug %}"
                                                        class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
                                                     </a>
                                                 </li>
                                             {% endfor %}
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "vacancies_page" %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "vacancies_page" %}active{% endif %}">
                                                 <a href="{% url "vacancies_page" %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Вакансии
                                                 </a>
@@ -177,16 +177,16 @@
                             <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
                                  aria-labelledby="mega-menu-label-1">
                                 <div class="row">
-                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == 'playbill_events_list' %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == 'playbill_events_list' %}active{% endif %}">
                                                 <a href="{% url 'playbill_events_list' %}"
                                                    class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Репертуар
 
                                                 </a>
                                             </li>
-                                            <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name|in_list:"playbill_plays_current,playbill_plays_archive,playbill_plays_plans" %}active{% endif %}">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name|in_list:"playbill_plays_current,playbill_plays_archive,playbill_plays_plans" %}active{% endif %}">
                                                 <a href="{% url 'playbill_plays_current' %}" class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">Спектакли
 
                                                 </a>
@@ -212,12 +212,12 @@
                             <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
                                  aria-labelledby="mega-menu-label-1">
                                 <div class="row">
-                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                                             {% media_pages as m_p %}
                                             {% for page in m_p %}
-                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "media_page" and page.slug in request.path %}active{% endif %}">
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "media_page" and page.slug in request.path %}active{% endif %}">
                                                     <a href="{% url "media_page" slug=page.slug %}"
                                                        class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
                                                     </a>
@@ -244,12 +244,12 @@
                             <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
                                  aria-labelledby="mega-menu-label-1">
                                 <div class="row">
-                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-py-10--md g-mr-40--sm">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
                                         <!-- Inline Lists -->
                                         <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                                             {% projects_pages as p_p %}
                                             {% for page in p_p %}
-                                                <li class="nav-item g-mx-20--lg {% if request.resolver_match.url_name == "projects_page" and page.slug in request.path %}active{% endif %}">
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "projects_page" and page.slug in request.path %}active{% endif %}">
                                                     <a href="{% url "projects_page" slug=page.slug %}"
                                                        class="nav-link g-color-black g-pa-0 g-color-white--active g-color-white--hover">{{ page.title }}
                                                     </a>
@@ -264,8 +264,8 @@
                         </li>
                         <!-- End Проекты -->
 
-                        <li class="hs-has-mega-menu nav-item g-mx-15--lg g-mr-0--lg">
-                            <a href="{% url "contacts" %}" class="nav-link g-pa-0 {% if request.resolver_match.url_name == "contacts" %}active{% endif %}">Контакты
+                        <li class="nav-item g-mx-15--lg g-mr-0--lg">
+                            <a href="{% url "contacts" %}" class="nav-link g-color-main g-pa-0 {% if request.resolver_match.url_name == "contacts" %}active{% endif %}">Контакты
 
                             </a>
                         </li>
