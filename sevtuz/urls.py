@@ -53,7 +53,7 @@ urlpatterns = [
     url(r'^tickets/', include(tickets_urls)),
     url(r'^people/', include(people_urls)),
     url(r'^playbill/', include(playbill_urls)),
-    url(r'^media/', include(media_urls)),
+    url(r'^media-section/', include(media_urls)),
     url(r'^projects/', include(projects_urls)),
     url(r'^search', include(search_urls)),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}),
