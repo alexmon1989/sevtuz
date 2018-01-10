@@ -93,6 +93,7 @@ class HistoryDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(HistoryDetailView, self).get_context_data(**kwargs)
+        context['media_count'] = len(self.object.get_videos()) + len(self.object.get_photos())
         context['histories'] = History.objects.order_by('-season__year_from')
         return context
 

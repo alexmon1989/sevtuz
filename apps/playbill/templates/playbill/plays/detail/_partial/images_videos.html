@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-12">
         <div id="carousel-person-photos" class="js-carousel text-center g-font-size-0 g-pb-20" data-infinite="true"
-             data-center-padding="60px" data-slides-show="4" data-slides-scroll="4" data-rows="2"
+             data-center-padding="60px" data-slides-show="4" data-slides-scroll="4" data-rows="{% if media_count > 6 %}2{% else %}1{% endif %}"
              data-arrows-classes="u-arrow-v1 g-absolute-centered--y g-width-25 g-height-25"
              data-arrow-left-classes="g-left-0 u-bg-left-arrow"
              data-arrow-right-classes="g-right-0 u-bg-right-arrow"
