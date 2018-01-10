@@ -14,6 +14,11 @@ class FooterSettings(models.Model):
 class HeaderSettings(models.Model):
     """Настройки хедера."""
     buy_ticket_link = models.URLField('Ссылка на страницу "Купить билет"', null=True, blank=True)
+    ukgs_link = models.URLField(
+        'Ссылка на страницу "Главное управление культуры города Севастополя""',
+        null=True,
+        blank=True
+    )
 
     class Meta:
         verbose_name = 'Header'
