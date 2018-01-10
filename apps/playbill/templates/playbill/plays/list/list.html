@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load thumbnail %}
+{% load static %}
 
 {% block extra_meta %}
     {% if request.GET.page %}
@@ -19,12 +20,12 @@
         {{ metadata.title.value }}
     {% else %}
         Спектакли / {% if 'current' in request.get_full_path %}
-            Текущие
-        {% elif 'archive' in request.get_full_path %}
-            Архивные
-        {% elif 'plans' in request.get_full_path %}
-            Планируемые
-        {% endif %} / СевТЮЗ
+        Текущие
+    {% elif 'archive' in request.get_full_path %}
+        Архивные
+    {% elif 'plans' in request.get_full_path %}
+        Планируемые
+    {% endif %} / СевТЮЗ
     {% endif %}
 {% endblock %}
 
@@ -69,8 +70,9 @@
                                            href="{% url 'playbill_play_detail' slug=play.slug %}">{{ play.title }}</a>
                                     </h2>
                                     <p class="g-line-height-1_8">{{ play.text|striptags|truncatewords:40|safe }}</p>
-                                    <a class="g-font-size-13" href="{% url 'playbill_play_detail' slug=play.slug %}">Читать
-                                        далее...</a>
+                                    <a class="g-color-black small"
+                                       href="{% url 'playbill_play_detail' slug=play.slug %}">Далее <img
+                                            src="{% static "assets/img/right.png" %}" alt=""></a>
                                 </div>
                             </div>
                         {% endfor %}
@@ -95,15 +97,15 @@
                             <ul class="list-unstyled mb-0 g-pl-10 g-font-size-18">
                                 <li>
                                     <a href="{% url "playbill_plays_current" %}"
-                                       class="{% if request.resolver_match.url_name == 'playbill_plays_current' %}g-color-primary{% else %}g-color-gray-dark-v1{% endif %}">Текущие
+                                       class="{% if request.resolver_match.url_name == 'playbill_plays_current' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}">Текущие
                                         спектакли</a>
                                 </li>
                                 <li>
-                                    <a class="{% if request.resolver_match.url_name == 'playbill_plays_archive' %}g-color-primary{% else %}g-color-gray-dark-v1{% endif %}"
+                                    <a class="{% if request.resolver_match.url_name == 'playbill_plays_archive' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}"
                                        href="{% url "playbill_plays_archive" %}">Архивные
                                         спектакли</a></li>
                                 <li>
-                                    <a class="{% if request.resolver_match.url_name == 'playbill_plays_plans' %}g-color-primary{% else %}g-color-gray-dark-v1{% endif %}"
+                                    <a class="{% if request.resolver_match.url_name == 'playbill_plays_plans' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}"
                                        href="{% url "playbill_plays_plans" %}">Планируемые
                                         спектакли</a></li>
                             </ul>

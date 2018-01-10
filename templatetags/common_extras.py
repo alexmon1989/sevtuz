@@ -69,7 +69,6 @@ def analytics_code():
 @register.simple_tag
 def header_settings():
     """Возвращает настройки хедера."""
-    print(123)
     obj, created = HeaderSettings.objects.get_or_create()
     return {
         'header_data': obj

@@ -10,13 +10,18 @@
     {% endif %}
 {% endblock %}
 
-{% block breadcrumbs %}
-    {% include 'playbill/repertoire/_partial/breadcrumbs_list.html' %}
-{% endblock %}
-
 {% block content %}
-    <div class="container g-pt-70 g-pb-40">
+    <div class="container g-pt-100 g-pb-40">
         <div class="row justify-content-between">
+
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h2 g-font-weight-600">
+                    {% if metadata.heading.value %}
+                        {{ metadata.heading.value }}
+                    {% else %}
+                        Репертуар
+                    {% endif %}</h1>
+            </div>
 
             {% include 'playbill/repertoire/_partial/filter_scene.html' %}
 
