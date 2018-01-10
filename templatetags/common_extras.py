@@ -1,7 +1,7 @@
 from django import template
 from django.conf import settings
 from django.utils.safestring import mark_safe
-from apps.settings.models import FooterSettings, SocialLinksModel
+from apps.settings.models import FooterSettings, SocialLinksModel, HeaderSettings
 from apps.settings.models import Analytics
 
 register = template.Library()
@@ -64,3 +64,13 @@ def analytics_code():
     """Возвращает HTML-код аналитики."""
     analytics, created = Analytics.objects.get_or_create()
     return mark_safe(analytics.code)
+
+
+@register.simple_tag
+def header_settings():
+    """Возвращает настройки хедера."""
+    print(123)
+    obj, created = HeaderSettings.objects.get_or_create()
+    return {
+        'header_data': obj
+    }

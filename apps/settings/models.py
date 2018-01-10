@@ -11,6 +11,15 @@ class FooterSettings(models.Model):
         verbose_name_plural = 'Footer'
 
 
+class HeaderSettings(models.Model):
+    """Настройки хедера."""
+    buy_ticket_link = models.URLField('Ссылка на страницу "Купить билет"', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Header'
+        verbose_name_plural = 'Header'
+
+
 class SocialLinksModel(models.Model):
     """Настройки ссылок на соц. сети."""
     fb = models.URLField('Facebook', max_length=255, null=True, blank=True)

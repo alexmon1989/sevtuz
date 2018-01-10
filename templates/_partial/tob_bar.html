@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load project_tags %}
 
 <div class="u-header__section u-header__section--hidden g-bg-red bvi-hide">
     <div class="container">
@@ -16,8 +17,14 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <a href="#"><img src="{% static "assets/img/header/buy-ticket.png" %}" alt=""
-                                         class="img-fluid"></a>
+                        {% header_settings as header_settings %}
+                        {% if header_settings.header_data.buy_ticket_link %}
+                            <a href="{{ header_settings.header_data.buy_ticket_link }}"><img src="{% static "assets/img/header/buy-ticket.png" %}" alt=""
+                                             class="img-fluid"></a>
+                        {% else %}
+                            <a href="#"><img src="{% static "assets/img/header/buy-ticket.png" %}" alt=""
+                                             class="img-fluid"></a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
