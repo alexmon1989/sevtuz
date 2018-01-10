@@ -64,13 +64,15 @@
 
     {% block breadcrumbs %}{% endblock %}
 
-    {% block content %}
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 g-min-height-500 text-center g-pt-150"><h1>Страница в разработке</h1></div>
+    <div class="content">
+        {% block content %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 g-min-height-500 text-center g-pt-150"><h1>Страница в разработке</h1></div>
+                </div>
             </div>
-        </div>
-    {% endblock %}
+        {% endblock %}
+    </div>
 
     <!-- Footer 1 -->
     {% include "_partial/footer_1.html" %}

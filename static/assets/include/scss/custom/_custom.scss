@@ -33,7 +33,7 @@
     width: 2000%;
     border-top: inherit;
     border-bottom: inherit;
-    background-color: #fbc233;
+    background-color: $g-color-primary;
   }
 }
 
@@ -90,7 +90,7 @@ li.hs-has-mega-menu > .nav-link {
 }
 
 li.hs-has-mega-menu > .nav-link.active {
-  color: #fbc233 !important;
+  color: $g-color-primary !important;
 }
 
 .u-accordion {
@@ -136,4 +136,8 @@ li.hs-has-mega-menu > .nav-link.active {
 .results em {
   color: $g-color-danger;
   font-weight: 600;
+}
+
+.content a {
+  color: $g-color-red;
 }
