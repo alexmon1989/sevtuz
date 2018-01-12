@@ -1,8 +1,9 @@
 from django.conf.urls import url
 from apps.theater.views import (PageDetailView, NewsDetailView, NewsListView, HistoryDetailView, DocumentTypeListView,
-                                PartnersListView)
+                                PartnersListView, pages_list)
 
 urlpatterns = [
+    url(r'^$', pages_list, name='theater_pages'),
     url(r'^news/$', NewsListView.as_view(), name='theater_news_list'),
     url(r'^news/(?P<slug>[-\w]+)/$', NewsDetailView.as_view(), name='theater_news_detail'),
     url(r'^history/$', HistoryDetailView.as_view(), name='theater_history'),

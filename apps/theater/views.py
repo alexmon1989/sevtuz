@@ -1,7 +1,13 @@
 from django.views.generic import ListView, DetailView
-from django.shortcuts import redirect, reverse, get_object_or_404
+from django.shortcuts import redirect, reverse, get_object_or_404, render
 from django.http import Http404
 from apps.theater.models import Page, News, Season, History, DocumentType, Partner
+
+
+def pages_list(request):
+    """Отображает страницу со списком сраниц приложения."""
+    page_list = Page.objects.filter(is_visible=True)
+    return render(request, 'theater/page_list.html', {'page_list': page_list})
 
 
 class PageDetailView(DetailView):
