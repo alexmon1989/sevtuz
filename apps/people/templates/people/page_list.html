@@ -14,7 +14,7 @@
                     <div class="col-lg-12">
                         <ul class="list-unstyled g-font-size-20">
                             {% for page in page_list %}
-                                <li><a href="{% url 'theater_page' slug=page.slug %}">{{ page }}</a></li>
+                                <li><a href="{% url 'people_page' slug=page.slug %}">{{ page }}</a></li>
                             {% endfor %}
                             <li><a href="{% url 'vacancies_page' %}">Вакансии</a></li>
                         </ul>
