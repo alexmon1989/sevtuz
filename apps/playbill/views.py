@@ -10,6 +10,11 @@ from django.urls import reverse
 import re
 
 
+def pages_list(request):
+    """Отображает страницу со списком сраниц приложения."""
+    return render(request, 'playbill/page_list.html')
+
+
 class PlayListView(ListView):
     """Отображает страницу со списком спектаклей театра."""
     model = Play
