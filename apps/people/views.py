@@ -1,6 +1,13 @@
 from django.views.generic import DetailView
+from django.shortcuts import render
 from apps.theater.models import Person
 from apps.people.models import Page, VacanciesPage
+
+
+def pages_list(request):
+    """Отображает страницу со списком сраниц приложения."""
+    page_list = Page.objects.filter(is_visible=True)
+    return render(request, 'people/page_list.html', {'page_list': page_list})
 
 
 class PageDetailView(DetailView):
