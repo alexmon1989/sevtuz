@@ -139,6 +139,8 @@ li.hs-has-mega-menu > .nav-link.active {
 }
 
 .content {
+  font-size: 15px;
+
   a:not(.u-pagination-v1__item, .btn) {
     color: $g-color-red;
   }
