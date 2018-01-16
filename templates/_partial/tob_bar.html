@@ -7,14 +7,16 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="row no-gutters">
-                    <div class="col-md-2 text-center g-pt-10 g-pt-30--md g-pb-0 g-pb-10--md g-pr-10--md g-pr-0--lg">
-                        {% if header_settings.header_data.ukgs_link %}
-                            <a href="{{ header_settings.header_data.ukgs_link }}" rel="noopener"><img
-                                    src="{% static "assets/img/logo/ukgs.png" %}" alt="" class="img-fluid"></a>
-                        {% else %}
-                            <a href="#" rel="noopener"><img src="{% static "assets/img/logo/ukgs.png" %}" alt=""
-                                                            class="img-fluid"></a>
-                        {% endif %}
+                    <div class="col-md-2 g-pt-10 g-pt-30--md g-pb-0 g-pb-10--md g-pr-10--md g-pr-0--lg">
+                        <div class="g-max-width-100" style="margin: 0 auto">
+                            {% if header_settings.header_data.ukgs_link %}
+                                <a href="{{ header_settings.header_data.ukgs_link }}" rel="noopener"><img
+                                        src="{% static "assets/img/header/upr_kult.svg" %}" alt="" class="img-fluid"></a>
+                            {% else %}
+                                <a href="#" rel="noopener"><img src="{% static "assets/img/header/upr_kult.svg" %}" alt=""
+                                                                class="img-fluid"></a>
+                            {% endif %}
+                        </div>
                     </div>
 
                     <div class="col-md-10 text-center g-pt-10">
