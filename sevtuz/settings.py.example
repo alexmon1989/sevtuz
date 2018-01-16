@@ -150,6 +150,7 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../media'))
 MEDIA_URL = '/media/'
