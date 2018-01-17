@@ -6,13 +6,12 @@
     <div class="container">
         <div class="row no-gutters">
             <div class="col-6 col-md-2 d-flex align-items-center justify-content-center g-my-15 order-md-1">
-                <div class="g-max-width-120">
+                <div class="g-min-width-110">
                     {% if header_settings.header_data.ukgs_link %}
-                        <a href="{{ header_settings.header_data.ukgs_link }}" rel="noopener"><img
-                                src="{% static "assets/img/header/upr_kult.svg" %}" alt="" class="img-fluid"></a>
+                        <a href="{{ header_settings.header_data.ukgs_link }}" target="_blank" rel="noopener"><img
+                                src="{% static "assets/img/header/upr_kult.svg" %}" alt="" class="img-fluid w-100"></a>
                     {% else %}
-                        <a href="#" rel="noopener"><img src="{% static "assets/img/header/upr_kult.svg" %}" alt=""
-                                                        class="img-fluid"></a>
+                        <img src="{% static "assets/img/header/upr_kult.svg" %}" alt="" class="img-fluid w-100">
                     {% endif %}
                 </div>
             </div>
@@ -28,10 +27,10 @@
                 <div class="d-flex flex-column align-items-center justify-content-center">
                     {% if header_settings.header_data.buy_ticket_link %}
                         <a href="{{ header_settings.header_data.buy_ticket_link }}"><img
-                                src="{% static "assets/img/header/buy-ticket.png" %}" alt=""
+                                src="{% static "assets/img/header/buy-ticket.svg" %}" alt=""
                                 class="img-fluid"></a>
                     {% else %}
-                        <a href="#"><img src="{% static "assets/img/header/buy-ticket.png" %}" alt=""
+                        <a href="#"><img src="{% static "assets/img/header/buy-ticket.svg" %}" alt=""
                                          class="img-fluid"></a>
                     {% endif %}
                 </div>
