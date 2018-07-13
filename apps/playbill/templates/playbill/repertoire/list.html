@@ -34,6 +34,7 @@
 {% endblock %}
 
 {% block extrascript %}
+    <script src="https://radario.ru/scripts/widget/buy-button-widget.js"></script>
     <script>
         var getEvents = function () {
             var month = '{{ request.GET.month }}';
@@ -45,6 +46,8 @@
                 {month: month, year: year, filter1: filter1Value, filter2: filter2Value},
                 function (data) {
                     $("#list_table").html(data);
+
+                    radario.start();
                 }
             )
         };

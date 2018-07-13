@@ -35,7 +35,16 @@
                         {% if event.free_enter %}
                             <span class="text-success">Свободный вход</span>
                         {% else %}
-                            <a class="btn btn-sm u-btn-red" href="{% url "tickets_page" slug="kupit-bilet" %}">Купить билет</a>
+                            {% if event.radario_id %}
+                                <script src="https://radario.ru/scripts/widget/buy-button-widget.js"
+                                        data-class="radarioButtonScript"
+                                        data-radario-event-id="{{ event.radario_id }}"
+                                        data-button-border-radius="5px"
+                                        data-button-padding="4px 9px"
+                                        data-button-text-size="12px"
+                                        data-custom-color="#cc3333"
+                                ></script>
+                            {% endif %}
                         {% endif %}
                     {% endif %}
                 </td>

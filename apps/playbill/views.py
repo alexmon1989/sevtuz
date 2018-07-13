@@ -49,9 +49,15 @@ class PlayDetailView(DetailView):
     model = Play
     template_name = 'playbill/plays/detail/detail.html'
 
+    def get(self, request, *args, **kwargs):
+        # Синхронизация локальных событий и событий Радарио
+        Event.fill_radario_ids()
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['media_count'] = len(self.object.get_videos()) + len(self.object.get_photos())
+
         return context
 
 
@@ -80,6 +86,9 @@ def events_list(request):
 
     # Сцены для вывода в фильтре
     scenes = Scene.objects.filter(show_in_filter=True).order_by('title')
+
+    # Синхронизация локальных событий и событий Радарио
+    Event.fill_radario_ids()
 
     return render(
         request,

@@ -1,7 +1,9 @@
 from django.db import models
 from apps.theater.models import Play
 from django.utils import timezone
-
+from apps.playbill.utils import get_radario_events
+import datetime
+import dateutil.parser
 
 class Scene(models.Model):
     """Модель сцены."""
@@ -33,12 +35,37 @@ class Event(models.Model):
     external = models.BooleanField('Выездной спектакль', default=False)
     tour = models.BooleanField('Гастроли', default=False)
     guests = models.BooleanField('Наши гости / к нам едут', default=False)
+    radario_id = models.IntegerField(
+        'ID события в системе Radario',
+        null=True,
+        blank=True,
+        help_text='Например у события https://radario.ru/company/ticket-desk/events/280450 ID будет равен 280450.'
+    )
     is_visible = models.BooleanField('Включено', default=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
     def __str__(self):
         return self.play.title
+
+    @staticmethod
+    def fill_radario_ids():
+        """Заполняет radario_id у событий где его нет."""
+        future_events = Event.objects.filter(
+            is_visible=True,
+            radario_id__isnull=True,
+            datetime__gte=datetime.datetime.today()
+        )
+        if len(future_events) > 0:
+            radario_events = get_radario_events()
+            if radario_events and radario_events['success'] and radario_events['data']['totalCount'] > 0:
+                for fevent in future_events:
+                    for revent in radario_events['data']['items']:
+                        # Если у локальных событий с радарио сходятся дата начала и название - это одно и то же событие
+                        if (fevent.datetime == dateutil.parser.parse(revent['beginDate'])
+                                and fevent.play.title == revent['title']):
+                            fevent.radario_id = revent['id']
+                            fevent.save()
 
     @property
     def is_past_due(self):
