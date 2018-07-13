@@ -262,8 +262,8 @@ class PlayVideo(models.Model):
 
 class PersonPlayRole(models.Model):
     """Модель для связи многие-ко-многим моделей Person и Play (роли)."""
-    person = models.ForeignKey(Person, verbose_name='Актёр')
-    play = models.ForeignKey(Play, verbose_name='Спектакль')
+    person = models.ForeignKey(Person, verbose_name='Актёр', on_delete=models.CASCADE)
+    play = models.ForeignKey(Play, verbose_name='Спектакль', on_delete=models.CASCADE)
     role = models.CharField('Роль', max_length=255)
 
     class Meta:

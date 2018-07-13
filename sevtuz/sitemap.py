@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from apps.theater.models import News, Play, Page as TheaterPage, Person, History
 from apps.tickets.models import Page as TicketPage
 from apps.people.models import Page as PersonPage

@@ -7,7 +7,8 @@ class Playbill(models.Model):
     """Модель афиши."""
     play = models.ForeignKey(
         Play,
-        verbose_name='Спектакль'
+        verbose_name='Спектакль',
+        on_delete=models.CASCADE
     )
     image = ThumbnailerImageField(
         'Изображение',
