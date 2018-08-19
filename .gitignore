@@ -109,3 +109,6 @@ venv.bak/
 /static/assets/css/
 /sevtuz/settings.py
 /node_modules/
+/docker-compose.yml
+/Dockerfile
+/media/
