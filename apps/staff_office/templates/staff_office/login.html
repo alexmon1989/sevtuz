@@ -14,21 +14,55 @@
                             <h2 class="h2 g-color-black g-font-weight-600">Авторизация</h2>
                         </header>
 
+
+                        {% if form.non_field_errors %}
+                            <!-- Red Alert -->
+                            <div class="alert alert-dismissible fade show g-bg-red g-color-white rounded-0"
+                                 role="alert">
+                                <button type="button" class="close u-alert-close--light" data-dismiss="alert"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+
+                                <div class="media">
+                                    <span class="d-flex g-mr-10 g-mt-5">
+                                        <i class="icon-ban g-font-size-25"></i>
+                                    </span>
+                                    <span class="media-body align-self-center">
+                                        {% for error in form.non_field_errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- End Red Alert -->
+                        {% endif %}
+
                         <!-- Form -->
                         <form class="g-py-15" action="{% url 'login' %}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="next" value="{{ next }}">
 
-                            <div class="mb-4">
+                            <div class="mb-4 {% if form.username.errors %}u-has-error-v1{% endif %}">
                                 <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13">Логин:</label>
                                 {{ form.username }}
+                                {% if form.username.errors %}
+                                    {% for error in form.username.errors %}
+                                        <small class="form-control-feedback">{{ error }}</small><br>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
 
-                            <div class="g-mb-35">
+                            <div class="g-mb-35 {% if form.password.errors %}u-has-error-v1{% endif %}">
                                 <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13">Пароль:</label>
                                 {{ form.password }}
+                                {% if form.password.errors %}
+                                    {% for error in form.password.errors %}
+                                        <small class="form-control-feedback">{{ error }}</small><br>
+                                    {% endfor %}
+                                {% endif %}
 
-                                <div class="row justify-content-between">
+                                <div class="row justify-content-between mt-3">
                                     <div class="col align-self-center text-right">
                                         <a class="g-font-size-12" href="{% url 'password_reset' %}">Забыли пароль?</a>
                                     </div>

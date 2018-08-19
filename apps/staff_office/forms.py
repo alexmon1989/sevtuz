@@ -15,11 +15,11 @@ class MyAuthenticationForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs = {'class': 'form-control g-color-black g-bg-white g-bg-white--focus '
+        self.fields['username'].widget.attrs = {'class': 'form-control g-color-black '
                                                          'g-brd-gray-light-v4 g-brd-primary--hover rounded '
                                                          'g-py-15 g-px-15',
                                                 'placeholder': 'Логин'}
-        self.fields['password'].widget.attrs = {'class': 'form-control g-color-black g-bg-white g-bg-white--focus '
+        self.fields['password'].widget.attrs = {'class': 'form-control g-color-black '
                                                          'g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 '
-                                                         'g-px-15 mb-3',
+                                                         'g-px-15',
                                                 'placeholder': 'Пароль'}
