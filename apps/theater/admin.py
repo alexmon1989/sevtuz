@@ -91,6 +91,7 @@ class PersonAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования сотрудников."""
     list_display = ('name', 'position', 'is_actor', 'has_page', 'created_at', 'updated_at')
     ordering = ('name',)
+    exclude = ('user', )
     search_fields = ('name', 'position')
     list_filter = ('position', 'is_actor', 'has_page')
     prepopulated_fields = {"slug": ("name",)}

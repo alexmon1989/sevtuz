@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+from django.conf import settings
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils import timezone
 
@@ -59,6 +61,7 @@ class Position(models.Model):
 
 class Person(models.Model):
     """Модель сотрудника театра."""
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField('ФИО', max_length=255)
     slug = models.SlugField(
         'Slug (для url)',
@@ -93,6 +96,14 @@ class Person(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            # Создание объекта модели User
+            user = User.objects.create_user(self.slug, '', settings.PERSON_DEFAULT_PASSWORD)
+            user.save()
+            self.user = user
+        super(Person, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('person_detail', args=[self.slug])
