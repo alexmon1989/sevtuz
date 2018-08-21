@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from apps.theater.models import (Season, Play, PlayPhoto, PlayVideo, Genre, Page, Person, PersonPhoto, Position,
                                  PersonPlayRole, News, History, HistoryPhoto, HistoryVideo, Document, DocumentType,
-                                 Partner)
+                                 Partner, InternalEvent)
 
 
 class SeasonForm(forms.ModelForm):
@@ -156,3 +156,11 @@ class PartnersAdmin(admin.ModelAdmin):
     list_display = ('title', 'link', 'is_visible', 'created_at', 'updated_at')
     list_editable = ('is_visible',)
     search_fields = ('title', 'link')
+
+
+@admin.register(InternalEvent)
+class InternalEventsAdmin(admin.ModelAdmin):
+    """Класс для описания интерфейса администрирования внутренних событий."""
+    list_display = ('title', 'start', 'end', 'responsible_person', 'is_visible', 'created_at', 'updated_at')
+    list_editable = ('is_visible',)
+    search_fields = ('title',)

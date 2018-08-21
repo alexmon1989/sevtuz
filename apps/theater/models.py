@@ -463,3 +463,26 @@ class Partner(models.Model):
     class Meta:
         verbose_name = 'Партнёр'
         verbose_name_plural = 'Партнёры'
+
+
+class InternalEvent(models.Model):
+    """Модель внутреннего события."""
+    title = models.CharField('Название', max_length=255)
+    type = models.CharField('Тип мероприятия', max_length=255)
+    start = models.DateTimeField('Дата и время начала')
+    end = models.DateTimeField('Дата и время завершения')
+    responsible_person = models.ForeignKey(Person, verbose_name='Ответственный за мероприятие', null=True, blank=True,
+                                           on_delete=models.SET_NULL, related_name='responsible_person')
+    participants = models.ManyToManyField(Person, verbose_name='Участники', blank=True)
+    is_important = models.BooleanField('Явка обязательна?', default=True)
+    is_visible = models.BooleanField('Включено', default=True)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Внутреннее событие'
+        verbose_name_plural = 'Внутренние события'
+        ordering = ('-created_at',)

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Мои события{% endblock %}
+
+{% block content %}
+    <div class="container g-pt-35 g-pb-100">
+
+        {% include 'staff_office/_partials/menu.html' %}
+
+        <div class="row">
+            <div class="col-12 col-md-7">
+                <div id="calendar"></div>
+            </div>
+
+            <div class="col-12 col-md-5">
+                <div class="text-center g-mb-25 g-mt-25 g-mt-0--md"><h4>Информация о событии</h4></div>
+
+                <div id="event-info" class="g-bg-blue-opacity-0_1 g-pa-10"><i>Для получения информации о событии нажмите на него в календаре слева</i></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrascript %}
+    <script>
+        $(document).ready(function () {
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                defaultDate: '{% now "Y-m-d" %}',
+                navLinks: true, // can click day/week names to navigate views
+                editable: false,
+                eventLimit: true, // allow "more" link when too many events
+                events: {{ events|safe }},
+                eventClick: function (event) {
+                    var html = '';
+                    if (event.title) {
+                        html += '<p class="text-center g-font-size-18"><strong>' + event.title + '</strong></p>';
+                    }
+                    html += '<dl class="row">\n';
+                    if (event.scene) {
+                        html += '<dt class="col-sm-5">Сцена</dt>\n' +
+                                '<dd class="col-sm-7">' + event.scene + '</dd>\n';
+                    }
+                    if (event.type) {
+                        html += '<dt class="col-sm-5">Тип события</dt>\n' +
+                                '<dd class="col-sm-7">' + event.type + '</dd>\n';
+                    }
+                    if (event.start) {
+                        html += '<dt class="col-sm-5">Дата события</dt>\n' +
+                                '<dd class="col-sm-7">' + moment(event.start).format("DD.MM.YYYY") + '</dd>\n';
+                    }
+                    if (event.start) {
+                        html += '<dt class="col-sm-5">Начало</dt>\n' +
+                                '<dd class="col-sm-7">' + moment(event.start).format("HH:mm") + '</dd>\n';
+                    }
+                    if (event.end) {
+                        html += '<dt class="col-sm-5">Завершение</dt>\n' +
+                                '<dd class="col-sm-7">' + moment(event.end).format("HH:mm") + '</dd>\n';
+                    }
+                    if (event.responsible_person) {
+                        html += '<dt class="col-sm-5">Ответственное лицо</dt>\n' +
+                                '<dd class="col-sm-7">' + event.responsible_person + '</dd>\n';
+                    }
+                    if (event.participants) {
+                        html += '<dt class="col-sm-5">Участники</dt>\n' +
+                                '<dd class="col-sm-7">' + event.participants + '</dd>\n';
+                    }
+                    html += '</dl>';
+                    if (event.is_important) {
+                        html += '<p class="text-center g-color-red"><strong>Явка обязательна</strong></p>';
+                    }
+
+                    $("#event-info").html(html);
+                }
+            });
+
+        });
+    </script>
+{% endblock %}

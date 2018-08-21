@@ -112,3 +112,4 @@ venv.bak/
 /docker-compose.yml
 /Dockerfile
 /media/
+!/static/assets/vendor/fullcalendar-3.9.0/lib/

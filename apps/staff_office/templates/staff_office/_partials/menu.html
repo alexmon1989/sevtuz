@@ -1,0 +1,22 @@
+<div class="d-flex g-mb-50">
+    <ul class="nav g-font-size-20">
+        <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'staff_office_calendar' %}g-font-weight-600{% endif %}" href="{% url 'staff_office_calendar' %}">Мои события</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Контора</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Форум</a>
+        </li>
+    </ul>
+
+    <ul class="nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Редактировать профиль (<strong>{{ request.user }}</strong>)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Выход</a>
+        </li>
+    </ul>
+</div>

@@ -4,6 +4,8 @@ from django.utils import timezone
 from apps.playbill.utils import get_radario_events
 import datetime
 import dateutil.parser
+from apps.theater.models import Person
+
 
 class Scene(models.Model):
     """Модель сцены."""
@@ -29,6 +31,7 @@ class Event(models.Model):
     datetime = models.DateTimeField('Дата и время начала')
     play = models.ForeignKey(Play, verbose_name='Спектакль', on_delete=models.CASCADE)
     scene = models.ForeignKey(Scene, verbose_name='Сцена', on_delete=models.CASCADE)
+    participants = models.ManyToManyField(Person, verbose_name='Участники', blank=True)
     free_enter = models.BooleanField('Свободный вход', default=False)
     is_premiere = models.BooleanField('Премьера', default=False)
     gts = models.BooleanField('ГТС', default=False)
