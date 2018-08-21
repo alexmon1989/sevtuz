@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from apps.theater.models import InternalEvent
 from apps.playbill.models import Event as ExternalEvent
+from .models import Office
 from datetime import timedelta
 
 
@@ -58,3 +59,11 @@ def calendar(request):
     return render(request, 'staff_office/calendar/index.html', {
         'events': json.dumps(internal_events)
     })
+
+
+@login_required
+@user_passes_test(is_theater_employee)
+def office(request):
+    """Отображает страницу Контора."""
+    page, created = Office.objects.get_or_create(defaults={'text': ''})
+    return render(request, 'staff_office/office/index.html', {'page': page})

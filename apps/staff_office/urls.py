@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from .forms import MyAuthenticationForm
-from .views import calendar
+from .views import calendar, office
 
 urlpatterns = [
     path(
@@ -19,5 +19,6 @@ urlpatterns = [
         auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'),
         name='password_reset'
     ),
-    path('calendar/', calendar, name='staff_office_calendar')
+    path('calendar/', calendar, name='staff_office_calendar'),
+    path('office/', office, name='staff_office_office')
 ]
