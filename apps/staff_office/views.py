@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
 from apps.theater.models import InternalEvent
@@ -17,6 +17,7 @@ def is_theater_employee(user):
         return False
 
 
+@login_required
 @user_passes_test(is_theater_employee)
 def calendar(request):
     """Отображает страницу календаря событий сотрудника."""
