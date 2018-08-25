@@ -32,15 +32,22 @@ class MyAuthenticationForm(AuthenticationForm):
 
         if username is not None and password:
             self.user_cache = authenticate(self.request, username=username, password=password)
-            # Проверка является ли сотрудником театра
-            try:
-                if self.user_cache.person:
-                    self.confirm_login_allowed(self.user_cache)
-            except User.person.RelatedObjectDoesNotExist:
+            if self.user_cache is None:
                 raise forms.ValidationError(
                     self.error_messages['invalid_login'],
                     code='invalid_login',
                     params={'username': self.username_field.verbose_name},
                 )
+            else:
+                # Проверка является ли сотрудником театра
+                try:
+                    if self.user_cache.person:
+                        self.confirm_login_allowed(self.user_cache)
+                except User.person.RelatedObjectDoesNotExist:
+                    raise forms.ValidationError(
+                        self.error_messages['invalid_login'],
+                        code='invalid_login',
+                        params={'username': self.username_field.verbose_name},
+                    )
 
         return self.cleaned_data
