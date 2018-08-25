@@ -7,7 +7,7 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'staff_office_office' %}g-font-weight-600{% endif %}" href="{% url 'staff_office_office' %}">Контора</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Форум</a>
+            <a class="nav-link {% if 'forum' in request.path %}g-font-weight-600{% endif %}" href="{% url 'pybb:index' %}">Форум</a>
         </li>
     </ul>
 

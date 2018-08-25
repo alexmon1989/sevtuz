@@ -1,0 +1,43 @@
+.forum-headline {
+    margin-top: 10px;
+}
+
+.attachments-form {
+    padding-bottom: 15px;
+}
+
+.attachment-link {
+    border-bottom: 1px dotted;
+}
+
+/* --- Unread --- */
+
+.state-indicator {
+    display: block;
+    float: left;
+    background-color: #5A5A5A;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    margin: 8px 5px;
+}
+
+.topic-unread, .forum-unread {
+    a {
+        font-weight: bold;
+    }
+    .state-indicator {
+        background-color: #0b011d;
+    }
+}
+
+/* --- Moderation --- */
+.on-moderation {
+    background: #ffcccc;
+}
+
+/* --- Mini pagination --- */
+.mini-pagination {
+    padding: 3px 0 3px 10px;
+    font-size: 14px;
+}

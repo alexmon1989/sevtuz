@@ -65,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.staff_office.middlewares.StaffOfficeMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
@@ -260,3 +261,13 @@ RADARIO_API_VERSION = '1.1'
 PERSON_DEFAULT_PASSWORD = '123456'
 
 LOGIN_URL = '/staff-office/login/'
+LOGIN_REDIRECT_URL = '/staff-office/calendar/'
+
+PYBB_TEMPLATE = 'staff_office/pybb.html'
+PYBB_DEFAULT_TITLE = 'Форум'
+PYBB_PERMISSION_HANDLER = 'apps.staff_office.permissions.MyPyBBPermissionHandler'
+PYBB_DISABLE_SUBSCRIPTIONS = True
+PYBB_DEFAULT_AUTOSUBSCRIBE = True
+PYBB_DISABLE_NOTIFICATIONS = True
+PYBB_ATTACHMENT_ENABLE = True
+PYBB_ATTACHMENT_SIZE_LIMIT = 10485760

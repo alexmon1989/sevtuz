@@ -1,0 +1,197 @@
+{% load staticfiles %}
+{% load compress %}
+{% load project_tags %}
+{% load seo %}
+{% get_metadata as metadata %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    {% analytics_code %}
+    <!-- Title -->
+    <title>{% block title %}{{ metadata.title.value|default_if_none:"" }}{% endblock %}</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{{ metadata.description.value|default_if_none:"" }}"/>
+    <meta name="keywords" content="{{ metadata.keywords.value|default_if_none:"" }}"/>
+
+    {% block extra_meta %}{% endblock %}
+
+    <link rel="icon" type="image/jpg" href="{% static "assets/img/favicon.jpg" %}"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+    {% compress css %}
+        <!-- CSS Global Compulsory -->
+        <link rel="stylesheet" href="{% static "assets/vendor/bootstrap/bootstrap.min.css" %}">
+        <!-- CSS Global Icons -->
+        <link rel="stylesheet" href="{% static "assets/vendor/icon-awesome/css/font-awesome.min.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/icon-line/css/simple-line-icons.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/icon-etlinefont/style.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/icon-line-pro/style.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/icon-hs/style.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/dzsparallaxer/dzsparallaxer.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/dzsparallaxer/dzsscroller/scroller.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/dzsparallaxer/advancedscroller/plugin.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/fancybox/jquery.fancybox.min.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/slick-carousel/slick/slick.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/hs-megamenu/src/hs.megamenu.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/hamburgers/hamburgers.min.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/animate.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/button-visually-impaired/css/bvi.min.css" %}">
+        <link rel="stylesheet" href="{% static "assets/vendor/fullcalendar-3.9.0/fullcalendar.min.css" %}">
+
+        <!-- CSS Unify -->
+        <link rel="stylesheet" href="{% static "assets/css/unify-core.css" %}">
+        <link rel="stylesheet" href="{% static "assets/css/unify-components.css" %}">
+        <link rel="stylesheet" href="{% static "assets/css/unify-globals.css" %}">
+
+        <!-- CSS Customization -->
+        <link rel="stylesheet" href="{% static "assets/css/custom.css" %}">
+    {% endcompress %}
+</head>
+
+<body>
+<main>
+
+    <!-- Header -->
+    {% include "_partial/header.html" %}
+    <!-- End Header -->
+
+    {% block breadcrumbs %}{% endblock %}
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 g-min-height-500 g-pt-35 g-pb-100">
+                    {% include 'staff_office/_partials/menu.html' %}
+
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer 1 -->
+    {% include "_partial/footer_1.html" %}
+    <!-- End Footer 1 -->
+
+    <!-- Footer 2 -->
+    {% footer_2 %}
+    <!-- End Footer 2 -->
+
+    <a class="js-go-to u-go-to-v1" href="#" data-type="fixed" data-position='{"bottom": 15, "right": 15}'
+       data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
+        <i class="hs-icon hs-icon-arrow-top"></i>
+    </a>
+</main>
+
+{% compress js %}
+    <!-- JS Global Compulsory -->
+    <script src="{% static "assets/vendor/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "assets/vendor/jquery-migrate/jquery-migrate.min.js" %}"></script>
+    <script src="{% static "assets/vendor/jquery.easing/js/jquery.easing.js" %}"></script>
+    <script src="{% static "assets/vendor/popper.min.js" %}"></script>
+    <script src="{% static "assets/vendor/bootstrap/bootstrap.min.js" %}"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="{% static "assets/vendor/hs-megamenu/src/hs.megamenu.js" %}"></script>
+    <script src="{% static "assets/vendor/dzsparallaxer/dzsparallaxer.js" %}"></script>
+    <script src="{% static "assets/vendor/dzsparallaxer/dzsscroller/scroller.js" %}"></script>
+    <script src="{% static "assets/vendor/dzsparallaxer/advancedscroller/plugin.js" %}"></script>
+    <script src="{% static "assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" %}"></script>
+    <script src="{% static "assets/vendor/fancybox/jquery.fancybox.min.js" %}"></script>
+    <script src="{% static "assets/vendor/slick-carousel/slick/slick.js" %}"></script>
+    <script src="{% static "assets/vendor/button-visually-impaired/js/responsivevoice.min.js" %}"></script>
+    <script src="{% static "assets/vendor/button-visually-impaired/js/bvi-init-panel.js" %}"></script>
+    <script src="{% static "assets/vendor/button-visually-impaired/js/bvi.js" %}"></script>
+    <script src="{% static "assets/vendor/button-visually-impaired/js/js.cookie.js" %}"></script>
+    <script src="{% static "assets/vendor/fullcalendar-3.9.0/lib/moment.min.js" %}"></script>
+    <script src="{% static "assets/vendor/fullcalendar-3.9.0/fullcalendar.min.js" %}"></script>
+    <script src="{% static "assets/vendor/fullcalendar-3.9.0/locale/ru.js" %}"></script>
+
+    <!-- JS Unify -->
+    <script src="{% static "assets/js/hs.core.js" %}"></script>
+    <script src="{% static "assets/js/components/hs.header.js" %}"></script>
+    <script src="{% static "assets/js/helpers/hs.hamburgers.js" %}"></script>
+    <script src="{% static "assets/js/components/hs.dropdown.js" %}"></script>
+    <script src="{% static "assets/js/components/hs.popup.js" %}"></script>
+    <script src="{% static "assets/js/components/hs.carousel.js" %}"></script>
+    <script src="{% static "assets/js/components/hs.sticky-block.js" %}"></script>
+    <script src="{% static "assets/js/components/hs.go-to.js" %}"></script>
+    <script src="{% static "assets/js/helpers/hs.height-calc.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "pybb/js/jquery.formset.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "pybb/js/pybbjs.js" %}"></script>
+    <script type="text/javascript" src="{% static "markitup/ajax_csrf.js" %}"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).ready(function () {
+            // Кастомизация форума
+            $("table:not(.post)").addClass( "table table-striped" );
+            $("blockquote").addClass( "blockquote g-bg-gray-light-v5 g-brd-primary g-font-size-16 g-pa-10" );
+            $(".form-control").not('[name=q]').removeClass("form-control");
+            $("input[type=text], fieldset select, fieldset textarea").addClass("form-control");
+            $("input[type=submit]").removeClass('btn btn-primary').addClass("btn btn-md u-btn-primary g-mt-15");
+            $("label").addClass("g-font-weight-600").not(':first').addClass("g-mt-15");
+            $(".poll-answer-form").addClass("g-mb-10");
+            $("#emoticons").addClass("g-mt-5");
+            $('#emoticons a').click(function() {
+                var txtToAdd = $(this).attr("title");
+                var caretPos =document.getElementById("id_body").selectionStart;
+                var caretEnd = document.getElementById("id_body").selectionEnd;
+                var textAreaTxt = $("#id_body").val();
+                $("#id_body").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring( caretEnd ) );
+                $('#id_body').focus();
+                document.getElementById('id_body').selectionStart = caretPos + txtToAdd.length;
+                document.getElementById('id_body').selectionEnd = caretPos + txtToAdd.length;
+                return false;
+            });
+
+            // initialization of carousel
+            $.HSCore.components.HSCarousel.init('.js-carousel');
+
+            // initialization of HSDropdown component
+            $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+                afterOpen: function () {
+                    $(this).find('input[type="search"]').focus();
+                }
+            });
+
+            // initialization of popups
+            $.HSCore.components.HSPopup.init('.js-fancybox');
+
+            // initialization of header's height equal offset
+            $.HSCore.helpers.HSHeightCalc.init();
+
+            // initialization of go to
+            $.HSCore.components.HSGoTo.init('.js-go-to');
+
+            // initialization of sticky blocks
+            $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+        });
+
+        $(window).on('load', function () {
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#js-header'));
+            $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+            // initialization of HSMegaMenu component
+            $('.js-mega-menu').HSMegaMenu({
+                event: 'hover',
+                pageContainer: $('.container'),
+                breakpoint: 991
+            });
+        });
+    </script>
+{% endcompress %}
+
+{% block extrascript %}{% endblock %}
+</body>
+
+</html>

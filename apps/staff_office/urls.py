@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
 from .forms import MyAuthenticationForm
 from .views import calendar, office
 
@@ -20,5 +21,6 @@ urlpatterns = [
         name='password_reset'
     ),
     path('calendar/', calendar, name='staff_office_calendar'),
-    path('office/', office, name='staff_office_office')
+    path('office/', office, name='staff_office_office'),
+    path('forum/', include('pybb.urls', namespace='pybb')),
 ]

@@ -1,0 +1,73 @@
+.posts {
+}
+
+.post {
+    margin: 3px 0 5px 0;
+}
+
+.post-header {
+   padding: 3px 0 3px 20px;
+   font-size: 16px;
+   background-color: #bebebe;
+}
+
+.post tbody tr:hover td {
+    background-color: inherit; // Cancel bootstrap's on-hover highlight
+}
+
+.post-info {
+    width: 200px;
+    padding: 10px;
+
+    .avatar {
+
+    }
+
+    .post-author {
+        font-size: 18px;
+        padding: 5px 0;
+    }
+
+    .post-extra-info {
+        font-size: 16px;
+        color: #5A5A5A;
+    }
+
+    .post-controls {
+        font-size: 14px;
+        a {
+            margin-right: 5px;
+        }
+    }
+}
+
+.post-content {
+    vertical-align: top;
+    padding: 10px;
+}
+
+.post-signature {
+    color: #CCC;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-top: 1px dotted #CCC;
+    display: block;
+}
+
+.post-related {
+    margin-top: 20px;
+    font-size: 14px;
+
+    .quote-selected-link {
+        margin-left: 10px;
+    }
+}
+
+.updated-message {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.attachments {
+    margin-top: 10px;
+}

@@ -149,3 +149,15 @@ li.hs-has-mega-menu > .nav-link.active {
 .fc-event, .fc-event-dot {
     color: #fff !important;
 }
+
+@import "../../pybb/forum";
+@import "../../pybb/visual";
+@import "../../pybb/posts";
+
+.forum-subscription {
+  display: none;
+}
+
+.add-row, .delete-row {
+  font-size: 14px;
+}
