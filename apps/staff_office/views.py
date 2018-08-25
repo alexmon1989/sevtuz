@@ -1,12 +1,15 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.forms import modelform_factory
 from apps.theater.models import InternalEvent
 from apps.playbill.models import Event as ExternalEvent
 from .models import Office
 from datetime import timedelta
+from pybb import util
 
 
 def is_theater_employee(user):
@@ -67,3 +70,28 @@ def office(request):
     """Отображает страницу Контора."""
     page, created = Office.objects.get_or_create(defaults={'text': ''})
     return render(request, 'staff_office/office/index.html', {'page': page})
+
+
+@login_required
+@user_passes_test(is_theater_employee)
+def profile(request):
+    """Отображает страницу редактирования данных профиля."""
+    UserForm = modelform_factory(User, fields=("username", "email"))
+    PybbForm = modelform_factory(util.get_pybb_profile_model(), fields=("avatar",))
+
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        pybb_form = PybbForm(request.POST, request.FILES, instance=request.user.pybb_profile)
+        if user_form.is_valid() and pybb_form.is_valid():
+            user_form.save()
+            pybb_form.save()
+            messages.add_message(request, messages.SUCCESS, 'Ваши данные успешно сохранены.')
+            return redirect(reverse('staff_office_profile'))
+    else:
+        user_form = UserForm(instance=request.user)
+        pybb_form = PybbForm(instance=request.user.pybb_profile)
+
+    return render(request, 'staff_office/profile/index.html', {
+        'user_form': user_form,
+        'pybb_form': pybb_form,
+    })
