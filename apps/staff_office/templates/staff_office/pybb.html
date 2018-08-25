@@ -70,6 +70,8 @@
                 <div class="col-lg-12 g-min-height-500 g-pt-35 g-pb-100">
                     {% include 'staff_office/_partials/menu.html' %}
 
+                    {% block breadcrumb %}{% endblock breadcrumb %}
+
                     {% block content %}{% endblock %}
                 </div>
             </div>
@@ -137,8 +139,10 @@
             $("blockquote").addClass( "blockquote g-bg-gray-light-v5 g-brd-primary g-font-size-16 g-pa-10" );
             $(".form-control").not('[name=q]').removeClass("form-control");
             $("input[type=text], fieldset select, fieldset textarea").addClass("form-control");
-            $("input[type=submit]").removeClass('btn btn-primary').addClass("btn btn-md u-btn-primary g-mt-15");
+            $("input[type=submit]").removeClass('btn btn-primary').addClass("btn btn-md u-btn-primary");
+            $(".new-topic").removeClass('btn btn-primary').addClass("btn btn-md u-btn-primary");
             $("label").addClass("g-font-weight-600").not(':first').addClass("g-mt-15");
+            $("#id_poll_type").addClass("g-mb-15");
             $(".poll-answer-form").addClass("g-mb-10");
             $("#emoticons").addClass("g-mt-5");
             $('#emoticons a').click(function() {

@@ -161,3 +161,21 @@ li.hs-has-mega-menu > .nav-link.active {
 .add-row, .delete-row {
   font-size: 14px;
 }
+
+.attachment-ref {
+  display: none !important;
+}
+
+.controls {
+  margin-bottom: 10px;
+}
+
+.subscriber-list {
+  display: none;
+}
+
+ul.breadcrumb {
+  li {
+    display: inline;
+  }
+}
