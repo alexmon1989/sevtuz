@@ -33,7 +33,7 @@ def calendar(request):
             'type': e.type,
             'start': e.start.strftime("%Y-%m-%d %H:%M:%S"),
             'end': e.end.strftime("%Y-%m-%d %H:%M:%S"),
-            'responsible_person': e.responsible_person.name,
+            'responsible_person': e.responsible_person.name if e.responsible_person else '',
             'is_important': e.is_important,
             'participants': ', '.join([p.name for p in e.participants.all()]),
             'color': ('#AD4350' if e.is_important else '#3a87ad') if e.start >= timezone.now() else '#D1D1D1'
