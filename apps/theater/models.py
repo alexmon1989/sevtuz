@@ -474,6 +474,7 @@ class InternalEvent(models.Model):
     responsible_person = models.ForeignKey(Person, verbose_name='Ответственный за мероприятие', null=True, blank=True,
                                            on_delete=models.SET_NULL, related_name='responsible_person')
     participants = models.ManyToManyField(Person, verbose_name='Участники', blank=True)
+    show_for_all = models.BooleanField('Показывать всем в служебном кабинете?', default=False)
     is_important = models.BooleanField('Явка обязательна?', default=True)
     is_visible = models.BooleanField('Включено', default=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)

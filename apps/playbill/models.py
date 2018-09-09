@@ -38,6 +38,7 @@ class Event(models.Model):
     external = models.BooleanField('Выездной спектакль', default=False)
     tour = models.BooleanField('Гастроли', default=False)
     guests = models.BooleanField('Наши гости / к нам едут', default=False)
+    show_for_all = models.BooleanField('Показывать всем в служебном кабинете?', default=False)
     radario_id = models.IntegerField(
         'ID события в системе Radario',
         null=True,

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.forms import modelform_factory
+from django.db.models import Q
 from apps.theater.models import InternalEvent
 from apps.playbill.models import Event as ExternalEvent
 from .models import Office
@@ -38,8 +39,10 @@ def calendar(request):
             'color': ('#AD4350' if e.is_important else '#3a87ad') if e.start >= timezone.now() else '#D1D1D1'
         }
         for e in InternalEvent.objects.filter(
-            is_visible=True, participants__in=(request.user.person,)
-        ).prefetch_related('participants')
+            is_visible=True
+        ).filter(
+            Q(participants__in=(request.user.person,)) | Q(show_for_all=True)
+        ).prefetch_related('participants').distinct()
     ]
 
     # Получение внешних событий сотрудника
@@ -54,8 +57,10 @@ def calendar(request):
             'color': '#AD4350' if e.datetime >= timezone.now() else '#D1D1D1'
         }
         for e in ExternalEvent.objects.filter(
-            is_visible=True, participants__in=(request.user.person,)
-        ).prefetch_related('participants')
+            is_visible=True
+        ).filter(
+            Q(participants__in=(request.user.person,)) | Q(show_for_all=True)
+        ).prefetch_related('participants').distinct()
     ]
 
     internal_events.extend(external_events)
