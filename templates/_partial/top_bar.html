@@ -4,8 +4,8 @@
 {% header_settings as header_settings %}
 <div class="u-header__section u-header__section--hidden g-bg-red bvi-hide">
     <div class="container">
-        <div class="row no-gutters">
-            <div class="col-6 col-md-2 d-flex align-items-end justify-content-center g-my-15 g-mb-25--md order-md-1">
+        <div class="row no-gutters g-mt-200">
+            <div class="col-12 col-md-2 d-flex align-items-center justify-content-center order-md-1 g-py-5">
                 <div class="g-min-width-110">
                     {% if header_settings.header_data.ukgs_link %}
                         <a href="{{ header_settings.header_data.ukgs_link }}" target="_blank" rel="noopener"><img
@@ -16,27 +16,26 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-2 g-my-15 g-mb-25--md order-md-3">
-                <div class="d-flex align-items-end justify-content-center">
-                    <div>
-                        <a href="#" class="bvi-panel-open g-font-size-14 g-color-white">A</a>
-                        <a href="#" class="bvi-panel-open g-font-size-18 g-color-white">A</a>
-                        <a href="#" class="bvi-panel-open g-font-size-22 g-color-white">A</a>
+            <div class="col-12 col-md-2 order-md-3 d-flex align-items-center justify-content-center g-py-5">
+                <div>
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <a href="#" class="bvi-panel-open g-font-size-14 g-color-white">A</a>
+                            <a href="#" class="bvi-panel-open g-font-size-18 g-color-white">A</a>
+                            <a href="#" class="bvi-panel-open g-font-size-22 g-color-white">A</a>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center">
-                    {% if header_settings.header_data.buy_ticket_link %}
-                        <a href="{{ header_settings.header_data.buy_ticket_link }}"><img
-                                src="{% static "assets/img/header/buy-ticket.svg" %}" alt=""
-                                class="img-fluid"></a>
-                    {% else %}
-                        <a href="#"><img src="{% static "assets/img/header/buy-ticket.svg" %}" alt=""
-                                         class="img-fluid"></a>
-                    {% endif %}
+                    <div class="d-flex justify-content-center">
+                        {% if header_settings.header_data.buy_ticket_link %}
+                            <a href="{{ header_settings.header_data.buy_ticket_link }}"
+                               class="btn btn-lg g-bg-yellow g-color-black"
+                            ><i class="fa fa-cart-plus g-mr-5"></i>Купить билет</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
-            <div class="col-12 col-md-8 order-md-2 g-pr-15--md g-ml-minus-10--md">
+            <div class="col-12 col-md-8 order-md-2 g-pr-15--md g-ml-minus-10--md g-mt-20">
                 <div class="d-flex w-100 h-100 align-items-end justify-content-center">
                     <a href="/"><img src="{% static "assets/img/header/sevtuz_logo.svg" %}" alt="" class="img-fluid w-100"></a>
                 </div>
