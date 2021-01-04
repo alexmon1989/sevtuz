@@ -44,16 +44,19 @@
 
                                 <p>{{ news.text|striptags|truncatewords:25|safe }}</p>
 
-                                <p class="text-right text-lowercase"><a class="g-color-black small"
-                                                                        href="{% url "theater_news_detail" slug=news.slug %}">Далее
-                                    <img
-                                            src="{% static "assets/img/right.png" %}" alt=""></a></p>
+                                <p class="text-right">
+                                    <a href="{% url "theater_news_detail" slug=news.slug %}" class="btn u-btn-outline-red g-mr-10 g-mb-15 g-brd-2">Читать далее...</a>
+                                </p>
 
                             </div>
                         </div>
                         <!-- End Article -->
                     </div>
                 {% endfor %}
+
+                <div class="col-12 text-center g-mb-20">
+                    <a class="g-font-size-26 g-font-weight-600" href="{% url 'theater_news_list' %}">Все новости</a>
+                </div>
             {% else %}
                 Новости отсутствуют.
             {% endif %}
