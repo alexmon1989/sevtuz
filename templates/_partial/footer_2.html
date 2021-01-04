@@ -1,7 +1,7 @@
 {% load project_tags %}
 {% load static %}
 
-<footer class="g-bg-orange g-color-black g-pt-30 g-py-60">
+<footer class="g-bg-orange g-color-black g-pt-30 ">
     <div class="container">
         <div class="row">
             <div class="col-md-4 text-center text-md-left g-mb-20">
@@ -10,9 +10,17 @@
                         {{ footer_data.information_block_text|safe }}
                     </small>
                 </div>
+
+                <div class="d-flex g-mt-10">
+                    <a href="http://quality.mkrf.ru/" target="_blank"><img
+                                src="{% static "assets/img/logo/logo-mkrf.png" %}" alt="" class="img-fluid"></a>
+                    <div class="g-ml-10 g-line-height-1_2 g-font-size-13 d-flex align-items-center">
+                        <a class="g-color-gray-dark-v2" href="http://quality.mkrf.ru/" target="_blank">Оценка качества услуг учреждений культуры</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-md-4 align-self-center g-mb-20">
+            <div class="col-md-4 g-mb-20">
                 <div class="text-center g-font-size-22 g-font-weight-600">{{ footer_data.phone }}</div>
 
                 {% social_links as social_links %}
@@ -71,29 +79,14 @@
                     {% endif %}
                 </ul>
 
-
                 <div class="text-center g-font-size-14 g-font-weight-600">#СЕВТЮЗ</div>
             </div>
 
-            <div class="col-md-4 g-pl-30 g-mb-20">
-                <div class="row no-gutters">
-                    <div class="col-6 text-right g-pt-5 g-pr-5">
-                        <a href="http://quality.mkrf.ru/" target="_blank"><img
-                                    src="{% static "assets/img/logo/logo-mkrf.png" %}" alt="" class="img-fluid"></a>
-                    </div>
-                    <div class="col-6 g-line-height-1_2 g-font-size-13">
-                        <a class="g-color-gray-dark-v2" href="http://quality.mkrf.ru/" target="_blank">Оценка качества услуг учреждений культуры</a>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-12 text-right g-pt-15 g-pr-65">
-                        <a href="https://2019.culture.ru/" target="_blank"><img src="{% static "assets/img/logo/logo-god-teatra.png" %}" alt="" class="img-fluid"></a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-right g-pt-10 g-pr-40 g-font-size-20 g-font-weight-600">
-                        <a class="g-color-black" href="{% url 'login' %}" >служебный вход <i class="fa fa-play g-font-size-16"></i></a>
-                    </div>
+            <div class="col-md-4 g-mb-20 d-flex flex-column align-items-center">
+                <a href="https://2019.culture.ru/" target="_blank"><img src="{% static "assets/img/logo/logo-god-teatra.png" %}" alt="" class="img-fluid"></a>
+
+                <div class="g-pt-10 g-font-size-20 g-font-weight-600">
+                    <a class="g-color-black" href="{% url 'login' %}" >служебный вход <i class="fa fa-play g-font-size-16"></i></a>
                 </div>
             </div>
         </div>
