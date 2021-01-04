@@ -10,17 +10,19 @@
         </header>
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 ">
                 {% if last_events|length > 0 %}
-                    <div id="carousel-07" class="js-carousel" data-infinite="true"
-                         data-center-padding="60px" data-slides-show="4"
-                         data-arrows-classes="u-arrow-v1 g-absolute-centered--y g-width-25 g-height-25"
-                         data-arrow-left-classes="g-left-0 u-bg-left-arrow"
-                         data-arrow-right-classes="g-right-0 u-bg-right-arrow">
-
+                    <div id="carousel-07"
+                         class="js-carousel"
+                         data-infinite="true"
+                         data-center-padding="60px"
+                         data-slides-show="4"
+                         data-arrows-classes="fa g-absolute-centered--y g-font-size-110 g-font-size-120--hover g-color-red"
+                         data-arrow-left-classes="g-left-minus-50 fa-angle-left"
+                         data-arrow-right-classes="g-right-minus-50 fa-angle-right">
                         {% for event in last_events %}
-                            <div class="js-slide g-mx-10 g-brd-1 g-brd-gray-light-v3 g-brd-style-solid g-bg-primary--hover g-color-black"
-                                 style="min-height: 375px">
+                            <div class="js-slide g-mx-10 g-brd-1 g-brd-gray-light-v3 g-brd-style-solid g-bg-primary--hover g-color-black "
+                                 style="min-height: 400px">
                                 <div class="row">
                                     <div class="col-6 text-left">
                                         <span class="day g-brd-left-4 g-brd-primary-left u-brd-style-solid--left g-pl-5 g-font-size-40 g-font-weight-600 g-line-height-1_2">{{ event.datetime|date:'d' }}</span>
@@ -53,12 +55,30 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-12 g-pt-10 g-pb-30">
+                                    <div class="col-12 g-pt-10 g-pb-10">
                                         <h3 class="h5 text-uppercase g-font-weight-600 g-px-9"><a
                                                 class="u-link-v5 g-color-black u-text-underline--hover"
                                                 href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title }}</a>
                                         </h3>
-                                        <span class="text-lowercase g-px-9">{{ event.play.genre.title }}</span>
+                                        {% if event.play.genre %}
+                                            <span class="text-lowercase g-px-9">{{ event.play.genre.title }}</span>
+                                        {% endif %}
+                                        <div class="text-center g-mt-10">
+                                            {% if event.free_enter %}
+                                                <span class="text-success">Свободный вход</span>
+                                            {% else %}
+                                                {% if event.radario_id %}
+                                                    <script src="https://radario.ru/scripts/widget/buy-button-widget.js"
+                                                            data-class="radarioButtonScript"
+                                                            data-radario-event-id="{{ event.radario_id }}"
+                                                            data-button-border-radius="5px"
+                                                            data-button-padding="7px 10px"
+                                                            data-button-text-size="14px"
+                                                            data-custom-color="#cc3333"
+                                                    ></script>
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
