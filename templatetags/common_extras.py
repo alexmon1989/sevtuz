@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils.safestring import mark_safe
 from apps.settings.models import FooterSettings, SocialLinksModel, HeaderSettings
 from apps.settings.models import Analytics
+from apps.theater.models import Partner
 
 register = template.Library()
 
@@ -73,3 +74,9 @@ def header_settings():
     return {
         'header_data': obj
     }
+
+
+@register.simple_tag
+def partners():
+    """Возвращает список партнёров театра."""
+    return Partner.objects.filter(is_visible=True)
