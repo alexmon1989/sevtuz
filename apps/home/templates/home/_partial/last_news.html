@@ -18,12 +18,12 @@
                         <div class="row">
                             <div class="col-4 g-pt-30--lg">
                                 {% if news.image %}
-                                    <a href="{% url "theater_news_detail" slug=news.slug %}"><img
+                                    <a href="{% url "media_news_detail" slug=news.slug %}"><img
                                             class="rounded-circle img-fluid"
                                             src="{{ news.image|thumbnail_url:'news_sm_square' }}"
                                             alt="{{ news.title }}"></a>
                                 {% else %}
-                                    <a href="{% url "theater_news_detail" slug=news.slug %}"><img
+                                    <a href="{% url "media_news_detail" slug=news.slug %}"><img
                                             class="rounded-circle img-fluid"
                                             src="//via.placeholder.com/350?text=No+Image"
                                             alt="{{ news.title }}"></a>
@@ -38,14 +38,14 @@
                                 <div class="g-height-80--md">
                                     <h3 class="h5 g-font-weight-600">
                                         <a class="u-link-v5 g-color-black g-color-primary--hover"
-                                           href="{% url "theater_news_detail" slug=news.slug %}">{{ news.title }}</a>
+                                           href="{% url "media_news_detail" slug=news.slug %}">{{ news.title }}</a>
                                     </h3>
                                 </div>
 
                                 <p>{{ news.text|striptags|truncatewords:25|safe }}</p>
 
                                 <p class="text-right">
-                                    <a href="{% url "theater_news_detail" slug=news.slug %}" class="btn u-btn-outline-red g-mr-10 g-mb-15 g-brd-2">Читать далее...</a>
+                                    <a href="{% url "media_news_detail" slug=news.slug %}" class="btn u-btn-outline-red g-mr-10 g-mb-15 g-brd-2">Читать далее...</a>
                                 </p>
 
                             </div>
@@ -55,7 +55,7 @@
                 {% endfor %}
 
                 <div class="col-12 text-center g-mb-20">
-                    <a class="g-font-size-26 g-font-weight-600" href="{% url 'theater_news_list' %}">Все новости</a>
+                    <a class="g-font-size-26 g-font-weight-600" href="{% url 'media_news_list' %}">Все новости</a>
                 </div>
             {% else %}
                 Новости отсутствуют.

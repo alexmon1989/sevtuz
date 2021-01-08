@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from apps.theater.models import News
+from apps.media.models import News
 from apps.playbill.models import Event
 from apps.home.models import Playbill
 

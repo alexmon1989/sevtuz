@@ -42,37 +42,3 @@ class Page(models.Model):
         verbose_name = 'Страница'
         verbose_name_plural = 'Страницы'
         ordering = ('created_at',)
-
-
-class Vacancy(models.Model):
-    """Модель вакансии"""
-    title = models.CharField('Название вакансии', max_length=255)
-    count = models.PositiveSmallIntegerField('Количество необходимых кадров', default=1)
-    created_at = models.DateTimeField('Создано', auto_now_add=True)
-    updated_at = models.DateTimeField('Обновлено', auto_now=True)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'Вакансия'
-        verbose_name_plural = 'Вакансии'
-
-
-class VacanciesPage(models.Model):
-    """Модель страницы вакансий"""
-    hr_contacts = RichTextField('Текст контактов специалиста по кадрам')
-    vacations = models.ManyToManyField(Vacancy, verbose_name='Вакансии', blank=True)
-    created_at = models.DateTimeField('Создано', auto_now_add=True)
-    updated_at = models.DateTimeField('Обновлено', auto_now=True)
-
-    def __str__(self):
-        return 'Страница "Вакансии"'
-
-    def get_vacancies(self):
-        """Возвращает список вакансий, отсортированных по дате создания."""
-        return self.vacations.order_by('created_at')
-
-    class Meta:
-        verbose_name = 'Страница "Вакансии"'
-        verbose_name_plural = 'Страница "Вакансии"'

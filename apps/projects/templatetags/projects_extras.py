@@ -7,4 +7,4 @@ register = template.Library()
 @register.simple_tag
 def projects_pages():
     """Возвращает список ссылок на статичные страницы приложения."""
-    return Page.objects.filter(is_visible=True).order_by('created_at').all()
+    return Page.objects.filter(is_visible=True).order_by('-weight')

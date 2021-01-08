@@ -5,10 +5,9 @@ from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import Http404
 
-from apps.theater.models import News, History, Play, Person, Page as TheaterPage, Document
-from apps.tickets.models import Page as TicketsPage
+from apps.theater.models import History, Play, Person, Page as TheaterPage, Document
 from apps.people.models import Page as PeoplePage
-from apps.media.models import Page as MediaPage
+from apps.media.models import News, Page as MediaPage
 from apps.projects.models import Page as ProjectsPage
 from apps.contacts.models import Page as ContactsPage
 
@@ -28,7 +27,6 @@ def search(request):
         {'model': Person, 'title_field': 'name', 'text_field': 'biography'},
         {'model': History, 'title_field': 'season__title', 'text_field': 'text'},
         {'model': TheaterPage, 'title_field': 'title', 'text_field': 'text'},
-        {'model': TicketsPage, 'title_field': 'title', 'text_field': 'text'},
         {'model': PeoplePage, 'title_field': 'title', 'text_field': 'text'},
         {'model': MediaPage, 'title_field': 'title', 'text_field': 'text'},
         {'model': ProjectsPage, 'title_field': 'title', 'text_field': 'text'},

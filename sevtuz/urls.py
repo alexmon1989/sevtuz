@@ -20,7 +20,6 @@ from django.conf import settings
 from apps.home.views import home
 from apps.theater import urls as theater_urls
 from apps.contacts import urls as contacts_urls
-from apps.tickets import urls as tickets_urls
 from apps.people import urls as people_urls
 from apps.playbill import urls as playbill_urls
 from apps.media import urls as media_urls
@@ -28,8 +27,7 @@ from apps.projects import urls as projects_urls
 from apps.search import urls as search_urls
 from apps.staff_office import urls as staff_office_urls
 from sevtuz.sitemap import (StaticSitemap, TheaterNewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
-                            PersonPagesSitemap, TheaterHistorySitemap, TicketsPagesSitemap, MediaPagesSitemap,
-                            ProjectsPagesSitemap)
+                            PersonPagesSitemap, TheaterHistorySitemap, MediaPagesSitemap, ProjectsPagesSitemap)
 from django.contrib.sitemaps.views import sitemap
 
 
@@ -40,7 +38,6 @@ sitemaps = {
     'theater_pages': TheaterPagesSitemap,
     'theater_news': TheaterNewsSitemap,
     'theater_history': TheaterHistorySitemap,
-    'tickets_pages': TicketsPagesSitemap,
     'person_pages': PersonPagesSitemap,
     'media_pages': MediaPagesSitemap,
     'projects_pages': ProjectsPagesSitemap,
@@ -51,7 +48,6 @@ urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^theater/', include(theater_urls)),
     url(r'^contacts/', include(contacts_urls)),
-    url(r'^tickets/', include(tickets_urls)),
     url(r'^people/', include(people_urls)),
     url(r'^playbill/', include(playbill_urls)),
     url(r'^section-media/', include(media_urls)),

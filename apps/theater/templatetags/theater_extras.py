@@ -1,5 +1,6 @@
 from django import template
-from apps.theater.models import News, Page
+from apps.media.models import News
+from apps.theater.models import Page
 
 register = template.Library()
 
@@ -13,4 +14,4 @@ def news_count(year, month):
 @register.simple_tag
 def theater_pages():
     """Возвращает список ссылок на статичные страницы приложения."""
-    return Page.objects.filter(is_visible=True).order_by('created_at').all()
+    return Page.objects.filter(is_visible=True).order_by('-weight')

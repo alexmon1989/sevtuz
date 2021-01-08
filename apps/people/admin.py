@@ -1,6 +1,5 @@
 from django.contrib import admin
-from singlemodeladmin import SingleModelAdmin
-from apps.people.models import Page, Vacancy, VacanciesPage
+from apps.people.models import Page
 
 
 @admin.register(Page)
@@ -11,15 +10,3 @@ class PageAdmin(admin.ModelAdmin):
     list_editable = ('is_visible',)
     search_fields = ('title',)
     prepopulated_fields = {"slug": ("title",)}
-
-
-@admin.register(Vacancy)
-class VacationAdmin(admin.ModelAdmin):
-    """Класс для описания интерфейса администрирования страниц."""
-    list_display = ('title', 'count', 'created_at', 'updated_at')
-    ordering = ('title',)
-    search_fields = ('title',)
-
-
-"""Интерфейс администрирования страниц."""
-admin.site.register(VacanciesPage, SingleModelAdmin)

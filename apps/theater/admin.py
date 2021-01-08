@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from apps.theater.models import (Season, Play, PlayPhoto, PlayVideo, Genre, Page, Person, PersonPhoto, Position,
-                                 PersonPlayRole, News, History, HistoryPhoto, HistoryVideo, Document, DocumentType,
+                                 PersonPlayRole, History, HistoryPhoto, HistoryVideo, Document, DocumentType,
                                  Partner, InternalEvent)
 
 
@@ -74,9 +74,9 @@ class GenreAdmin(admin.ModelAdmin):
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования страниц."""
-    list_display = ('title', 'is_visible', 'created_at', 'updated_at')
+    list_display = ('title', 'is_visible', 'weight', 'created_at', 'updated_at')
     ordering = ('title',)
-    list_editable = ('is_visible',)
+    list_editable = ('is_visible', 'weight',)
     search_fields = ('title',)
     prepopulated_fields = {"slug": ("title",)}
 
@@ -103,16 +103,6 @@ class PositionsAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования должностей."""
     list_display = ('title', 'created_at', 'updated_at')
     search_fields = ('title',)
-
-
-@admin.register(News)
-class NewsAdmin(admin.ModelAdmin):
-    """Класс для описания интерфейса администрирования новостей."""
-    list_display = ('title', 'is_visible', 'created_at', 'updated_at')
-    ordering = ('-created_at',)
-    list_editable = ('is_visible',)
-    search_fields = ('title',)
-    prepopulated_fields = {"slug": ("title",)}
 
 
 class HistoryPhotoInline(admin.TabularInline):

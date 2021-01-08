@@ -41,10 +41,10 @@
                             <div class="row g-mb-40">
                                 <div class="col-md-2 g-mb-20 text-center">
                                     {% if news.image %}
-                                    <a href="{% url "theater_news_detail" slug=news.slug %}"><img class="rounded-circle img-fluid" src="{{ news.image|thumbnail_url:'news_xs_square' }}"
+                                    <a href="{% url "media_news_detail" slug=news.slug %}"><img class="rounded-circle img-fluid" src="{{ news.image|thumbnail_url:'news_xs_square' }}"
                                          alt="{{ news.title }}"></a>
                                     {% else %}
-                                    <a href="{% url "theater_news_detail" slug=news.slug %}"><img class="rounded-circle img-fluid" src="//via.placeholder.com/200?text=No+Image"
+                                    <a href="{% url "media_news_detail" slug=news.slug %}"><img class="rounded-circle img-fluid" src="//via.placeholder.com/200?text=No+Image"
                                          alt="{{ news.title }}"></a>
                                     {% endif %}
                                 </div>
@@ -53,12 +53,12 @@
                                     <p class="g-mb-0 g-font-weight-600"><time>{{ news.created_at|date }}</time></p>
 
                                     <h3 class="h5 g-font-weight-600 text-uppercase">
-                                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="{% url "theater_news_detail" slug=news.slug %}">{{ news.title }}</a>
+                                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="{% url "media_news_detail" slug=news.slug %}">{{ news.title }}</a>
                                     </h3>
 
                                     <p class="">{{ news.text|striptags|truncatewords:40|safe }}</p>
 
-                                    <p class="text-right text-lowercase"><a class="g-color-black small" href="{% url "theater_news_detail" slug=news.slug %}">Далее <img
+                                    <p class="text-right text-lowercase"><a class="g-color-black small" href="{% url "media_news_detail" slug=news.slug %}">Далее <img
                                             src="{% static "assets/img/right.png" %}" alt=""></a></p>
 
                                 </div>
@@ -71,7 +71,7 @@
 
                     {% if is_paginated %}
                         <!-- Pagination -->
-                        {% include 'theater/news/_partial/pagination.html' %}
+                        {% include 'media/news/_partial/pagination.html' %}
                         <!-- End Pagination -->
                     {% endif %}
                 </div>
@@ -96,7 +96,7 @@
                                                     {% if month.0 >= season.month_from %}
                                                         <li class="month">
                                                             <a class="g-color-black g-color-primary--hover"
-                                                               href="{% url 'theater_news_list' %}?year={{ season.year_from }}&month={{ month.0 }}"
+                                                               href="{% url 'media_news_list' %}?year={{ season.year_from }}&month={{ month.0 }}"
                                                             >{% if request.GET.year == season.year_from|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}<img src="{% static "assets/img/point-primary.png" %}" alt="">{% endif %}{{ month.1 }} ({% news_count season.year_from month.0 %})</a>
                                                         </li>
                                                     {% endif %}
@@ -105,7 +105,7 @@
                                                     {% if month.0 <= season.month_to %}
                                                         <li class="month">
                                                             <a class="g-color-black g-color-primary--hover"
-                                                               href="{% url 'theater_news_list' %}?year={{ season.year_to }}&month={{ month.0 }}"
+                                                               href="{% url 'media_news_list' %}?year={{ season.year_to }}&month={{ month.0 }}"
                                                             >{% if request.GET.year == season.year_to|stringformat:"i" and request.GET.month == month.0|stringformat:"i" %}<img src="{% static "assets/img/point-primary.png" %}" alt="">{% endif %}{{ month.1 }} ({% news_count season.year_to month.0 %})</a>
                                                         </li>
                                                     {% endif %}

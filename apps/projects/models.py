@@ -12,8 +12,13 @@ class Page(models.Model):
         default='',
         unique=True
     )
-    text = RichTextUploadingField('Текст', blank=False)
+    text = RichTextUploadingField('Текст', blank=True)
     is_visible = models.BooleanField('Включено', default=True)
+    weight = models.PositiveSmallIntegerField(
+        'Вес',
+        default=1000,
+        help_text='Чем больше значение, тем выше страница в списке.'
+    )
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 

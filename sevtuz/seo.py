@@ -17,8 +17,7 @@ class MyMetadata(seo.Metadata):
         seo_models = (
             'contacts.Page',
             'people.Page',
-            'tickets.Page',
-            'theater.News',
+            'media.News',
             'theater.Page',
             'theater.Person',
             'theater.Play',

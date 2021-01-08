@@ -1,7 +1,7 @@
 from django.views.generic import DetailView
 from django.shortcuts import render
 from apps.theater.models import Person
-from apps.people.models import Page, VacanciesPage
+from apps.people.models import Page
 
 
 def pages_list(request):
@@ -22,13 +22,3 @@ class PersonDetailView(DetailView):
     model = Person
     template_name = "people/person_detail/person_detail.html"
     queryset = Person.objects.filter(has_page=True)
-
-
-class VacanciesPageDetailView(DetailView):
-    """Отображает страницу Вакансии."""
-    model = VacanciesPage
-    template_name = "people/vacancies_page/page_detail.html"
-
-    def get_object(self):
-        page, created = VacanciesPage.objects.get_or_create()
-        return page

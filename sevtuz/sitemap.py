@@ -1,9 +1,8 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from apps.theater.models import News, Play, Page as TheaterPage, Person, History
-from apps.tickets.models import Page as TicketPage
+from apps.theater.models import Play, Page as TheaterPage, Person, History
 from apps.people.models import Page as PersonPage
-from apps.media.models import Page as MediaPage
+from apps.media.models import News, Page as MediaPage
 from apps.projects.models import Page as ProjectsPage
 
 
@@ -15,8 +14,7 @@ class StaticSitemap(Sitemap):
             'playbill_events_list',
             'playbill_plays_current',
             'playbill_plays_archive',
-            'playbill_plays_plans',
-            'vacancies_page',
+            'playbill_plays_plans'
         ]
 
     def location(self, item):
@@ -50,14 +48,6 @@ class PlaysSitemap(Sitemap):
 class TheaterPagesSitemap(Sitemap):
     def items(self):
         return TheaterPage.objects.filter(is_visible=True)
-
-    def lastmod(self, obj):
-        return obj.updated_at
-
-
-class TicketsPagesSitemap(Sitemap):
-    def items(self):
-        return TicketPage.objects.filter(is_visible=True)
 
     def lastmod(self, obj):
         return obj.updated_at
