@@ -191,3 +191,17 @@ ul.breadcrumb {
 .g-bg-yellow-opacity-0_3 {
   background-color: rgba(255, 204, 51, 0.3) !important;
 }
+
+.u-nav-v4-1 {
+  border-bottom-color: #bfbfbf;
+
+  .nav-link.active {
+    border-color: #7d7c7c #bfbfbf #fff;
+  }
+}
+
+td.radario {
+  div {
+    margin-bottom: 0 !important;
+  }
+}

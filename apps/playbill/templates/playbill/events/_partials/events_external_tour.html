@@ -1,0 +1,26 @@
+<div class="table-responsive g-mt-15">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Дата и время начала</th>
+            <th>Спектакль</th>
+            <th>Возраст</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for event in events_external_tour %}
+            <tr>
+                <td>{{ event.datetime }}</td>
+                <td class="g-font-weight-600">
+                    <a href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title|upper }}</a>
+                </td>
+                <td>{{ event.play.age }}+</td>
+                <td>
+                    {{ event.html_code|safe }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

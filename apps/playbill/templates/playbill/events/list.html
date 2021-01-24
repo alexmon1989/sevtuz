@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% load project_tags %}
+
+{% block title %}
+    Спектакли на наших площадках
+{% endblock %}
+
+{% block content %}
+    <div class="container g-pt-100 g-pb-40">
+        <div class="row justify-content-between">
+
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h2 g-font-weight-600">
+                    {% if metadata.heading.value %}
+                        {{ metadata.heading.value }}
+                    {% else %}
+                        Спектакли на наших площадках
+                    {% endif %}</h1>
+            </div>
+
+            <div class="col-lg-12">
+                <!-- Nav tabs -->
+                <ul class="nav u-nav-v4-1" role="tablist" data-target="nav-4-1-default-hor-left"
+                    data-tabs-mobile-type="slide-up-down"
+                    data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-lightgray">
+                    <li class="nav-item">
+                        <a class="nav-link g-font-size-20 g-px-20 active" data-toggle="tab" href="#nav-4-1-default-hor-left--1" role="tab">Спектакли на наших площадках</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link g-font-size-20 g-px-20" data-toggle="tab" href="#nav-4-1-default-hor-left--2" role="tab">Наши гости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link g-font-size-20 g-px-20" data-toggle="tab" href="#nav-4-1-default-hor-left--3"
+                           role="tab">Выезды и гастроли</a>
+                    </li>
+                </ul>
+                <!-- End Nav tabs -->
+
+                <!-- Tab panes -->
+                <div id="nav-4-1-default-hor-left" class="tab-content g-pt-20">
+                    <div class="tab-pane fade show active" id="nav-4-1-default-hor-left--1" role="tabpanel">
+                        {% if events_our %}
+                            {% include 'playbill/events/_partials/events_our.html' %}
+                        {% else %}
+                            <p>Спектакли пока что отсутствуют.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-4-1-default-hor-left--2" role="tabpanel">
+                        {% if events_guests %}
+                            {% include 'playbill/events/_partials/events_guests.html' %}
+                        {% else %}
+                            <p>Спектакли пока что отсутствуют.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-4-1-default-hor-left--3" role="tabpanel">
+                        {% if events_external_tour %}
+                            {% include 'playbill/events/_partials/events_external_tour.html' %}
+                        {% else %}
+                            <p>Спектакли пока что отсутствуют.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- End Tab panes -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
