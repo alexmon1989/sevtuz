@@ -21,6 +21,25 @@ class PlayListView(ListView):
     template_name = 'playbill/plays/list/list.html'
     paginate_by = 10
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Если загружается страница текущих спектаклей, то необходимо получить возможные значения фильтров
+        if self.request.resolver_match.url_name == 'playbill_plays_current':
+            qs = Play.objects.filter(is_our_play=True, status=1)
+
+            # Варианты возраста
+            context['ages'] = list(set(qs.values_list('age', flat=True)))
+            context['ages'].sort()
+
+            # Варианты типов
+            context['play_types'] = list(set(qs.filter(play_types__isnull=False).values_list(
+                'play_types__pk', 'play_types__title'
+            )))
+            context['play_types'].sort()
+
+        return context
+
     def get(self, *args, **kwargs):
         page = self.request.GET.get('page')
         if page:
@@ -41,7 +60,18 @@ class PlayListView(ListView):
             if status in full_path:
                 qs = qs.filter(status=statuses.index(status)+1)
 
-        return qs
+        # Фильтры
+        if self.request.GET.get('age'):
+            try:
+                age = int(self.request.GET['age'])
+                qs = qs.filter(age=age)
+            except ValueError:
+                raise Http404
+
+        if self.request.GET.getlist('play_type'):
+            qs = qs.filter(play_types__pk__in=self.request.GET.getlist('play_type'))
+
+        return qs.distinct()
 
 
 class PlayDetailView(DetailView):

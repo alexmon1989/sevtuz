@@ -41,7 +41,7 @@
                         {% if 'current' in request.get_full_path %}
                             Текущие спектакли
                         {% elif 'archive' in request.get_full_path %}
-                            Архивные спектакли
+                            Архивные спектаклиd
                         {% elif 'plans' in request.get_full_path %}
                             Планируемые спектакли
                         {% endif %}
@@ -93,19 +93,25 @@
                     <div id="stickyblock-start" class="js-sticky-block g-sticky-block--lg"
                          data-start-point="#stickyblock-start" data-end-point="#stickyblock-end">
 
-                        <div class="g-mb-50 u-brd-style-solid--left g-brd-yellow-left">
+                        <div class="g-mb-50">
                             <ul class="list-unstyled mb-0 g-pl-10 g-font-size-18">
-                                <li>
+                                <li class="g-my-15">
                                     <a href="{% url "playbill_plays_current" %}"
-                                       class="{% if request.resolver_match.url_name == 'playbill_plays_current' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}">Текущие
+                                       class="g-font-size-24 {% if request.resolver_match.url_name == 'playbill_plays_current' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}">Текущие
                                         спектакли</a>
+
+                                        {% if request.resolver_match.url_name == 'playbill_plays_current' %}
+                                            {% include 'playbill/plays/list/_partial/filters.html' %}
+                                        {% endif %}
                                 </li>
-                                <li>
-                                    <a class="{% if request.resolver_match.url_name == 'playbill_plays_archive' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}"
+
+                                <li class="g-my-15">
+                                    <a class="g-font-size-24 {% if request.resolver_match.url_name == 'playbill_plays_archive' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}"
                                        href="{% url "playbill_plays_archive" %}">Архивные
                                         спектакли</a></li>
-                                <li>
-                                    <a class="{% if request.resolver_match.url_name == 'playbill_plays_plans' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}"
+
+                                <li class="g-my-15">
+                                    <a class="g-font-size-24 g-line-height-1 {% if request.resolver_match.url_name == 'playbill_plays_plans' %}g-color-red{% else %}g-color-gray-dark-v1{% endif %}"
                                        href="{% url "playbill_plays_plans" %}">Планируемые
                                         спектакли</a></li>
                             </ul>

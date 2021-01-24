@@ -32,6 +32,11 @@ def to_int(value):
 
 
 @register.filter
+def get_list(dictionary, key):
+    return dictionary.getlist(key)
+
+
+@register.filter
 def duration(td):
     if td:
         total_seconds = int(td.total_seconds())

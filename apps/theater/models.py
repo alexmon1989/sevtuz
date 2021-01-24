@@ -200,6 +200,7 @@ class Play(models.Model):
         default=1
     )
     roles = models.ManyToManyField(Person, through='PersonPlayRole', related_name='roles', blank=True)
+    play_types = models.ManyToManyField('PlayType', verbose_name='Типы спектаклей', blank=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
@@ -225,6 +226,20 @@ class Play(models.Model):
         verbose_name = 'Спектакль'
         verbose_name_plural = 'Спектакли'
         ordering = ('title',)
+
+
+class PlayType(models.Model):
+    """Модель типа спекткля."""
+    title = models.CharField('Название', max_length=255)
+    created_at = models.DateTimeField('Создано', auto_now_add=True)
+    updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Тип спектакля'
+        verbose_name_plural = 'Типы спектаклей'
 
 
 class PlayPhoto(models.Model):

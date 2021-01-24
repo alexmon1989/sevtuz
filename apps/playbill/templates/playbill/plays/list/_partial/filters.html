@@ -1,0 +1,44 @@
+{% load project_tags %}
+
+{% if ages %}
+    <div class="g-my-10 g-ml-15">
+        <div class="g-color-gray-dark-v1 g-font-weight-600 g-font-size-19">Возраст</div>
+
+        <ul class="list-unstyled">
+            {% for age in ages %}
+                <li>
+                    <a href="?{% url_replace request 'age' age %}"
+                       class="g-font-size-16 {% if age|stringformat:"i" == request.GET.age %}g-font-weight-600{% endif %}"
+                    >{{ age }}+</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% if play_types %}
+    <div class="g-my-10 g-ml-15">
+        <div class="g-color-gray-dark-v1 g-font-weight-600 g-font-size-19">Тип</div>
+
+        <form class="g-mt-7">
+            {% for type in play_types %}
+                <div class="form-group g-mb-5">
+                    <label class="u-check g-pl-30 g-font-size-16 g-line-height-1">
+                        <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0"
+                               name="play_type"
+                               {% if type.0|stringformat:"i" in request.GET|get_list:'play_type' %}checked="checked"{% endif %}
+                               value="{{ type.0 }}"
+                               type="checkbox">
+                        <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                            <i class="fa" data-check-icon=""></i>
+                        </div>
+                        {{ type.1 }}
+                    </label>
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+{% endif %}
+
+
+
