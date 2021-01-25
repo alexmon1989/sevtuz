@@ -200,7 +200,7 @@ class Play(models.Model):
         default=1
     )
     roles = models.ManyToManyField(Person, through='PersonPlayRole', related_name='roles', blank=True)
-    play_types = models.ManyToManyField('PlayType', verbose_name='Типы спектаклей', blank=True)
+    play_types = models.ManyToManyField('PlayType', verbose_name='Тип спектакля', blank=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
 
