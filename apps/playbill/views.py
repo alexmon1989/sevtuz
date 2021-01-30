@@ -104,18 +104,18 @@ class EventsListView(TemplateView):
         # Спектакли на наших площадках
         context['events_our'] = Event.objects.filter(
             is_visible=True, datetime__gte=now(), guests=False, tour=False, external=False
-        ).order_by('datetime')
+        ).order_by('datetime').select_related('play', 'play__genre', 'scene')
 
         # Наши гости
         context['events_guests'] = Event.objects.filter(
             is_visible=True, datetime__gte=now(), guests=True
-        ).order_by('datetime')
+        ).order_by('datetime').select_related('play', 'play__genre', 'scene')
 
         # Выезды и гастроли
         context['events_external_tour'] = Event.objects.filter(
             is_visible=True, datetime__gte=now()
         ).filter(
             Q(external=True) | Q(tour=True)
-        ).order_by('datetime')
+        ).order_by('datetime').select_related('play', 'play__genre', 'scene')
 
         return context

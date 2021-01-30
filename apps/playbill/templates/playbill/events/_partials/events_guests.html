@@ -2,8 +2,9 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Дата и время начала</th>
+            <th class="text-nowrap">Дата и время начала</th>
             <th>Спектакль</th>
+            <th>Жанр</th>
             <th>Возраст</th>
             <th>Площадка</th>
             <th></th>
@@ -12,13 +13,16 @@
         <tbody>
         {% for event in events_guests %}
             <tr>
-                <td>{{ event.datetime }}</td>
+                <td class="g-font-weight-600 text-nowrap">{{ event.datetime|date:"j E в H:i" }}</td>
                 <td class="g-font-weight-600">
                     <a href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title|upper }}</a>
                 </td>
-                <td>{{ event.play.age }}+</td>
-                <td>{{ event.scene }}</td>
-                <td class="text-center  radario">
+                <td>{{ event.play.genre.title }}</td>
+                <td class="text-center">
+                    <span class="u-label g-rounded-3 g-bg-red u-btn-3d">{{ event.play.age }}+</span>
+                </td>
+                <td class="text-nowrap">{{ event.scene }}</td>
+                <td class="text-center radario">
                     {% if event.free_enter %}
                         <span class="text-success">Свободный вход</span>
                     {% else %}

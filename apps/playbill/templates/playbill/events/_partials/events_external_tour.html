@@ -4,6 +4,7 @@
         <tr>
             <th>Дата и время начала</th>
             <th>Спектакль</th>
+            <th>Жанр</th>
             <th>Возраст</th>
             <th></th>
         </tr>
@@ -11,11 +12,14 @@
         <tbody>
         {% for event in events_external_tour %}
             <tr>
-                <td>{{ event.datetime }}</td>
+                <td class="g-font-weight-600 text-nowrap">{{ event.datetime|date:"j E в H:i" }}</td>
                 <td class="g-font-weight-600">
                     <a href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title|upper }}</a>
                 </td>
-                <td>{{ event.play.age }}+</td>
+                <td>{{ event.play.genre.title }}</td>
+                <td class="text-center">
+                    <span class="u-label g-rounded-3 g-bg-red u-btn-3d">{{ event.play.age }}+</span>
+                </td>
                 <td>
                     {{ event.html_code|safe }}
                 </td>
