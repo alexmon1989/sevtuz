@@ -302,7 +302,7 @@ def _with_inline(func, admin_site, metadata_class, inline_class):
         # We have to assume it will be bound to admin_site
         func(model_or_iterable, admin_class, **options)
         _monkey_inline(model_or_iterable,
-                       admin_site._registry[model_or_iterable],
+                       admin_site._registry[model_or_iterable[0] if hasattr(model_or_iterable, '__iter__') else model_or_iterable],
                        metadata_class, inline_class, admin_site)
 
     return register

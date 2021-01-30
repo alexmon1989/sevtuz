@@ -4,6 +4,7 @@ from apps.theater.models import Play, Page as TheaterPage, Person, History
 from apps.people.models import Page as PersonPage
 from apps.media.models import News, Page as MediaPage
 from apps.projects.models import Page as ProjectsPage
+from apps.tickets.models import Page as TicketsPage
 
 
 class StaticSitemap(Sitemap):
@@ -80,6 +81,14 @@ class MediaPagesSitemap(Sitemap):
 class ProjectsPagesSitemap(Sitemap):
     def items(self):
         return ProjectsPage.objects.filter(is_visible=True)
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+
+class TicketsPagesSitemap(Sitemap):
+    def items(self):
+        return TicketsPage.objects.filter(is_visible=True)
 
     def lastmod(self, obj):
         return obj.updated_at

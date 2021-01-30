@@ -14,17 +14,18 @@ class MyMetadata(seo.Metadata):
         heading = "Это будет отображаться в элементе h1."
 
     class Meta:
-        seo_models = (
+        seo_models = [
             'contacts.Page',
             'people.Page',
             'media.News',
+            'tickets.Page',
             'theater.Page',
             'theater.Person',
             'theater.Play',
             'theater.History',
             'media.Page',
             'projects.Page',
-        )
+        ]
         verbose_name = "SEO"
         verbose_name_plural = "SEO"
         backends = ('path', 'modelinstance')
