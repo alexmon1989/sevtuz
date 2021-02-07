@@ -13,7 +13,7 @@ class Playbill(models.Model):
     image = ThumbnailerImageField(
         'Изображение',
         upload_to='home',
-        help_text='Оптимальный размер: 1140px*590px.'
+        help_text='Оптимальный размер: 1920px по ширине.'
     )
 
     class Meta:

@@ -2,11 +2,11 @@
 
 {% if playbill %}
     <section id="promo" class="g-bg-black g-brd-none g-brd-bottom g-brd-primary g-brd-3">
-        <div class="container">
+        <div class="container-fluid no-gutters g-pa-0">
             <div class="row">
                 <div class="col-lg-12">
                     <a href="{% url "playbill_play_detail" slug=playbill.play.slug %}"
-                       title="{{ playbill.play }}"><img src="{{ playbill.image.main_event.url }}" alt=""
+                       title="{{ playbill.play }}"><img src="{{ playbill.image.url }}" alt=""
                                                                 class="img-fluid"></a>
                 </div>
             </div>
