@@ -1,30 +1,28 @@
 {% load project_tags %}
 
-<div class="table-responsive g-mt-15">
+<!-- Nav tabs -->
+<ul class="nav justify-content-center u-nav-v1-1 u-nav-primary u-nav-rounded-3 g-mb-20 g-mt-15"
+    data-target="nav-events-our"
+    data-tabs-mobile-type="accordion"
+    data-btn-classes="btn btn-md btn-block u-btn-outline-primary g-mb-20">
+    {% for month in events_our %}
+        <li class="nav-item">
+            <a class="nav-link {% if forloop.counter == 1 %}active{% endif %}"
+               data-toggle="tab"
+               href="#nav-events-our--{{ forloop.counter }}"
+               role="tab">{{ month.month|month_title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<!-- End Nav tabs -->
 
-    <!-- Nav tabs -->
-    <ul class="nav justify-content-center u-nav-v1-1 u-nav-primary u-nav-rounded-3 g-mb-20"
-        role="tablist"
-        data-target="nav-events-our"
-        data-tabs-mobile-type="accordion"
-        data-btn-classes="btn btn-md btn-block u-btn-outline-primary g-mb-20">
-        {% for month in events_our %}
-            <li class="nav-item">
-                <a class="nav-link {% if forloop.counter == 1 %}active{% endif %}"
-                   data-toggle="tab"
-                   href="#nav-events-our--{{ forloop.counter }}"
-                   role="tab">{{ month.month|month_title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <!-- End Nav tabs -->
-
-    <!-- Tab panes -->
-    <div id="nav-events-our" class="tab-content">
-        {% for month in events_our %}
-            <div class="tab-pane fade show {% if forloop.counter == 1 %}active{% endif %}"
-                 id="nav-events-our--{{ forloop.counter }}"
-                 role="tabpanel">
+<!-- Tab panes -->
+<div id="nav-events-our" class="tab-content">
+    {% for month in events_our %}
+        <div class="tab-pane fade show {% if forloop.counter == 1 %}active{% endif %}"
+             id="nav-events-our--{{ forloop.counter }}"
+             role="tabpanel">
+            <div class="table-responsive g-mt-15">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -69,8 +67,7 @@
                     </tbody>
                 </table>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
     <!-- End Tab panes -->
-
 </div>
