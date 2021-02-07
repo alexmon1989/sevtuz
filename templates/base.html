@@ -28,6 +28,7 @@
     {% compress css %}
         <!-- CSS Global Compulsory -->
         <link rel="stylesheet" href="{% static "assets/vendor/bootstrap/bootstrap.min.css" %}">
+
         <!-- CSS Global Icons -->
         <link rel="stylesheet" href="{% static "assets/vendor/icon-awesome/css/font-awesome.min.css" %}">
         <link rel="stylesheet" href="{% static "assets/vendor/icon-line/css/simple-line-icons.css" %}">
@@ -120,6 +121,7 @@
     <script src="{% static "assets/js/components/hs.carousel.js" %}"></script>
     <script src="{% static "assets/js/components/hs.sticky-block.js" %}"></script>
     <script src="{% static "assets/js/components/hs.go-to.js" %}"></script>
+    <script src="{% static "assets/js/components/hs.tabs.js" %}"></script>
     <script src="{% static "assets/js/helpers/hs.height-calc.js" %}"></script>
 
     <script src="{% static "assets/js/custom.js" %}"></script>
@@ -148,6 +150,8 @@
 
             // initialization of sticky blocks
             $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+
+            $.HSCore.components.HSTabs.init('[role="tablist"]');
         });
 
         $(window).on('load', function () {

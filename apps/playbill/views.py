@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView, TemplateView
 from django.http import Http404
 from django.utils.timezone import now
 from django.db.models import Q
+from django.db.models.functions import ExtractMonth
 from django.shortcuts import render, redirect
 
 from apps.theater.models import Play
@@ -102,9 +103,31 @@ class EventsListView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         # Спектакли на наших площадках
-        context['events_our'] = Event.objects.filter(
+        months = Event.objects.annotate(
+            month=ExtractMonth('datetime')
+        ).filter(
             is_visible=True, datetime__gte=now(), guests=False, tour=False, external=False
-        ).order_by('datetime').select_related('play', 'play__genre', 'scene')
+        ).values(
+            'month'
+        ).order_by(
+            'month'
+        ).distinct()
+
+        context['events_our'] = []
+        for month in months:
+            context['events_our'].append(
+                {
+                    'month': month['month'],
+                    'items': Event.objects.filter(
+                        is_visible=True,
+                        datetime__gte=now(),
+                        datetime__month=month['month'],
+                        guests=False,
+                        tour=False,
+                        external=False,
+                    ).order_by('datetime').select_related('play', 'play__genre', 'scene'),
+                }
+            )
 
         # Наши гости
         context['events_guests'] = Event.objects.filter(
