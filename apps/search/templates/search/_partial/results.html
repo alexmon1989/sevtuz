@@ -1,8 +1,10 @@
+{% load project_tags %}
+
 <div class="results">
     {% for item in results %}
         <article>
             <h3 class="h4 g-mb-15">
-                {% if item.source_type == "theater_news" %}
+                {% if item.source_type == "media_news" %}
                     <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover"
                        href="{% url "media_news_detail" slug=item.slug %}">{{ item.title }}</a>
                 {% elif item.source_type == "theater_history" %}
@@ -42,14 +44,14 @@
                 <!-- Search Info -->
                 <ul class="list-inline g-mb-10 g-mb-0--lg">
                     <li class="list-inline-item g-mr-30">
-                        {% if item.source_type == "theater_news" %}
+                        {% if item.source_type == "media_news" %}
                             <ul class="u-list-inline">
                                 <li class="list-inline-item g-mr-5">
                                     <a class="u-link-v5 g-color-black-opacity-0_7" href="/">СевТЮЗ</a>
                                     <i class="g-color-gray-light-v2 g-ml-5">/</i>
                                 </li>
                                 <li class="list-inline-item g-color-black-opacity-0_7">
-                                    <span>Театр</span>
+                                    <span>Медиа</span>
                                     <i class="g-color-gray-light-v2 g-ml-5">/</i>
                                 </li>
                                 <li class="list-inline-item g-color-primary">
@@ -178,7 +180,7 @@
                 </div>
             {% endif %}
 
-            <p class="g-mb-15">{{ item.headline_text|safe }}</p>
+            <p class="g-mb-15">{{ item.headline_text|trim|safe }}</p>
         </article>
         <!-- End Search Result -->
 

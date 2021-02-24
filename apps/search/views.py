@@ -38,7 +38,7 @@ def search(request):
     if request.GET.get('source'):
         if 'others' not in request.GET.getlist('source'):
             sources = sources[0:3]
-        if 'theater_news' not in request.GET.getlist('source'):
+        if 'media_news' not in request.GET.getlist('source'):
             sources.remove({'model': News, 'title_field': 'title', 'text_field': 'text'})
         if 'theater_play' not in request.GET.getlist('source'):
             sources.remove({'model': Play, 'title_field': 'title', 'text_field': 'text'})
@@ -76,6 +76,13 @@ def search(request):
                 },
                 select_params=(keywords, source['model']._meta.db_table)
             )
+        else:
+            qs = qs.extra(
+                select={
+                    'source_type': "%s"
+                },
+                select_params=(source['model']._meta.db_table, )
+            )
         if len(qs) > 0:
             for item in qs:
                 results.append(item)
@@ -83,6 +90,7 @@ def search(request):
     # Сортировка результатов поиска по rank
     results = sorted(results, key=lambda x: x.rank, reverse=True)
     count_results = len(results)
+    print(results)
 
     # Пагинация
     paginator = Paginator(results, 10)  # Показывать 10 результатов поиска на странице

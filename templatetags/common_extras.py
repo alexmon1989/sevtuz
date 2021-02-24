@@ -85,3 +85,8 @@ def header_settings():
 def partners():
     """Возвращает список партнёров театра."""
     return Partner.objects.filter(is_visible=True)
+
+
+@register.filter
+def trim(value):
+    return value.strip()

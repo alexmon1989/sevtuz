@@ -1,17 +1,15 @@
-{% load staticfiles %}
-
-<div class="g-width-60x--md mx-auto">
+<form class="g-width-60x--md mx-auto">
     <div class="form-group g-mb-20">
-        <div class="input-group rounded g-mb-15">
-            <input class="form-control form-control-md g-font-size-16 pr-0 g-py-15" placeholder="Поисковый запрос"
-                   type="text" value="{{ request.GET.q }}" name="q">
-            <span class="input-group-btn">
-                <button class="btn btn-md u-btn-primary g-py-15" type="submit"><i class="icon-magnifier"></i></button>
-            </span>
+        <div class="input-group u-shadow-v21 rounded g-mb-15">
+            <input class="form-control form-control-md g-brd-white g-font-size-16 border-right-0 pr-0 g-py-15 g-height-auto"
+                   type="text" placeholder="Поисковый запрос" value="{{ request.GET.q }}" name="q">
+            <div class="input-group-addon d-flex align-items-center g-bg-white g-brd-white g-color-gray-light-v1 g-pa-2">
+                <button class="btn u-btn-primary g-font-size-16 g-py-15 g-px-20" type="submit">
+                    <i class="icon-magnifier g-pos-rel g-top-1"></i>
+                </button>
+            </div>
         </div>
-
         <small class="form-text g-opacity-0_8 g-font-size-default">Введите в это поле свой поисковый запрос, например,
-            "О маленьких для больших".
-        </small>
+            "О маленьких для больших".</small>
     </div>
-</div>
+</form>

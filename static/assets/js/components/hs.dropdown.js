@@ -286,7 +286,7 @@
 
           target.css(
             'right',
-            (parseInt( target.css('right'), 10 ) - (targetOuterGeometry.left - 10 )) * -1
+            (parseInt( target.css('right'), 10 ) - (targetOuterGeometry.left - 30 )) * -1
           );
 
         }
