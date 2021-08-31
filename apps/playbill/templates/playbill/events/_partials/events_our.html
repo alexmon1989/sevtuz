@@ -51,14 +51,15 @@
                                     <span class="text-success">Свободный вход</span>
                                 {% else %}
                                     {% if event.radario_id %}
-                                        <script src="https://radario.ru/scripts/widget/buy-button-widget.js"
-                                                data-class="radarioButtonScript"
-                                                data-radario-event-id="{{ event.radario_id }}"
-                                                data-button-border-radius="5px"
-                                                data-button-padding="6px 12px"
-                                                data-button-text-size="13px"
-                                                data-custom-color="#cc3333"
-                                        ></script>
+                                        <script>radario.Widgets.Event({
+                                            "params": {"accentColor": "#CC3333"},
+                                            "buttonFontSize": "12px",
+                                            "buttonPadding": "6px 12px",
+                                            "buttonBorderRadius": "5px",
+                                            "standalone": false,
+                                            "createButton": true,
+                                            "eventId": {{ event.radario_id }}
+                                        })</script>
                                     {% endif %}
                                 {% endif %}
                             </td>
