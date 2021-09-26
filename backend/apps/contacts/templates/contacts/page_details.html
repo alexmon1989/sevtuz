@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{% if metadata.title.value %}{{ metadata.title.value }}{% else %}Контакты / СевТЮЗ{% endif %}{% endblock %}
+
+{% block content %}
+    <div class="container g-py-100">
+        <div class="row">
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h3 g-font-weight-600">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}Контакты{% endif %}</h1>
+            </div>
+
+            <div class="col-lg-12 g-mb-50">
+                <div class="row">
+                    <div class="col-lg-12 g-color-black">
+                        <div class="g-line-height-1_8 g-mb-40">{{ page.text|safe }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

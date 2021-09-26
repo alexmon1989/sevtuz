@@ -104,12 +104,13 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-/sevtuz/sevtuz/settings.py
+/backend/sevtuz/sevtuz/settings.py
 /.idea/
-/static/assets/css/
-/sevtuz/settings.py
+/frontend/assets/css/
+/backend/sevtuz/settings.py
 /node_modules/
 /docker-compose.yml
 /Dockerfile
 /media/
 !/static/assets/vendor/fullcalendar-3.9.0/lib/
+/staticfiles/

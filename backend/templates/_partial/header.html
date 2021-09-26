@@ -1,0 +1,327 @@
+{% load staticfiles %}
+{% load project_tags %}
+{% load theater_extras %}
+{% load people_extras %}
+{% load media_extras %}
+{% load projects_extras %}
+
+<!-- Header -->
+<header id="js-header" class="u-header u-header--static">
+    <!-- Top Bar -->
+    {% include "_partial/top_bar.html" %}
+    <!-- End Top Bar -->
+
+    <div class="u-header__section u-header__section--light g-bg-white g-brd-none g-brd-top g-brd-bottom g-brd-primary g-brd-3">
+        <nav class="js-mega-menu navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Responsive Toggle Button -->
+                <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-3 g-right-0"
+                        type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar"
+                        data-toggle="collapse" data-target="#navBar">
+                    <span class="hamburger hamburger--slider">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-0--lg g-mr-40--sm"
+                     id="navBar">
+                    <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
+                        <!-- Театр -->
+                        {% theater_pages as t_p %}
+                        <li class="hs-has-mega-menu nav-item g-mx-12--lg"
+                            data-animation-in="fadeIn"
+                            data-animation-out="fadeOut"
+                            data-position="right">
+                            <a id="mega-menu-label-2" class="nav-link g-pa-0 g-font-size-16 {% if request.resolver_match.url_name|in_list:"theater_page,theater_history,theater_documents" %}active{% endif %}"
+                               href="{% url "theater_page" slug=t_p.0.slug %}"
+                               aria-haspopup="true"
+                               aria-expanded="false">Театр
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                            </a>
+
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav flex-wrap text-uppercase g-font-weight-600 mr-auto">
+                                            {% for page in t_p %}
+                                                {% if 'О театре' in page.title %}
+                                                    <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_page" and page.slug in request.path %}active{% endif %}">
+                                                        <a href="{% url "theater_page" slug=page.slug %}"
+                                                           class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">{{ page.title }}
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_history" %}active{% endif %}">
+                                                <a href="{% url "theater_history" %}"
+                                                   class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">История
+                                                </a>
+                                            </li>
+
+                                            {% for page in t_p %}
+                                                {% if 'Технические параметры' in page.title %}
+                                                    <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_page" and page.slug in request.path %}active{% endif %}">
+                                                        <a href="{% url "theater_page" slug=page.slug %}"
+                                                           class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">{{ page.title }}
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_documents" %}active{% endif %}">
+                                                <a href="{% url "theater_documents" %}"
+                                                   class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">Официальные документы
+                                                </a>
+                                            </li>
+
+                                            {% for page in t_p %}
+                                                {% if 'Технические параметры' not in page.title and 'О театре' not in page.title %}
+                                                    <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "theater_page" and page.slug in request.path %}active{% endif %}">
+                                                        <a href="{% url "theater_page" slug=page.slug %}"
+                                                           class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">{{ page.title }}
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Театр -->
+
+                        <!-- Люди театра -->
+                        <li class="hs-has-mega-menu nav-item g-mx-12--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            {% people_pages as p_p %}
+                            <a id="mega-menu-label-3"
+                               class="nav-link g-pa-0 g-font-size-16 {% if request.resolver_match.url_name|in_list:"people_pages,people_page,person_detail" %}active{% endif %}"
+                               href="{% url "people_page" slug=p_p.0.slug %}" aria-haspopup="true"
+                               aria-expanded="false">Люди театра
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                            </a>
+
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav flex-wrap text-uppercase g-font-weight-600 mr-auto">
+                                            {% people_pages as p_p %}
+                                            {% for page in p_p %}
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "people_page" and page.slug in request.path %}active{% elif request.resolver_match.url_name == "person_detail" %}{% if person.is_actor and page.slug == "truppa" %}active{% elif not person.is_actor and page.slug == "hudozhestvennaya-chast" %}active{% endif %}{% endif %}">
+                                                    <a href="{% url "people_page" slug=page.slug %}"
+                                                       class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">{{ page.title }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Люди театра -->
+
+                        <li class="nav-item g-mx-12--lg g-mr-0--lg">
+                            <a href="{% url "playbill_plays_current" %}"
+                               class="nav-link g-pa-0 g-font-size-16 g-font-size-16 {% if request.resolver_match.url_name == "playbill_plays_current" or request.resolver_match.url_name == "playbill_play_detail" %}active{% endif %}"
+                            >Репертуар</a>
+                        </li>
+
+                        <li class="nav-item g-mx-12--lg g-mr-0--lg">
+                            <a href="{% url "playbill_events_list" %}"
+                               class="nav-link g-pa-0 g-font-size-16 g-font-size-16 {% if request.resolver_match.url_name == "playbill_events_list" %}active{% endif %}"
+                            >Афиша</a>
+                        </li>
+
+                        <!-- Медиа -->
+                        <li class="hs-has-mega-menu nav-item g-mx-12--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            <a id="mega-menu-label-5"
+                               class="nav-link g-pa-0 g-font-size-16 {% if request.resolver_match.url_name|in_list:"media_pages,media_page,media_news_list,media_news_detail" %}active{% endif %}"
+                               href="{% url 'media_news_list' %}"
+                               aria-haspopup="true"
+                               aria-expanded="false">Медиа
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                            </a>
+
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav flex-wrap text-uppercase g-font-weight-600 mr-auto">
+                                            <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "media_news_list" %}active{% endif %}">
+                                                <a href="{% url "media_news_list" %}"
+                                                   class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">Новости
+                                                </a>
+                                            </li>
+
+                                            {% media_pages as m_p %}
+                                            {% for page in m_p %}
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "media_page" and page.slug in request.path %}active{% endif %}">
+                                                    <a href="{% url "media_page" slug=page.slug %}"
+                                                       class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">{{ page.title }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Медиа -->
+
+                        <!-- Проекты -->
+                        <li class="hs-has-mega-menu nav-item g-mx-10--lg" data-animation-in="fadeIn"
+                            data-animation-out="fadeOut" data-position="right">
+                            {% projects_pages as p_p %}
+                            <a id="mega-menu-label-6" class="nav-link g-pa-0 g-font-size-16 {% if request.resolver_match.url_name|in_list:"projects_page" %}active{% endif %}"
+                               href="{% url "projects_page" slug=p_p.0.slug %}"
+                               aria-haspopup="true"
+                               aria-expanded="false">Проекты
+                                <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                            </a>
+
+                            <!-- Mega Menu -->
+                            <div class="w-100 hs-mega-menu font-weight-normal g-text-transform-none g-pa-20 g-pb-0 g-pa-0--md g-mt-8 g-mt-7--lg--scrolling g-bg-primary"
+                                 aria-labelledby="mega-menu-label-1">
+                                <div class="row">
+                                    <div class="col-md-12 g-pl-25--lg g-pb-5 g-pt-10--md g-mr-40--sm">
+                                        <!-- Inline Lists -->
+                                        <ul class="navbar-nav flex-wrap text-uppercase g-font-weight-600 mr-auto">
+                                            {% for page in p_p %}
+                                                <li class="nav-item g-pb-5 g-mx-20--lg {% if request.resolver_match.url_name == "projects_page" and page.slug in request.path %}active{% endif %}">
+                                                    <a href="{% url "projects_page" slug=page.slug %}"
+                                                       class="nav-link g-color-black g-pa-0 g-font-size-16 g-color-white--active g-color-white--hover">{{ page.title }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <!-- End Inline Lists -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Mega Menu -->
+                        </li>
+                        <!-- End Проекты -->
+
+                        <li class="nav-item g-mx-12--lg g-mr-0--lg">
+                            <a href="{% url "contacts" %}" class="nav-link g-pa-0 g-font-size-16 g-font-size-16 {% if request.resolver_match.url_name == "contacts" %}active{% endif %}">Контакты</a>
+                        </li>
+                    </ul>
+
+                    {% social_links as social_links %}
+                    <ul class="list-inline text-center text-md-right g-my-10 g-my-0--md">
+                        {% if social_links.fb %}
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
+                                title="Facebook">
+                                <a href="{{ social_links.fb }}"
+                                   target="_blank"
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if social_links.vk %}
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
+                                title="Vkontakte">
+                                <a href="{{ social_links.vk }}"
+                                   target="_blank"
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
+                                    <i class="fa fa-vk"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if social_links.instagram %}
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
+                                title="Instagram">
+                                <a href="{{ social_links.instagram }}"
+                                   target="_blank"
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if social_links.ok %}
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
+                                title="Одноклассники">
+                                <a href="{{ social_links.ok }}"
+                                   target="_blank"
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
+                                    <i class="fa fa-odnoklassniki"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if social_links.twitter %}
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
+                                title="Twitter">
+                                <a href="{{ social_links.twitter }}"
+                                   target="_blank"
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if social_links.youtube %}
+                            <li class="list-inline-item g-mx-5" data-toggle="tooltip" data-placement="top"
+                                title="Youtube">
+                                <a href="{{ social_links.youtube }}"
+                                   target="_blank"
+                                   class="g-color-black-opacity-0_6 g-color-black--hover g-font-size-14 u-icon-v2 u-icon-size--xs g-rounded-50x">
+                                    <i class="fa fa-youtube"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- End Navigation -->
+
+                <!-- Search -->
+                <div class="d-inline-block g-pos-rel g-valign-middle g-ml-40 g-ml-10--lg g-py-7 g-py-0--lg">
+                    <a href="#!" class="g-font-size-18 g-color-black-opacity-0_6 g-color-black--hover" aria-haspopup="true" aria-expanded="false"
+                       aria-controls="searchform-1" data-dropdown-target="#searchform-1"
+                       data-dropdown-type="css-animation" data-dropdown-duration="300"
+                       data-dropdown-animation-in="fadeInUp"
+                       data-dropdown-animation-out="fadeOutDown">
+                        <i class="fa fa-search"></i>
+                    </a>
+
+                    <!-- Search Form -->
+                    <form action="{% url 'search' %}"
+                          id="searchform-1"
+                          class="u-searchform-v1 u-dropdown--css-animation u-dropdown--hidden g-mt-11--lg g-mt-20--lg--scrolling g-brd-primary g-brd-around g-brd-3">
+                        <div class="input-group">
+                            <input class="form-control rounded-0 u-form-control" type="search" name="q"
+                                   placeholder="Введите поисковый запрос">
+                        </div>
+                    </form>
+                    <!-- End Search Form -->
+                </div>
+                <!-- End Search -->
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- End Header -->

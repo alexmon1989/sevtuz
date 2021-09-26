@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load project_tags %}
+
+{% block title %}
+    {% if metadata.title.value %}
+        {{ metadata.title.value }}
+    {% else %}
+        {{ page.title }} / Люди театра / СевТЮЗ
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container g-pt-100 g-pb-20">
+        <div class="row">
+            <div class="col-lg-12 text-uppercase g-color-black g-mb-40 text-center">
+                <h1 class="h3 g-font-weight-600">{% if metadata.heading.value %}{{ metadata.heading.value }}{% else %}{{ page.title }}{% endif %}</h1>
+            </div>
+
+            <div class="col-lg-12 g-mb-50">
+                <div class="row">
+                    <div class="col-lg-12 g-color-black">
+                        {% if page.text %}
+                            <div class="g-line-height-1_8 g-mb-40">{{ page.text|safe }}</div>
+                        {% endif %}
+
+                        {% if page.get_persons|length > 0 %}
+                            {% if page.template == 1 %}
+                                {% include "people/page_detail/_partial/people_2_columns.html" %}
+                            {% else %}
+                                {% include "people/page_detail/_partial/people_3_columns.html" %}
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

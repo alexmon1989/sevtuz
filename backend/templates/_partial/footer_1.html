@@ -1,0 +1,35 @@
+{% load static %}
+{% load easy_thumbnails_tags %}
+{% load project_tags %}
+
+<div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-orange g-brd-3">
+    <img src="{% static "assets/img/point-orange.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
+</div>
+
+<div class="g-bg-yellow g-py-10">
+    <div class="container">
+        <div class="d-flex justify-content-center flex-wrap">
+            {% partners as partners_list %}
+            {% for partner in partners_list %}
+                <div class="g-ma-10">
+                    {% if partner.link %}
+                        <a href="{{ partner.link }}" target="_blank" rel="noopener"><img
+                                class="img-fluid g-opacity-0_8--hover g-transition-0_2"
+                                src="{{ partner.image|thumbnail_url:"partner" }}"
+                                alt="{{ partner.title }}"
+                                title="{{ partner.title }}"></a>
+                    {% else %}
+                        <img class="img-fluid g-opacity-0_8--hover g-transition-0_2"
+                             src="{{ partner.image|thumbnail_url:"partner" }}"
+                             alt="{{ partner.title }}"
+                             title="{{ partner.title }}">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-3" style="border-color: #f2ec4e !important;">
+    <img src="{% static "assets/img/point-yellow.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
+</div>
