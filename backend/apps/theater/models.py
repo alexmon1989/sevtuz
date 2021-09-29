@@ -216,6 +216,10 @@ class Play(models.Model):
         """Возвращает список видео спектакля."""
         return self.playvideo_set.filter(is_visible=True).order_by('created_at').all()
 
+    def is_pushkin(self):
+        """Есть ли для спектакля мероприятия, которые можно оплатить картой Пушкина."""
+        return self.event_set.filter(is_pushkin=True, datetime__gte=timezone.now()).count() > 0
+
     def __str__(self):
         return self.title
 

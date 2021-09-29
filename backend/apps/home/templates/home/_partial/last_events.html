@@ -28,9 +28,22 @@
                                         <span class="day g-brd-left-4 g-brd-primary-left u-brd-style-solid--left g-pl-5 g-font-size-40 g-font-weight-600 g-line-height-1_2">{{ event.datetime|date:'d' }}</span>
                                         <span class="g-font-size-20 text-lowercase">{{ event.datetime|date:'N' }}</span>
                                     </div>
-                                    <div class="col-6 text-right text-uppercase g-font-size-18 g-font-weight-600 g-line-height-1 g-pt-6">
-                                        <span class="g-pr-5">{{ event.datetime|date:'D' }}</span><br>
-                                        <span class="g-pr-5">{{ event.datetime|time }}</span>
+                                    <div class="col-6">
+                                        <div class="d-flex justify-content-end align-items-center g-mt-10">
+                                            {% if event.is_pushkin %}
+                                                <div class="g-pr-10">
+                                                    <img src="{% static 'assets/img/Profil_Pushkina.png' %}"
+                                                         class="img-fluid g-width-30"
+                                                         alt=""
+                                                         title="Мероприятие можно оплатить &quot;Пушкинской картой&quot;">
+                                                </div>
+                                            {% endif %}
+                                            <div class="text-right text-uppercase g-font-size-18 g-font-weight-600 g-line-height-1">
+                                                <span class="g-pr-5">{{ event.datetime|date:'D' }}</span><br>
+                                                <span class="g-pr-5">{{ event.datetime|time }}</span>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 

@@ -51,6 +51,7 @@ class Event(models.Model):
         blank=True,
         help_text='HTML-код отображаемый на вкладке "Выезды и гастроли" на месте кнопки "Купить билет"'
     )
+    is_pushkin = models.BooleanField('Участник программы "Пушкинская карта"', default=False)
     is_visible = models.BooleanField('Включено', default=True)
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
