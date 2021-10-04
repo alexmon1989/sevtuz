@@ -1,9 +1,12 @@
+{% load static %}
+
 <div class="table-responsive g-mt-15">
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>Дата и время начала</th>
             <th>Спектакль</th>
+            <th></th>
             <th>Жанр</th>
             <th>Возраст</th>
             <th></th>
@@ -15,6 +18,14 @@
                 <td class="g-font-weight-600 text-nowrap">{{ event.datetime|date:"j E в H:i" }}</td>
                 <td class="g-font-weight-600">
                     <a href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title|upper }}</a>
+                </td>
+                <td class="text-center">
+                    {% if event.is_pushkin %}
+                        <img src="{% static 'assets/img/Profil_Pushkina.png' %}"
+                             class="img-fluid g-width-30"
+                             alt=""
+                             title="Мероприятие можно оплатить &quot;Пушкинской картой&quot;">
+                    {% endif %}
                 </td>
                 <td>{{ event.play.genre.title }}</td>
                 <td class="text-center">
