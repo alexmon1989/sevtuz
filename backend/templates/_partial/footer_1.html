@@ -1,31 +1,84 @@
-{% load static %}
-{% load easy_thumbnails_tags %}
-{% load project_tags %}
+{% load staticfiles %}
+{% load theater_extras %}
+{% load people_extras %}
+{% load media_extras %}
+{% load projects_extras %}
 
 <div class="text-center g-pos-rel g-brd-none g-brd-bottom g-brd-orange g-brd-3">
     <img src="{% static "assets/img/point-orange.png" %}" alt="" class="align-top g-pos-abs g-top-minus-3">
 </div>
 
-<div class="g-bg-yellow g-py-10">
+<div class="g-bg-yellow g-color-black g-pt-20 g-pb-40">
     <div class="container">
-        <div class="d-flex justify-content-center flex-wrap">
-            {% partners as partners_list %}
-            {% for partner in partners_list %}
-                <div class="g-ma-10">
-                    {% if partner.link %}
-                        <a href="{{ partner.link }}" target="_blank" rel="noopener"><img
-                                class="img-fluid g-opacity-0_8--hover g-transition-0_2"
-                                src="{{ partner.image|thumbnail_url:"partner" }}"
-                                alt="{{ partner.title }}"
-                                title="{{ partner.title }}"></a>
-                    {% else %}
-                        <img class="img-fluid g-opacity-0_8--hover g-transition-0_2"
-                             src="{{ partner.image|thumbnail_url:"partner" }}"
-                             alt="{{ partner.title }}"
-                             title="{{ partner.title }}">
-                    {% endif %}
+        <div class="row">
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Театр</h2>
                 </div>
-            {% endfor %}
+
+                <nav>
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        {% theater_pages as t_p %}
+                        {% for page in t_p %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "theater_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Люди театра</h2>
+                </div>
+
+                <nav>
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        {% people_pages as p_p %}
+                        {% for page in p_p %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "people_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0">Медиа</h2>
+                </div>
+
+                <nav>
+                    <ul class="list-unstyled g-mt-minus-10 mb-0">
+                        {% media_pages as m_p %}
+                        {% for page in m_p %}
+                            <li class="g-pos-rel g-py-10">
+                                <h4 class="h6 mb-0">
+                                    <a class="text-lowercase g-color-black" href="{% url "media_page" slug=page.slug %}">{{ page.title }}</a>
+                                </h4>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col">
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0"><a class="g-color-black" href="{% url "playbill_plays_current" %}">Репетруар</a></h2>
+                </div>
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0"><a class="g-color-black" href="{% url "playbill_events_list" %}">Афиша</a></h2>
+                </div>
+                <div class="g-my-20">
+                    <h2 class="h5 text-uppercase mb-0"><a class="g-color-black" href="{% url "contacts" %}">Контакты</a></h2>
+                </div>
+            </div>
         </div>
     </div>
 </div>
