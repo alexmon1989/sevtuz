@@ -26,6 +26,7 @@ from apps.media import urls as media_urls
 from apps.projects import urls as projects_urls
 from apps.search import urls as search_urls
 from apps.tickets import urls as tickets_urls
+from apps.pushkin_card import urls as pushkin_card_urls
 from apps.staff_office import urls as staff_office_urls
 from sevtuz.sitemap import (StaticSitemap, TheaterNewsSitemap, PlaysSitemap, PersonsSitemap, TheaterPagesSitemap,
                             PersonPagesSitemap, TheaterHistorySitemap, MediaPagesSitemap, ProjectsPagesSitemap,
@@ -58,6 +59,7 @@ urlpatterns = [
     url(r'^staff-office/', include(staff_office_urls)),
     url(r'^search', include(search_urls)),
     url(r'^tickets/', include(tickets_urls)),
+    url(r'^pushkin_card/', include(pushkin_card_urls)),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

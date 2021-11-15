@@ -378,6 +378,11 @@
 }
 
 @media (min-width: $g-lg) {
+  .g-mx-11--lg {
+    @include px-to-rem(margin-left, 11px !important);
+    @include px-to-rem(margin-right, 11px !important);
+  }
+
   .g-mx-12--lg {
     @include px-to-rem(margin-left, 12px !important);
     @include px-to-rem(margin-right, 12px !important);
