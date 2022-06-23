@@ -33,6 +33,7 @@ class SocialLinksModel(models.Model):
     ok = models.URLField('Одноклассники', max_length=255, null=True, blank=True)
     twitter = models.URLField('Twitter', max_length=255, null=True, blank=True)
     youtube = models.URLField('Youtube', max_length=255, null=True, blank=True)
+    telegram = models.URLField('Telegram', max_length=255, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Ссылки на соц. сети'

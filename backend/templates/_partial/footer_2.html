@@ -77,6 +77,15 @@
                             </a>
                         </li>
                     {% endif %}
+
+                    {% if social_links.telegram %}
+                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top"
+                            title="Telegram">
+                            <a href="{{ social_links.telegram }}" target="_blank">
+                                <img class="img-fluid g-width-32" src="{% static "assets/img/icons/social-media/telegram.png" %}" alt="">
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
 
                 <div class="text-center g-font-size-14 g-font-weight-600">#СЕВТЮЗ</div>
