@@ -102,11 +102,11 @@ class EventsListView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Спектакли на наших площадках
+        # Спектакли "Основная сцена"
         months = Event.objects.annotate(
             month=ExtractMonth('datetime')
         ).filter(
-            is_visible=True, datetime__gte=now(), guests=False, tour=False, external=False
+            is_visible=True, datetime__gte=now(), scene__pk=1
         ).values(
             'month'
         ).order_by(
@@ -130,15 +130,20 @@ class EventsListView(TemplateView):
             )
 
         # Наши гости
-        context['events_guests'] = Event.objects.filter(
-            is_visible=True, datetime__gte=now(), guests=True
+        # context['events_guests'] = Event.objects.filter(
+        #     is_visible=True, datetime__gte=now(), guests=True
+        # ).order_by('datetime').select_related('play', 'play__genre', 'scene')
+
+        # Наши "Океан"
+        context['events_ocean'] = Event.objects.filter(
+            is_visible=True, datetime__gte=now(), scene__pk=8
         ).order_by('datetime').select_related('play', 'play__genre', 'scene')
 
         # Выезды и гастроли
         context['events_external_tour'] = Event.objects.filter(
             is_visible=True, datetime__gte=now()
-        ).filter(
-            Q(external=True) | Q(tour=True)
+        ).exclude(
+            scene__pk__in=[1, 8]
         ).order_by('datetime').select_related('play', 'play__genre', 'scene')
 
         return context

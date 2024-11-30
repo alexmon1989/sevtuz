@@ -1,0 +1,57 @@
+{% load static %}
+
+<div class="table-responsive g-mt-15">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th class="text-nowrap">Дата и время начала</th>
+            <th>Спектакль</th>
+            <th></th>
+            <th>Жанр</th>
+            <th>Возраст</th>
+            <th>Площадка</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for event in events_ocean %}
+            <tr>
+                <td class="g-font-weight-600 text-nowrap">{{ event.datetime|date:"j E в H:i" }}</td>
+                <td class="g-font-weight-600">
+                    <a href="{% url "playbill_play_detail" slug=event.play.slug %}">{{ event.play.title|upper }}</a>
+                </td>
+                <td class="text-center">
+                    {% if event.is_pushkin %}
+                        <img src="{% static 'assets/img/Profil_Pushkina.png' %}"
+                             class="img-fluid g-width-30"
+                             alt=""
+                             title="Мероприятие можно оплатить &quot;Пушкинской картой&quot;">
+                    {% endif %}
+                </td>
+                <td>{{ event.play.genre.title }}</td>
+                <td class="text-center">
+                    <span class="u-label g-rounded-3 g-bg-red u-btn-3d g-font-weight-600">{{ event.play.age }}+</span>
+                </td>
+                <td class="text-nowrap">{{ event.scene }}</td>
+                <td class="text-center radario">
+                    {% if event.free_enter %}
+                        <span class="text-success">Свободный вход</span>
+                    {% else %}
+                        {% if event.radario_id %}
+                            <script>radario.Widgets.Event({
+                                "params": {"accentColor": "#CC3333"},
+                                "buttonFontSize": "12px",
+                                "buttonPadding": "6px 12px",
+                                "buttonBorderRadius": "5px",
+                                "standalone": false,
+                                "createButton": true,
+                                "eventId": {{ event.radario_id }}
+                            })</script>
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

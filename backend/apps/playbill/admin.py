@@ -15,4 +15,4 @@ class EventAdmin(admin.ModelAdmin):
     """Класс для описания интерфейса администрирования события."""
     list_display = ('play', 'datetime', 'is_visible', 'created_at', 'updated_at')
     ordering = ('-created_at',)
-    search_fields = ('title',)
+    search_fields = ('play__title',)
